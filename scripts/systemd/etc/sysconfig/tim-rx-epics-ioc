@@ -1,0 +1,10 @@
+# General configuration
+TIM_RX_IOC_STARTUP=/opt/epics/startup/ioc/timing-receiver-epics-ioc/iocBoot/iocTimRx
+TIM_RX_ENDPOINT="ipc:///tmp/malamute"
+EPICS_HOST_ARCH=linux-x86_64
+PROCSERV_PORT_PREFIX=170
+# EPICS_PV_AREA_PREFIX="SI-XXYY:"
+# EPICS_PV_DEVICE_PREFIX="DI-TIMRX:"
+EPICS_PV_CRATE_PREFIX="CRATE_4"
+EPICS_CA_MAX_ARRAY_BYTES=50000000
+PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/opt/epics/base/bin/linux-x86_64

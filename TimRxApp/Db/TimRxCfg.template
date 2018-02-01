@@ -1,0 +1,39 @@
+#########################
+# Timing Configuration Parameters
+#########################
+
+record(mbbi, "$(P)$(R)LinkStatus-Sts"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Get Link Status")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_LINK_STATUS")
+    field(SCAN,"1 second")
+    field(NOBT,"1")
+    field(ZRVL,"0")
+    field(ONVL,"1")
+    field(ZRST,"off")
+    field(ONST,"on")
+}
+
+record(mbbi, "$(P)$(R)RxEnStatus-Sts"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Get RX Enable Status")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RX_EN_STATUS")
+    field(SCAN,"1 second")
+    field(NOBT,"1")
+    field(ZRVL,"0")
+    field(ONVL,"1")
+    field(ZRST,"off")
+    field(ONST,"on")
+}
+
+record(mbbi, "$(P)$(R)RefClkLocked-Sts"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Get Ref. Clock Locked Status")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_REF_CLK_LOCKED")
+    field(SCAN,"1 second")
+    field(NOBT,"1")
+    field(ZRVL,"0")
+    field(ONVL,"1")
+    field(ZRST,"off")
+    field(ONST,"on")
+}
