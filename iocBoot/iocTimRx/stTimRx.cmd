@@ -9,7 +9,7 @@ epicsEnvSet("TOP","../..")
 dbLoadDatabase("${TOP}/dbd/TimRx.dbd")
 TimRx_registerRecordDeviceDriver (pdbbase)
 
-drvTimRxConfigure("$(TIM_RX_NAME)", "$(TIM_RX_ENDPOINT)", "$(TIM_RX_NUMBER)", "$(TIM_RX_VERBOSE)", "$(TIM_RX_TIMEOUT)", "$(WAVEFORM_MAX_POINTS)", "$(MAXBUFFERS)", "$(MAXMEMORY)")
+drvTimRxConfigure("$(TIM_RX_NAME)", "$(TIM_RX_ENDPOINT)", "$(TIM_RX_NUMBER)", "$(TIM_RX_VERBOSE)", "$(TIM_RX_TIMEOUT)")
 
 ## Load record instances
 dbLoadRecords("${TOP}/TimRxApp/Db/TimRxCfg.template", "P=${P}, R=${R}, PORT=$(PORT), ADDR=0, TIMEOUT=1")
