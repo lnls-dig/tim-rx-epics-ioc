@@ -21,6 +21,6 @@ ExecStartPre=/bin/sh -c " \
 "
 WorkingDirectory=/opt/epics/startup/ioc/tim-rx-epics-ioc/iocBoot/iocTimRx
 # Run procServ with user ioc
-ExecStart=/usr/local/bin/procServ -f -n %p%i -i ^C^D ${PROCSERV_BE_PORT_PREFIX}%i ./runTimRx.sh ${TIM_RX_ENDPOINT} ${TIM_RX_NUMBER}
+ExecStart=/usr/local/bin/procServ -f -n %p%i -i ^C^D ${PROCSERV_PORT_PREFIX}%i ./runTimRx.sh ${TIM_RX_ENDPOINT} ${TIM_RX_NUMBER}
 
 # [Install]
