@@ -2,7 +2,6 @@
 
 # Override default TOP variable
 epicsEnvSet("TOP","../..")
-epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(ADCORE)/db")
 
 < TimRx.config
 
