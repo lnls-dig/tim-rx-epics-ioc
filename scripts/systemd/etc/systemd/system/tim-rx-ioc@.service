@@ -6,8 +6,8 @@ After=halcs-be@%i.service
 
 [Service]
 # Source environment
-EnvironmentFile=/etc/sysconfig/timing-receiver-epics-ioc
-EnvironmentFile=/etc/sysconfig/timing-receiver-epics-ioc-slot-mapping
+EnvironmentFile=/etc/sysconfig/tim-rx-epics-ioc
+EnvironmentFile=/etc/sysconfig/tim-rx-epics-ioc-slot-mapping
 Environment=TIM_RX_NUMBER=%i
 Environment=TIM_RX_TRY_READ=3
 # Execute pre with root
@@ -17,9 +17,9 @@ ExecStartPre=/bin/mkdir -p /var/run/procServ/%p%i
 ExecStartPre=/bin/sh -c " \
     BOARD_NUMBER=$$(/usr/local/share/halcs/scripts/generate-board-halcs-idx.sh ${TIM_RX_NUMBER} | awk '{print $2;}'); \
     HALCS_NUMBER=$$(/usr/local/share/halcs/scripts/generate-board-halcs-idx.sh ${TIM_RX_NUMBER} | awk '{print $3;}'); \
-    /opt/epics/startup/ioc/timing-receiver-epics-ioc/iocBoot/iocTimRx/TimRxCheckInitTries.sh ipc:///tmp/malamute $${BOARD_NUMBER} $${HALCS_NUMBER} $${TIM_RX_TRY_READ} \
+    /opt/epics/startup/ioc/tim-rx-epics-ioc/iocBoot/iocTimRx/TimRxCheckInitTries.sh ipc:///tmp/malamute $${BOARD_NUMBER} $${HALCS_NUMBER} $${TIM_RX_TRY_READ} \
 "
-WorkingDirectory=/opt/epics/startup/ioc/timing-receiver-epics-ioc/iocBoot/iocTimRx
+WorkingDirectory=/opt/epics/startup/ioc/tim-rx-epics-ioc/iocBoot/iocTimRx
 # Run procServ with user ioc
 ExecStart=/usr/local/bin/procServ -f -n %p%i -i ^C^D ${PROCSERV_BE_PORT_PREFIX}%i ./runTimRx.sh ${TIM_RX_ENDPOINT} ${TIM_RX_NUMBER}
 
