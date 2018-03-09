@@ -708,6 +708,7 @@ asynStatus drvTimRx::getParamDouble(int functionId, epicsFloat64 *param, int add
     }
 
     status = executeHwReadFunction(functionId, addr, functionArgs);
+    *param = functionArgs.argFloat64;
 
 get_param_err:
     return status;
