@@ -7,7 +7,6 @@ SCRIPTS_PREFIX ?=
 PWD = $(shell pwd)
 
 # OS information
-SERVICE_NAME = tim-rx-epics-ioc
 INIT_SYSTEM := $(shell ./get-init-system.sh)
 SCRIPTS_FULL_NAME := $(shell cd $(INIT_SYSTEM) && find . -type f)
 
