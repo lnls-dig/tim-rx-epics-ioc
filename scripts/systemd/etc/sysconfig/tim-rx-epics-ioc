@@ -1,5 +1,4 @@
 # General configuration
-TIM_RX_IOC_STARTUP=/opt/epics/startup/ioc/tim-rx-epics-ioc/iocBoot/iocTimRx
 TIM_RX_ENDPOINT="ipc:///tmp/malamute"
 EPICS_HOST_ARCH=linux-x86_64
 PROCSERV_PORT_PREFIX=170
