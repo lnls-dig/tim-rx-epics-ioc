@@ -59,6 +59,9 @@ static const boardMap_t boardMap[MAX_TIM_RXS+1] = {
 static const functionsAny_t timRxSetGetLinkStatusFunc = {functionsInt32_t{"LNLS_AFC_TIMING", NULL, afc_timing_get_link_status}};
 static const functionsAny_t timRxRxEnStatusFunc =       {functionsInt32_t{"LNLS_AFC_TIMING", NULL, afc_timing_get_rxen_status}};
 static const functionsAny_t timRxRefClkLockedFunc =     {functionsInt32_t{"LNLS_AFC_TIMING", NULL, afc_timing_get_ref_clk_locked}};
+static const functionsAny_t timRxEvtCode7Func =         {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_evt_code_7, afc_timing_get_evt_code_7}};
+static const functionsAny_t timRxEvtDelay7Func =        {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_evt_delay_7, afc_timing_get_evt_delay_7}};
+static const functionsAny_t timRxEvtWidth7Func =        {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_evt_width_7, afc_timing_get_evt_width_7}};
 
 static const char *driverName="drvTimRx";
 void acqTask(void *drvPvt);
@@ -156,15 +159,20 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     this->timeout = timeout;
 
     /* Create parameters */
-    createParam(P_TimRxLinkStatusString, asynParamUInt32Digital,         &P_TimRxLinkStatus);
-    createParam(P_TimRxRxEnStatusString, asynParamUInt32Digital,         &P_TimRxRxEnStatus);
-    createParam(P_TimRxRefClkLockedString,
-                                         asynParamUInt32Digital,         &P_TimRxRefClkLocked);
+    createParam(P_TimRxLinkStatusString,   asynParamUInt32Digital,         &P_TimRxLinkStatus);
+    createParam(P_TimRxRxEnStatusString,   asynParamUInt32Digital,         &P_TimRxRxEnStatus);
+    createParam(P_TimRxRefClkLockedString, asynParamUInt32Digital,         &P_TimRxRefClkLocked);
+    createParam(P_TimRxEvtCode7String,     asynParamUInt32Digital,         &P_TimRxEvtCode7);
+    createParam(P_TimRxEvtDelay7String,    asynParamUInt32Digital,         &P_TimRxEvtDelay7);
+    createParam(P_TimRxEvtWidth7String,    asynParamUInt32Digital,         &P_TimRxEvtWidth7);
 
     /* Set the initial values of some parameters */
     setUIntDigitalParam(P_TimRxLinkStatus,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxRxEnStatus,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxRefClkLocked, 0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxEvtCode7,     0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxEvtDelay7,    0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxEvtWidth7,    0, 0xFFFFFFFF);
 
     /* Do callbacks so higher layers see any changes. Call callbacks for every addr */
     for (int i = 0; i < MAX_ADDR; ++i) {
@@ -176,6 +184,9 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     timRxHwFunc.emplace(P_TimRxLinkStatus,   timRxSetGetLinkStatusFunc);
     timRxHwFunc.emplace(P_TimRxRxEnStatus,   timRxRxEnStatusFunc);
     timRxHwFunc.emplace(P_TimRxRefClkLocked, timRxRefClkLockedFunc);
+    timRxHwFunc.emplace(P_TimRxEvtCode7,     timRxEvtCode7Func);
+    timRxHwFunc.emplace(P_TimRxEvtDelay7,    timRxEvtDelay7Func);
+    timRxHwFunc.emplace(P_TimRxEvtWidth7,    timRxEvtWidth7Func);
 
     lock();
     status = timRxClientConnect();

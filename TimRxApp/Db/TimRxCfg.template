@@ -37,3 +37,43 @@ record(mbbi, "$(P)$(R)RefClkLocked-Sts"){
     field(ZRST,"off")
     field(ONST,"on")
 }
+
+record(longout, "$(P)$(R)EvtCode7-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set trigger channel 7 event code")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_EVT_CODE7")
+}
+
+record(longin, "$(P)$(R)EvtCode7-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Get trigger channel 7 event code")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_EVT_CODE7")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)EvtDelay7-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set trigger channel 7 event delay")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_EVT_DELAY7")
+}
+
+record(longin, "$(P)$(R)EvtDelay7-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Get trigger channel 7 event delay")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_EVT_DELAY7")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)EvtWidth7-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set trigger channel 7 event Width")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_EVT_WIDTH7")
+}
+
+record(longin, "$(P)$(R)EvtWidth7-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Get trigger channel 7 event Width")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_EVT_WIDTH7")
+    field(SCAN,"I/O Intr")
+}
+
