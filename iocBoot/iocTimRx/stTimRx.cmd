@@ -13,6 +13,19 @@ drvTimRxConfigure("$(TIM_RX_NAME)", "$(TIM_RX_ENDPOINT)", "$(TIM_RX_NUMBER)", "$
 
 ## Load record instances
 dbLoadRecords("${TOP}/TimRxApp/Db/TimRxCfg.template", "P=${P}, R=${R}, PORT=$(PORT), ADDR=0, TIMEOUT=1")
+
+dbLoadRecords("${TOP}/TimRxApp/Db/TimRxTrigCh.template", "P=${P}, R=${R}, S=FMC1, C=0, PORT=$(PORT), ADDR=0, TIMEOUT=1")
+dbLoadRecords("${TOP}/TimRxApp/Db/TimRxTrigCh.template", "P=${P}, R=${R}, S=FMC1, C=1, PORT=$(PORT), ADDR=0, TIMEOUT=1")
+dbLoadRecords("${TOP}/TimRxApp/Db/TimRxTrigCh.template", "P=${P}, R=${R}, S=FMC1, C=2, PORT=$(PORT), ADDR=0, TIMEOUT=1")
+dbLoadRecords("${TOP}/TimRxApp/Db/TimRxTrigCh.template", "P=${P}, R=${R}, S=FMC1, C=3, PORT=$(PORT), ADDR=0, TIMEOUT=1")
+dbLoadRecords("${TOP}/TimRxApp/Db/TimRxTrigCh.template", "P=${P}, R=${R}, S=FMC1, C=4, PORT=$(PORT), ADDR=0, TIMEOUT=1")
+
+dbLoadRecords("${TOP}/TimRxApp/Db/TimRxTrigCh.template", "P=${P}, R=${R}, S=FMC2, C=0, PORT=$(PORT), ADDR=0, TIMEOUT=1")
+dbLoadRecords("${TOP}/TimRxApp/Db/TimRxTrigCh.template", "P=${P}, R=${R}, S=FMC2, C=1, PORT=$(PORT), ADDR=0, TIMEOUT=1")
+dbLoadRecords("${TOP}/TimRxApp/Db/TimRxTrigCh.template", "P=${P}, R=${R}, S=FMC2, C=2, PORT=$(PORT), ADDR=0, TIMEOUT=1")
+dbLoadRecords("${TOP}/TimRxApp/Db/TimRxTrigCh.template", "P=${P}, R=${R}, S=FMC2, C=3, PORT=$(PORT), ADDR=0, TIMEOUT=1")
+dbLoadRecords("${TOP}/TimRxApp/Db/TimRxTrigCh.template", "P=${P}, R=${R}, S=FMC2, C=4, PORT=$(PORT), ADDR=0, TIMEOUT=1")
+
 dbLoadRecords("$(ASYN)/db/asynRecord.db","P=${P}, R=${R}asyn,PORT=$(PORT),ADDR=0,OMAX=80,IMAX=80")
 
 < save_restore.cmd
