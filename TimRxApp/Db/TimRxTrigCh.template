@@ -2,94 +2,94 @@
 # Timing Trigger Channel Parameters
 #########################
 
-record(bo, "$(P)$(R)FMC1Ch0State-SP"){
+record(bo, "$(P)$(R)$(S)Ch$(C)State-SP"){
     field(DTYP, "asynUInt32Digital")
-    field(DESC, "Set FMC1 trigger channel 0 state")
-    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_FMC1_EN0")
+    field(DESC, "Set $(S) trigger channel $(C) state")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_EN$(C)")
 }
 
-record(bi, "$(P)$(R)FMC1Ch0State-RB"){
+record(bi, "$(P)$(R)$(S)Ch$(C)State-RB"){
     field(DTYP, "asynUInt32Digital")
-    field(DESC, "Set FMC1 trigger channel 0 state")
-    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_FMC1_EN0")
+    field(DESC, "Set $(S) trigger channel $(C) state")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_EN$(C)")
     field(SCAN,"I/O Intr")
 }
 
-record(bo, "$(P)$(R)FMC1Ch0Polarity-SP"){
+record(bo, "$(P)$(R)$(S)Ch$(C)Polarity-SP"){
     field(DTYP, "asynUInt32Digital")
-    field(DESC, "Set FMC1 trigger channel 0 Polarity")
-    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_FMC1_POL0")
+    field(DESC, "Set $(S) trigger channel $(C) Polarity")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_POL$(C)")
 }
 
-record(bi, "$(P)$(R)FMC1Ch0Polarity-RB"){
+record(bi, "$(P)$(R)$(S)Ch$(C)Polarity-RB"){
     field(DTYP, "asynUInt32Digital")
-    field(DESC, "Set FMC1 trigger channel 0 Polarity")
-    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_FMC1_POL0")
+    field(DESC, "Set $(S) trigger channel $(C) Polarity")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_POL$(C)")
     field(SCAN,"I/O Intr")
 }
 
-record(longout, "$(P)$(R)FMC1Ch0Src-SP"){
+record(longout, "$(P)$(R)$(S)Ch$(C)Src-SP"){
     field(DTYP, "asynUInt32Digital")
-    field(DESC, "Set FMC1 channel 0 source")
-    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_FMC1_SRC0")
+    field(DESC, "Set $(S) channel $(C) source")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_SRC$(C)")
 }
 
-record(longin, "$(P)$(R)FMC1Ch0Src-RB"){
+record(longin, "$(P)$(R)$(S)Ch$(C)Src-RB"){
     field(DTYP, "asynUInt32Digital")
-    field(DESC, "Set FMC1 channel 0 source")
-    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_FMC1_SRC0")
+    field(DESC, "Set $(S) channel $(C) source")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_SRC$(C)")
     field(SCAN,"I/O Intr")
 }
 
-record(longout, "$(P)$(R)FMC1Ch0Evt-SP"){
+record(longout, "$(P)$(R)$(S)Ch$(C)Evt-SP"){
     field(DTYP, "asynUInt32Digital")
-    field(DESC, "Set FMC1 trigger channel 0 event code")
-    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_FMC1_EVT0")
+    field(DESC, "Set $(S) trigger channel $(C) event code")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_EVT$(C)")
 }
 
-record(longin, "$(P)$(R)FMC1Ch0Evt-RB"){
+record(longin, "$(P)$(R)$(S)Ch$(C)Evt-RB"){
     field(DTYP, "asynUInt32Digital")
-    field(DESC, "Set FMC1 trigger channel 0 event code")
-    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_FMC1_EVT0")
+    field(DESC, "Set $(S) trigger channel $(C) event code")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_EVT$(C)")
     field(SCAN,"I/O Intr")
 }
 
-record(longout, "$(P)$(R)FMC1Ch0Width-SP"){
+record(longout, "$(P)$(R)$(S)Ch$(C)Width-SP"){
     field(DTYP, "asynUInt32Digital")
-    field(DESC, "Set FMC1 trigger channel 0 width")
-    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_FMC1_WDT0")
+    field(DESC, "Set $(S) trigger channel $(C) width")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_WDT$(C)")
 }
 
-record(longin, "$(P)$(R)FMC1Ch0Width-RB"){
+record(longin, "$(P)$(R)$(S)Ch$(C)Width-RB"){
     field(DTYP, "asynUInt32Digital")
-    field(DESC, "Set FMC1 trigger channel 0 width")
-    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_FMC1_WDT0")
+    field(DESC, "Set $(S) trigger channel $(C) width")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_WDT$(C)")
     field(SCAN,"I/O Intr")
 }
 
-record(longout, "$(P)$(R)FMC1Ch0Delay-SP"){
+record(longout, "$(P)$(R)$(S)Ch$(C)Delay-SP"){
     field(DTYP, "asynUInt32Digital")
-    field(DESC, "Set FMC1 trigger channel 0 delay")
-    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_FMC1_DLY0")
+    field(DESC, "Set $(S) trigger channel $(C) delay")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_DLY$(C)")
 }
 
-record(longin, "$(P)$(R)FMC1Ch0Delay-RB"){
+record(longin, "$(P)$(R)$(S)Ch$(C)Delay-RB"){
     field(DTYP, "asynUInt32Digital")
-    field(DESC, "Set FMC1 trigger channel 0 delay")
-    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_FMC1_DLY0")
+    field(DESC, "Set $(S) trigger channel $(C) delay")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_DLY$(C)")
     field(SCAN,"I/O Intr")
 }
 
-record(longout, "$(P)$(R)FMC1Ch0Pulses-SP"){
+record(longout, "$(P)$(R)$(S)Ch$(C)Pulses-SP"){
     field(DTYP, "asynUInt32Digital")
-    field(DESC, "Set FMC1 trigger channel 0 pulses")
-    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_FMC1_PULSES0")
+    field(DESC, "Set $(S) trigger channel $(C) pulses")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_PULSES$(C)")
 }
 
-record(longin, "$(P)$(R)FMC1Ch0Pulses-RB"){
+record(longin, "$(P)$(R)$(S)Ch$(C)Pulses-RB"){
     field(DTYP, "asynUInt32Digital")
-    field(DESC, "Set FMC1 trigger channel 0 pulses")
-    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_FMC1_PULSES0")
+    field(DESC, "Set $(S) trigger channel $(C) pulses")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_PULSES$(C)")
     field(SCAN,"I/O Intr")
 }
 
