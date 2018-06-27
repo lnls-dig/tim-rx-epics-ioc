@@ -38,3 +38,283 @@ record(mbbi, "$(P)$(R)RefClkLocked-Sts"){
     field(ONST,"on")
 }
 
+record(longout, "$(P)$(R)RTMFreqPropGain-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set proportional gain of rtm freq loop")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_FREQ_KP")
+}
+
+record(longin, "$(P)$(R)RTMFreqPropGain-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get proportional gain of rtm freq loop")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_FREQ_KP")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)RTMFreqIntgGain-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set integral gain of rtm freq loop")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_FREQ_KI")
+}
+
+record(longin, "$(P)$(R)RTMFreqIntgGain-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get integral gain of rtm freq loop")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_FREQ_KI")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)RTMPhasePropGain-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set proportional gain of rtm phase loop")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_PHASE_KP")
+}
+
+record(longin, "$(P)$(R)RTMPhasePropGain-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get proportional gain of rtm freq loop")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_PHASE_KP")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)RTMPhaseIntgGain-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set integral gain of rtm phase loop")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_PHASE_KI")
+}
+
+record(longin, "$(P)$(R)RTMPhaseIntgGain-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get integral gain of rtm phase loop")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_PHASE_KI")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)RTMPhaseNavg-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set average number of rtm phase loop")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_PHASE_NAVG")
+}
+
+record(longin, "$(P)$(R)RTMPhaseNavg-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get average number of rtm phase loop")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_PHASE_NAVG")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)RTMPhaseDiv-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set divider 2^N of rtm phase loop")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_PHASE_DIV_EXP")
+}
+
+record(longin, "$(P)$(R)RTMPhaseDiv-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get average number of rtm phase loop")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_PHASE_DIV_EXP")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)RTMRFReqHi-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set rtm Si57x RF Req[37-20]")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_RFREQ_HI")
+}
+
+record(longin, "$(P)$(R)RTMRFReqHi-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get rtm Si57x RF Req[37-20]")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_RFREQ_HI")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)RTMRFReqLo-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set rtm Si57x RF Req[19-0]")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_RFREQ_LO")
+}
+
+record(longin, "$(P)$(R)RTMRFReqLo-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get rtm Si57x RF Req[19-0]")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_RFREQ_LO")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)RTMn1-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set rtm Si57x n1")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_N1")
+}
+
+record(longin, "$(P)$(R)RTMn1-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get rtm Si57x n1")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_N1")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)RTMhs_div-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set rtm Si57x hs-div")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_HS_DIV")
+}
+
+record(longin, "$(P)$(R)RTMhs_div-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get rtm Si57x hs-div")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_HS_DIV")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)AFCFreqPropGain-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set proportional gain of afc freq loop")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_FREQ_KP")
+}
+
+record(longin, "$(P)$(R)AFCFreqPropGain-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get proportional gain of afc freq loop")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_FREQ_KP")
+    field(SCAN,".1 second")
+}
+
+record(longout, "$(P)$(R)AFCFreqIntgGain-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set integral gain of afc freq loop")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_FREQ_KI")
+}
+
+record(longin, "$(P)$(R)AFCFreqIntgGain-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get integral gain of afc freq loop")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_FREQ_KI")
+    field(SCAN,".1 second")
+}
+
+record(longout, "$(P)$(R)AFCPhasePropGain-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set proportional gain of afc phase loop")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_PHASE_KP")
+}
+
+record(longin, "$(P)$(R)AFCPhasePropGain-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get proportional gain of afc freq loop")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_PHASE_KP")
+    field(SCAN,".1 second")
+}
+
+record(longout, "$(P)$(R)AFCPhaseIntgGain-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set integral gain of afc phase loop")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_PHASE_KI")
+}
+
+record(longin, "$(P)$(R)AFCPhaseIntgGain-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get integral gain of afc phase loop")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_PHASE_KI")
+    field(SCAN,".1 second")
+}
+
+record(longout, "$(P)$(R)AFCPhaseNavg-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set average number of afc phase loop")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_PHASE_NAVG")
+}
+
+record(longin, "$(P)$(R)AFCPhaseNavg-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get average number of afc phase loop")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_PHASE_NAVG")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)AFCPhaseDiv-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set divider 2^N of afc phase loop")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_PHASE_DIV_EXP")
+}
+
+record(longin, "$(P)$(R)AFCPhaseDiv-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get average number of afc phase loop")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_PHASE_DIV_EXP")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)AFCRFReqHi-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set afc Si57x RF Req[37-20]")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_RFREQ_HI")
+}
+
+record(longin, "$(P)$(R)AFCRFReqHi-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get afc Si57x RF Req[37-20]")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_RFREQ_HI")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)AFCRFReqLo-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set afc Si57x RF Req[19-0]")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_RFREQ_LO")
+}
+
+record(longin, "$(P)$(R)AFCRFReqLo-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get afc Si57x RF Req[19-0]")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_RFREQ_LO")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)AFCn1-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set afc Si57x n1")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_N1")
+}
+
+record(longin, "$(P)$(R)AFCn1-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get afc Si57x n1")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_N1")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)AFChs_div-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set afc Si57x hs-div")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_HS_DIV")
+}
+
+record(longin, "$(P)$(R)AFChs_div-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get afc Si57x hs-div")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_HS_DIV")
+    field(SCAN,"I/O Intr")
+}
+
