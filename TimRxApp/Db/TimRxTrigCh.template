@@ -7,7 +7,7 @@ record(bo, "$(P)$(R)$(S)Ch$(C)State-Sel"){
   field(MASK, "1")
   field(ZNAM, "Dsbl")
   field(ONAM, "Enbl")
-  field(DESC, "Set $(S) trigger channel $(C) state")
+  field(DESC, "$(S) trigger channel $(C) state")
   field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_EN$(C)")
 }
 
@@ -15,7 +15,7 @@ record(bi, "$(P)$(R)$(S)Ch$(C)State-Sts"){
   field(DTYP, "asynUInt32Digital")
   field(ZNAM, "Dsbl")
   field(ONAM, "Enbl")
-  field(DESC, "Set $(S) trigger channel $(C) state")
+  field(DESC, "$(S) trigger channel $(C) state")
   field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_EN$(C)")
   field(SCAN,"I/O Intr")
 }
@@ -25,7 +25,7 @@ record(bo, "$(P)$(R)$(S)Ch$(C)Polarity-Sel"){
   field(MASK, "1")
   field(ZNAM, "Normal")
   field(ONAM, "Inverse")
-  field(DESC, "Set $(S) trigger channel $(C) Polarity")
+  field(DESC, "$(S) trigger channel $(C) Polarity")
   field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_POL$(C)")
 }
 
@@ -33,55 +33,73 @@ record(bi, "$(P)$(R)$(S)Ch$(C)Polarity-Sts"){
   field(DTYP, "asynUInt32Digital")
   field(ZNAM, "Normal")
   field(ONAM, "Inverse")
-  field(DESC, "Set $(S) trigger channel $(C) Polarity")
+  field(DESC, "$(S) trigger channel $(C) Polarity")
   field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_POL$(C)")
+  field(SCAN,"I/O Intr")
+}
+
+record(bo, "$(P)$(R)$(S)Ch$(C)Log-Sel"){
+  field(DTYP, "asynUInt32Digital")
+  field(MASK, "1")
+  field(ZNAM, "Dsbl")
+  field(ONAM, "Enbl")
+  field(DESC, "$(S) trigger channel $(C) Time Log")
+  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_LOG$(C)")
+}
+
+record(bi, "$(P)$(R)$(S)Ch$(C)Log-Sts"){
+  field(DTYP, "asynUInt32Digital")
+  field(ZNAM, "Dsbl")
+  field(ONAM, "Enbl")
+  field(DESC, "$(S) trigger channel $(C) Time Log")
+  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_LOG$(C)")
   field(SCAN,"I/O Intr")
 }
 
 record(mbbo, "$(P)$(R)$(S)Ch$(C)Src-Sel"){
   field(DTYP, "asynUInt32Digital")
-  field(ONST, "Trigger")
-  field(ONVL, "0x0")
-  field(TWST, "Clock0")
-  field(TWVL, "0x1")
-  field(THST, "Clock1")
-  field(THVL, "0x2")
-  field(FRST, "Clock2")
-  field(FRVL, "0x3")
-  field(FVST, "Clock3")
-  field(FVVL, "0x4")
-  field(SXST, "Clock4")
-  field(SXVL, "0x5")
-  field(SVST, "Clock5")
-  field(SVVL, "0x6")
-  field(EIST, "Clock6")
-  field(EIVL, "0x7")
-  field(NIST, "Clock7")
-  field(NIVL, "0x8")
+  field(ZRST, "Trigger")
+  field(ZRVL, "0x0")
+  field(ONST, "Clock0")
+  field(ONVL, "0x1")
+  field(TWST, "Clock1")
+  field(TWVL, "0x2")
+  field(THST, "Clock2")
+  field(THVL, "0x3")
+  field(FRST, "Clock3")
+  field(FRVL, "0x4")
+  field(FVST, "Clock4")
+  field(FVVL, "0x5")
+  field(SXST, "Clock5")
+  field(SXVL, "0x6")
+  field(SVST, "Clock6")
+  field(SVVL, "0x7")
+  field(EIST, "Clock7")
+  field(EIVL, "0x8")
   field(DESC, "Set $(S) channel $(C) source")
   field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_SRC$(C)")
 }
 
 record(mbbi, "$(P)$(R)$(S)Ch$(C)Src-Sts"){
   field(DTYP, "asynUInt32Digital")
-  field(ONST, "Trigger")
-  field(ONVL, "0x0")
-  field(TWST, "Clock0")
-  field(TWVL, "0x1")
-  field(THST, "Clock1")
-  field(THVL, "0x2")
-  field(FRST, "Clock2")
-  field(FRVL, "0x3")
-  field(FVST, "Clock3")
-  field(FVVL, "0x4")
-  field(SXST, "Clock4")
-  field(SXVL, "0x5")
-  field(SVST, "Clock5")
-  field(SVVL, "0x6")
-  field(EIST, "Clock6")
-  field(EIVL, "0x7")
-  field(NIST, "Clock7")
-  field(NIVL, "0x8")
+  field(ZRST, "Trigger")
+  field(ZRVL, "0x0")
+  field(ONST, "Clock0")
+  field(ONVL, "0x1")
+  field(TWST, "Clock1")
+  field(TWVL, "0x2")
+  field(THST, "Clock2")
+  field(THVL, "0x3")
+  field(FRST, "Clock3")
+  field(FRVL, "0x4")
+  field(FVST, "Clock4")
+  field(FVVL, "0x5")
+  field(SXST, "Clock5")
+  field(SXVL, "0x6")
+  field(SVST, "Clock6")
+  field(SVVL, "0x7")
+  field(EIST, "Clock7")
+  field(EIVL, "0x8")
   field(DESC, "Set $(S) channel $(C) source")
   field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_SRC$(C)")
   field(SCAN,"I/O Intr")
@@ -126,13 +144,13 @@ record(longin, "$(P)$(R)$(S)Ch$(C)Delay-RB"){
   field(SCAN,"I/O Intr")
 }
 
-record(longout, "$(P)$(R)$(S)Ch$(C)Pulses-SP"){
+record(longout, "$(P)$(R)$(S)Ch$(C)NrPulses-SP"){
   field(DTYP, "asynUInt32Digital")
   field(DESC, "Set $(S) trigger channel $(C) pulses")
   field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_PULSES$(C)")
 }
 
-record(longin, "$(P)$(R)$(S)Ch$(C)Pulses-RB"){
+record(longin, "$(P)$(R)$(S)Ch$(C)NrPulses-RB"){
   field(DTYP, "asynUInt32Digital")
   field(DESC, "Set $(S) trigger channel $(C) pulses")
   field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_PULSES$(C)")
