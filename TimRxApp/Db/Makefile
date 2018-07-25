@@ -11,7 +11,8 @@ include $(TOP)/configure/CONFIG
 # Create and install (or just install) into <top>/db
 # databases, templates, substitutions like this
 DB += TimRxCfg.template
-DB += TimRxTrigCh.template
+DB += TimRxFMCTrigCh.template
+DB += TimRxAMCTrigCh.template
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add

@@ -150,6 +150,7 @@ private:
 #define P_TimRxAmcLog0String             "TIM_RX_AMC_LOG0"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcItl0String             "TIM_RX_AMC_ITL0"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcSrc0String             "TIM_RX_AMC_SRC0"      /* asynUInt32Digital,  r/w */
+#define P_TimRxAmcDir0String             "TIM_RX_AMC_DIR0"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcPulses0String             "TIM_RX_AMC_PULSES0"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcEvt0String             "TIM_RX_AMC_EVT0"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcDly0String             "TIM_RX_AMC_DLY0"      /* asynUInt32Digital,  r/w */
@@ -159,6 +160,7 @@ private:
 #define P_TimRxAmcLog1String             "TIM_RX_AMC_LOG1"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcItl1String             "TIM_RX_AMC_ITL1"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcSrc1String             "TIM_RX_AMC_SRC1"      /* asynUInt32Digital,  r/w */
+#define P_TimRxAmcDir1String             "TIM_RX_AMC_DIR1"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcPulses1String             "TIM_RX_AMC_PULSES1"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcEvt1String             "TIM_RX_AMC_EVT1"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcDly1String             "TIM_RX_AMC_DLY1"      /* asynUInt32Digital,  r/w */
@@ -168,6 +170,7 @@ private:
 #define P_TimRxAmcLog2String             "TIM_RX_AMC_LOG2"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcItl2String             "TIM_RX_AMC_ITL2"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcSrc2String             "TIM_RX_AMC_SRC2"      /* asynUInt32Digital,  r/w */
+#define P_TimRxAmcDir2String             "TIM_RX_AMC_DIR2"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcPulses2String             "TIM_RX_AMC_PULSES2"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcEvt2String             "TIM_RX_AMC_EVT2"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcDly2String             "TIM_RX_AMC_DLY2"      /* asynUInt32Digital,  r/w */
@@ -177,6 +180,7 @@ private:
 #define P_TimRxAmcLog3String             "TIM_RX_AMC_LOG3"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcItl3String             "TIM_RX_AMC_ITL3"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcSrc3String             "TIM_RX_AMC_SRC3"      /* asynUInt32Digital,  r/w */
+#define P_TimRxAmcDir3String             "TIM_RX_AMC_DIR3"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcPulses3String             "TIM_RX_AMC_PULSES3"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcEvt3String             "TIM_RX_AMC_EVT3"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcDly3String             "TIM_RX_AMC_DLY3"      /* asynUInt32Digital,  r/w */
@@ -186,6 +190,7 @@ private:
 #define P_TimRxAmcLog4String             "TIM_RX_AMC_LOG4"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcItl4String             "TIM_RX_AMC_ITL4"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcSrc4String             "TIM_RX_AMC_SRC4"      /* asynUInt32Digital,  r/w */
+#define P_TimRxAmcDir4String             "TIM_RX_AMC_DIR4"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcPulses4String             "TIM_RX_AMC_PULSES4"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcEvt4String             "TIM_RX_AMC_EVT4"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcDly4String             "TIM_RX_AMC_DLY4"      /* asynUInt32Digital,  r/w */
@@ -195,6 +200,7 @@ private:
 #define P_TimRxAmcLog5String             "TIM_RX_AMC_LOG5"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcItl5String             "TIM_RX_AMC_ITL5"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcSrc5String             "TIM_RX_AMC_SRC5"      /* asynUInt32Digital,  r/w */
+#define P_TimRxAmcDir5String             "TIM_RX_AMC_DIR5"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcPulses5String             "TIM_RX_AMC_PULSES5"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcEvt5String             "TIM_RX_AMC_EVT5"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcDly5String             "TIM_RX_AMC_DLY5"      /* asynUInt32Digital,  r/w */
@@ -204,6 +210,7 @@ private:
 #define P_TimRxAmcLog6String             "TIM_RX_AMC_LOG6"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcItl6String             "TIM_RX_AMC_ITL6"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcSrc6String             "TIM_RX_AMC_SRC6"      /* asynUInt32Digital,  r/w */
+#define P_TimRxAmcDir6String             "TIM_RX_AMC_DIR6"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcPulses6String             "TIM_RX_AMC_PULSES6"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcEvt6String             "TIM_RX_AMC_EVT6"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcDly6String             "TIM_RX_AMC_DLY6"      /* asynUInt32Digital,  r/w */
@@ -213,6 +220,7 @@ private:
 #define P_TimRxAmcLog7String             "TIM_RX_AMC_LOG7"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcItl7String             "TIM_RX_AMC_ITL7"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcSrc7String             "TIM_RX_AMC_SRC7"      /* asynUInt32Digital,  r/w */
+#define P_TimRxAmcDir7String             "TIM_RX_AMC_DIR7"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcPulses7String             "TIM_RX_AMC_PULSES7"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcEvt7String             "TIM_RX_AMC_EVT7"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcDly7String             "TIM_RX_AMC_DLY7"      /* asynUInt32Digital,  r/w */
@@ -391,6 +399,7 @@ class drvTimRx : public asynPortDriver {
         int P_TimRxAmcLog0;
         int P_TimRxAmcItl0;
         int P_TimRxAmcSrc0;
+        int P_TimRxAmcDir0;
         int P_TimRxAmcPulses0;
         int P_TimRxAmcEvt0;
         int P_TimRxAmcDly0;
@@ -400,6 +409,7 @@ class drvTimRx : public asynPortDriver {
         int P_TimRxAmcLog1;
         int P_TimRxAmcItl1;
         int P_TimRxAmcSrc1;
+        int P_TimRxAmcDir1;
         int P_TimRxAmcPulses1;
         int P_TimRxAmcEvt1;
         int P_TimRxAmcDly1;
@@ -409,6 +419,7 @@ class drvTimRx : public asynPortDriver {
         int P_TimRxAmcLog2;
         int P_TimRxAmcItl2;
         int P_TimRxAmcSrc2;
+        int P_TimRxAmcDir2;
         int P_TimRxAmcPulses2;
         int P_TimRxAmcEvt2;
         int P_TimRxAmcDly2;
@@ -418,6 +429,7 @@ class drvTimRx : public asynPortDriver {
         int P_TimRxAmcLog3;
         int P_TimRxAmcItl3;
         int P_TimRxAmcSrc3;
+        int P_TimRxAmcDir3;
         int P_TimRxAmcPulses3;
         int P_TimRxAmcEvt3;
         int P_TimRxAmcDly3;
@@ -427,6 +439,7 @@ class drvTimRx : public asynPortDriver {
         int P_TimRxAmcLog4;
         int P_TimRxAmcItl4;
         int P_TimRxAmcSrc4;
+        int P_TimRxAmcDir4;
         int P_TimRxAmcPulses4;
         int P_TimRxAmcEvt4;
         int P_TimRxAmcDly4;
@@ -436,6 +449,7 @@ class drvTimRx : public asynPortDriver {
         int P_TimRxAmcLog5;
         int P_TimRxAmcItl5;
         int P_TimRxAmcSrc5;
+        int P_TimRxAmcDir5;
         int P_TimRxAmcPulses5;
         int P_TimRxAmcEvt5;
         int P_TimRxAmcDly5;
@@ -445,6 +459,7 @@ class drvTimRx : public asynPortDriver {
         int P_TimRxAmcLog6;
         int P_TimRxAmcItl6;
         int P_TimRxAmcSrc6;
+        int P_TimRxAmcDir6;
         int P_TimRxAmcPulses6;
         int P_TimRxAmcEvt6;
         int P_TimRxAmcDly6;
@@ -454,6 +469,7 @@ class drvTimRx : public asynPortDriver {
         int P_TimRxAmcLog7;
         int P_TimRxAmcItl7;
         int P_TimRxAmcSrc7;
+        int P_TimRxAmcDir7;
         int P_TimRxAmcPulses7;
         int P_TimRxAmcEvt7;
         int P_TimRxAmcDly7;

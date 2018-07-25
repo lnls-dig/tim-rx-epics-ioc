@@ -56,14 +56,15 @@ static const boardMap_t boardMap[MAX_TIM_RXS+1] = {
 };
 
 /* Double functions mapping */
-static const functionsAny_t timRxSetGetLinkStatusFunc = {functionsInt32_t{"LNLS_AFC_TIMING", NULL, afc_timing_get_link_status}};
-static const functionsAny_t timRxSetGetRxenStatusFunc = {functionsInt32_t{"LNLS_AFC_TIMING", NULL, afc_timing_get_rxen_status}};
-static const functionsAny_t timRxSetGetRefClkLockedFunc = {functionsInt32_t{"LNLS_AFC_TIMING", NULL, afc_timing_get_ref_clk_locked}};
+static const functionsAny_t timRxSetGetLinkStatusFunc = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_link_status, afc_timing_get_link_status}};
+static const functionsAny_t timRxSetGetRxenStatusFunc = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rxen_status, afc_timing_get_rxen_status}};
+static const functionsAny_t timRxSetGetRefClkLockedFunc = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_ref_clk_locked, afc_timing_get_ref_clk_locked}};
 static const functionsAny_t timRxSetGetAmcEn0Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_en0, afc_timing_get_amc_en0}};
 static const functionsAny_t timRxSetGetAmcPol0Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_pol0, afc_timing_get_amc_pol0}};
 static const functionsAny_t timRxSetGetAmcLog0Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_log0, afc_timing_get_amc_log0}};
 static const functionsAny_t timRxSetGetAmcItl0Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_itl0, afc_timing_get_amc_itl0}};
 static const functionsAny_t timRxSetGetAmcSrc0Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_src0, afc_timing_get_amc_src0}};
+static const functionsAny_t timRxSetGetAmcDir0Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_dir0, afc_timing_get_amc_dir0}};
 static const functionsAny_t timRxSetGetAmcPulses0Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_pulses0, afc_timing_get_amc_pulses0}};
 static const functionsAny_t timRxSetGetAmcEvt0Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_evt0, afc_timing_get_amc_evt0}};
 static const functionsAny_t timRxSetGetAmcDly0Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_dly0, afc_timing_get_amc_dly0}};
@@ -73,6 +74,7 @@ static const functionsAny_t timRxSetGetAmcPol1Func = {functionsInt32_t{"LNLS_AFC
 static const functionsAny_t timRxSetGetAmcLog1Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_log1, afc_timing_get_amc_log1}};
 static const functionsAny_t timRxSetGetAmcItl1Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_itl1, afc_timing_get_amc_itl1}};
 static const functionsAny_t timRxSetGetAmcSrc1Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_src1, afc_timing_get_amc_src1}};
+static const functionsAny_t timRxSetGetAmcDir1Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_dir1, afc_timing_get_amc_dir1}};
 static const functionsAny_t timRxSetGetAmcPulses1Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_pulses1, afc_timing_get_amc_pulses1}};
 static const functionsAny_t timRxSetGetAmcEvt1Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_evt1, afc_timing_get_amc_evt1}};
 static const functionsAny_t timRxSetGetAmcDly1Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_dly1, afc_timing_get_amc_dly1}};
@@ -82,6 +84,7 @@ static const functionsAny_t timRxSetGetAmcPol2Func = {functionsInt32_t{"LNLS_AFC
 static const functionsAny_t timRxSetGetAmcLog2Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_log2, afc_timing_get_amc_log2}};
 static const functionsAny_t timRxSetGetAmcItl2Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_itl2, afc_timing_get_amc_itl2}};
 static const functionsAny_t timRxSetGetAmcSrc2Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_src2, afc_timing_get_amc_src2}};
+static const functionsAny_t timRxSetGetAmcDir2Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_dir2, afc_timing_get_amc_dir2}};
 static const functionsAny_t timRxSetGetAmcPulses2Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_pulses2, afc_timing_get_amc_pulses2}};
 static const functionsAny_t timRxSetGetAmcEvt2Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_evt2, afc_timing_get_amc_evt2}};
 static const functionsAny_t timRxSetGetAmcDly2Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_dly2, afc_timing_get_amc_dly2}};
@@ -91,6 +94,7 @@ static const functionsAny_t timRxSetGetAmcPol3Func = {functionsInt32_t{"LNLS_AFC
 static const functionsAny_t timRxSetGetAmcLog3Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_log3, afc_timing_get_amc_log3}};
 static const functionsAny_t timRxSetGetAmcItl3Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_itl3, afc_timing_get_amc_itl3}};
 static const functionsAny_t timRxSetGetAmcSrc3Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_src3, afc_timing_get_amc_src3}};
+static const functionsAny_t timRxSetGetAmcDir3Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_dir3, afc_timing_get_amc_dir3}};
 static const functionsAny_t timRxSetGetAmcPulses3Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_pulses3, afc_timing_get_amc_pulses3}};
 static const functionsAny_t timRxSetGetAmcEvt3Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_evt3, afc_timing_get_amc_evt3}};
 static const functionsAny_t timRxSetGetAmcDly3Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_dly3, afc_timing_get_amc_dly3}};
@@ -100,6 +104,7 @@ static const functionsAny_t timRxSetGetAmcPol4Func = {functionsInt32_t{"LNLS_AFC
 static const functionsAny_t timRxSetGetAmcLog4Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_log4, afc_timing_get_amc_log4}};
 static const functionsAny_t timRxSetGetAmcItl4Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_itl4, afc_timing_get_amc_itl4}};
 static const functionsAny_t timRxSetGetAmcSrc4Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_src4, afc_timing_get_amc_src4}};
+static const functionsAny_t timRxSetGetAmcDir4Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_dir4, afc_timing_get_amc_dir4}};
 static const functionsAny_t timRxSetGetAmcPulses4Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_pulses4, afc_timing_get_amc_pulses4}};
 static const functionsAny_t timRxSetGetAmcEvt4Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_evt4, afc_timing_get_amc_evt4}};
 static const functionsAny_t timRxSetGetAmcDly4Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_dly4, afc_timing_get_amc_dly4}};
@@ -109,6 +114,7 @@ static const functionsAny_t timRxSetGetAmcPol5Func = {functionsInt32_t{"LNLS_AFC
 static const functionsAny_t timRxSetGetAmcLog5Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_log5, afc_timing_get_amc_log5}};
 static const functionsAny_t timRxSetGetAmcItl5Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_itl5, afc_timing_get_amc_itl5}};
 static const functionsAny_t timRxSetGetAmcSrc5Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_src5, afc_timing_get_amc_src5}};
+static const functionsAny_t timRxSetGetAmcDir5Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_dir5, afc_timing_get_amc_dir5}};
 static const functionsAny_t timRxSetGetAmcPulses5Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_pulses5, afc_timing_get_amc_pulses5}};
 static const functionsAny_t timRxSetGetAmcEvt5Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_evt5, afc_timing_get_amc_evt5}};
 static const functionsAny_t timRxSetGetAmcDly5Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_dly5, afc_timing_get_amc_dly5}};
@@ -118,6 +124,7 @@ static const functionsAny_t timRxSetGetAmcPol6Func = {functionsInt32_t{"LNLS_AFC
 static const functionsAny_t timRxSetGetAmcLog6Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_log6, afc_timing_get_amc_log6}};
 static const functionsAny_t timRxSetGetAmcItl6Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_itl6, afc_timing_get_amc_itl6}};
 static const functionsAny_t timRxSetGetAmcSrc6Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_src6, afc_timing_get_amc_src6}};
+static const functionsAny_t timRxSetGetAmcDir6Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_dir6, afc_timing_get_amc_dir6}};
 static const functionsAny_t timRxSetGetAmcPulses6Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_pulses6, afc_timing_get_amc_pulses6}};
 static const functionsAny_t timRxSetGetAmcEvt6Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_evt6, afc_timing_get_amc_evt6}};
 static const functionsAny_t timRxSetGetAmcDly6Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_dly6, afc_timing_get_amc_dly6}};
@@ -127,6 +134,7 @@ static const functionsAny_t timRxSetGetAmcPol7Func = {functionsInt32_t{"LNLS_AFC
 static const functionsAny_t timRxSetGetAmcLog7Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_log7, afc_timing_get_amc_log7}};
 static const functionsAny_t timRxSetGetAmcItl7Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_itl7, afc_timing_get_amc_itl7}};
 static const functionsAny_t timRxSetGetAmcSrc7Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_src7, afc_timing_get_amc_src7}};
+static const functionsAny_t timRxSetGetAmcDir7Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_dir7, afc_timing_get_amc_dir7}};
 static const functionsAny_t timRxSetGetAmcPulses7Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_pulses7, afc_timing_get_amc_pulses7}};
 static const functionsAny_t timRxSetGetAmcEvt7Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_evt7, afc_timing_get_amc_evt7}};
 static const functionsAny_t timRxSetGetAmcDly7Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_dly7, afc_timing_get_amc_dly7}};
@@ -348,6 +356,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     createParam(P_TimRxAmcLog0String,   asynParamUInt32Digital,         &P_TimRxAmcLog0);
     createParam(P_TimRxAmcItl0String,   asynParamUInt32Digital,         &P_TimRxAmcItl0);
     createParam(P_TimRxAmcSrc0String,   asynParamUInt32Digital,         &P_TimRxAmcSrc0);
+    createParam(P_TimRxAmcDir0String,   asynParamUInt32Digital,         &P_TimRxAmcDir0);
     createParam(P_TimRxAmcPulses0String,   asynParamUInt32Digital,         &P_TimRxAmcPulses0);
     createParam(P_TimRxAmcEvt0String,   asynParamUInt32Digital,         &P_TimRxAmcEvt0);
     createParam(P_TimRxAmcDly0String,   asynParamUInt32Digital,         &P_TimRxAmcDly0);
@@ -357,6 +366,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     createParam(P_TimRxAmcLog1String,   asynParamUInt32Digital,         &P_TimRxAmcLog1);
     createParam(P_TimRxAmcItl1String,   asynParamUInt32Digital,         &P_TimRxAmcItl1);
     createParam(P_TimRxAmcSrc1String,   asynParamUInt32Digital,         &P_TimRxAmcSrc1);
+    createParam(P_TimRxAmcDir1String,   asynParamUInt32Digital,         &P_TimRxAmcDir1);
     createParam(P_TimRxAmcPulses1String,   asynParamUInt32Digital,         &P_TimRxAmcPulses1);
     createParam(P_TimRxAmcEvt1String,   asynParamUInt32Digital,         &P_TimRxAmcEvt1);
     createParam(P_TimRxAmcDly1String,   asynParamUInt32Digital,         &P_TimRxAmcDly1);
@@ -366,6 +376,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     createParam(P_TimRxAmcLog2String,   asynParamUInt32Digital,         &P_TimRxAmcLog2);
     createParam(P_TimRxAmcItl2String,   asynParamUInt32Digital,         &P_TimRxAmcItl2);
     createParam(P_TimRxAmcSrc2String,   asynParamUInt32Digital,         &P_TimRxAmcSrc2);
+    createParam(P_TimRxAmcDir2String,   asynParamUInt32Digital,         &P_TimRxAmcDir2);
     createParam(P_TimRxAmcPulses2String,   asynParamUInt32Digital,         &P_TimRxAmcPulses2);
     createParam(P_TimRxAmcEvt2String,   asynParamUInt32Digital,         &P_TimRxAmcEvt2);
     createParam(P_TimRxAmcDly2String,   asynParamUInt32Digital,         &P_TimRxAmcDly2);
@@ -375,6 +386,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     createParam(P_TimRxAmcLog3String,   asynParamUInt32Digital,         &P_TimRxAmcLog3);
     createParam(P_TimRxAmcItl3String,   asynParamUInt32Digital,         &P_TimRxAmcItl3);
     createParam(P_TimRxAmcSrc3String,   asynParamUInt32Digital,         &P_TimRxAmcSrc3);
+    createParam(P_TimRxAmcDir3String,   asynParamUInt32Digital,         &P_TimRxAmcDir3);
     createParam(P_TimRxAmcPulses3String,   asynParamUInt32Digital,         &P_TimRxAmcPulses3);
     createParam(P_TimRxAmcEvt3String,   asynParamUInt32Digital,         &P_TimRxAmcEvt3);
     createParam(P_TimRxAmcDly3String,   asynParamUInt32Digital,         &P_TimRxAmcDly3);
@@ -384,6 +396,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     createParam(P_TimRxAmcLog4String,   asynParamUInt32Digital,         &P_TimRxAmcLog4);
     createParam(P_TimRxAmcItl4String,   asynParamUInt32Digital,         &P_TimRxAmcItl4);
     createParam(P_TimRxAmcSrc4String,   asynParamUInt32Digital,         &P_TimRxAmcSrc4);
+    createParam(P_TimRxAmcDir4String,   asynParamUInt32Digital,         &P_TimRxAmcDir4);
     createParam(P_TimRxAmcPulses4String,   asynParamUInt32Digital,         &P_TimRxAmcPulses4);
     createParam(P_TimRxAmcEvt4String,   asynParamUInt32Digital,         &P_TimRxAmcEvt4);
     createParam(P_TimRxAmcDly4String,   asynParamUInt32Digital,         &P_TimRxAmcDly4);
@@ -393,6 +406,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     createParam(P_TimRxAmcLog5String,   asynParamUInt32Digital,         &P_TimRxAmcLog5);
     createParam(P_TimRxAmcItl5String,   asynParamUInt32Digital,         &P_TimRxAmcItl5);
     createParam(P_TimRxAmcSrc5String,   asynParamUInt32Digital,         &P_TimRxAmcSrc5);
+    createParam(P_TimRxAmcDir5String,   asynParamUInt32Digital,         &P_TimRxAmcDir5);
     createParam(P_TimRxAmcPulses5String,   asynParamUInt32Digital,         &P_TimRxAmcPulses5);
     createParam(P_TimRxAmcEvt5String,   asynParamUInt32Digital,         &P_TimRxAmcEvt5);
     createParam(P_TimRxAmcDly5String,   asynParamUInt32Digital,         &P_TimRxAmcDly5);
@@ -402,6 +416,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     createParam(P_TimRxAmcLog6String,   asynParamUInt32Digital,         &P_TimRxAmcLog6);
     createParam(P_TimRxAmcItl6String,   asynParamUInt32Digital,         &P_TimRxAmcItl6);
     createParam(P_TimRxAmcSrc6String,   asynParamUInt32Digital,         &P_TimRxAmcSrc6);
+    createParam(P_TimRxAmcDir6String,   asynParamUInt32Digital,         &P_TimRxAmcDir6);
     createParam(P_TimRxAmcPulses6String,   asynParamUInt32Digital,         &P_TimRxAmcPulses6);
     createParam(P_TimRxAmcEvt6String,   asynParamUInt32Digital,         &P_TimRxAmcEvt6);
     createParam(P_TimRxAmcDly6String,   asynParamUInt32Digital,         &P_TimRxAmcDly6);
@@ -411,6 +426,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     createParam(P_TimRxAmcLog7String,   asynParamUInt32Digital,         &P_TimRxAmcLog7);
     createParam(P_TimRxAmcItl7String,   asynParamUInt32Digital,         &P_TimRxAmcItl7);
     createParam(P_TimRxAmcSrc7String,   asynParamUInt32Digital,         &P_TimRxAmcSrc7);
+    createParam(P_TimRxAmcDir7String,   asynParamUInt32Digital,         &P_TimRxAmcDir7);
     createParam(P_TimRxAmcPulses7String,   asynParamUInt32Digital,         &P_TimRxAmcPulses7);
     createParam(P_TimRxAmcEvt7String,   asynParamUInt32Digital,         &P_TimRxAmcEvt7);
     createParam(P_TimRxAmcDly7String,   asynParamUInt32Digital,         &P_TimRxAmcDly7);
@@ -537,6 +553,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     setUIntDigitalParam(P_TimRxAmcLog0,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcItl0,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcSrc0,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAmcDir0,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcPulses0,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcEvt0,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcDly0,   0, 0xFFFFFFFF);
@@ -546,6 +563,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     setUIntDigitalParam(P_TimRxAmcLog1,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcItl1,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcSrc1,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAmcDir1,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcPulses1,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcEvt1,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcDly1,   0, 0xFFFFFFFF);
@@ -555,6 +573,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     setUIntDigitalParam(P_TimRxAmcLog2,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcItl2,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcSrc2,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAmcDir2,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcPulses2,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcEvt2,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcDly2,   0, 0xFFFFFFFF);
@@ -564,6 +583,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     setUIntDigitalParam(P_TimRxAmcLog3,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcItl3,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcSrc3,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAmcDir3,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcPulses3,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcEvt3,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcDly3,   0, 0xFFFFFFFF);
@@ -573,6 +593,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     setUIntDigitalParam(P_TimRxAmcLog4,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcItl4,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcSrc4,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAmcDir4,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcPulses4,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcEvt4,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcDly4,   0, 0xFFFFFFFF);
@@ -582,6 +603,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     setUIntDigitalParam(P_TimRxAmcLog5,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcItl5,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcSrc5,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAmcDir5,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcPulses5,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcEvt5,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcDly5,   0, 0xFFFFFFFF);
@@ -591,6 +613,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     setUIntDigitalParam(P_TimRxAmcLog6,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcItl6,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcSrc6,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAmcDir6,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcPulses6,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcEvt6,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcDly6,   0, 0xFFFFFFFF);
@@ -600,6 +623,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     setUIntDigitalParam(P_TimRxAmcLog7,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcItl7,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcSrc7,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAmcDir7,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcPulses7,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcEvt7,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcDly7,   0, 0xFFFFFFFF);
@@ -732,6 +756,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     timRxHwFunc.emplace(P_TimRxAmcLog0,    timRxSetGetAmcLog0Func);
     timRxHwFunc.emplace(P_TimRxAmcItl0,    timRxSetGetAmcItl0Func);
     timRxHwFunc.emplace(P_TimRxAmcSrc0,    timRxSetGetAmcSrc0Func);
+    timRxHwFunc.emplace(P_TimRxAmcDir0,    timRxSetGetAmcDir0Func);
     timRxHwFunc.emplace(P_TimRxAmcPulses0,    timRxSetGetAmcPulses0Func);
     timRxHwFunc.emplace(P_TimRxAmcEvt0,    timRxSetGetAmcEvt0Func);
     timRxHwFunc.emplace(P_TimRxAmcDly0,    timRxSetGetAmcDly0Func);
@@ -741,6 +766,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     timRxHwFunc.emplace(P_TimRxAmcLog1,    timRxSetGetAmcLog1Func);
     timRxHwFunc.emplace(P_TimRxAmcItl1,    timRxSetGetAmcItl1Func);
     timRxHwFunc.emplace(P_TimRxAmcSrc1,    timRxSetGetAmcSrc1Func);
+    timRxHwFunc.emplace(P_TimRxAmcDir1,    timRxSetGetAmcDir1Func);
     timRxHwFunc.emplace(P_TimRxAmcPulses1,    timRxSetGetAmcPulses1Func);
     timRxHwFunc.emplace(P_TimRxAmcEvt1,    timRxSetGetAmcEvt1Func);
     timRxHwFunc.emplace(P_TimRxAmcDly1,    timRxSetGetAmcDly1Func);
@@ -750,6 +776,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     timRxHwFunc.emplace(P_TimRxAmcLog2,    timRxSetGetAmcLog2Func);
     timRxHwFunc.emplace(P_TimRxAmcItl2,    timRxSetGetAmcItl2Func);
     timRxHwFunc.emplace(P_TimRxAmcSrc2,    timRxSetGetAmcSrc2Func);
+    timRxHwFunc.emplace(P_TimRxAmcDir2,    timRxSetGetAmcDir2Func);
     timRxHwFunc.emplace(P_TimRxAmcPulses2,    timRxSetGetAmcPulses2Func);
     timRxHwFunc.emplace(P_TimRxAmcEvt2,    timRxSetGetAmcEvt2Func);
     timRxHwFunc.emplace(P_TimRxAmcDly2,    timRxSetGetAmcDly2Func);
@@ -759,6 +786,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     timRxHwFunc.emplace(P_TimRxAmcLog3,    timRxSetGetAmcLog3Func);
     timRxHwFunc.emplace(P_TimRxAmcItl3,    timRxSetGetAmcItl3Func);
     timRxHwFunc.emplace(P_TimRxAmcSrc3,    timRxSetGetAmcSrc3Func);
+    timRxHwFunc.emplace(P_TimRxAmcDir3,    timRxSetGetAmcDir3Func);
     timRxHwFunc.emplace(P_TimRxAmcPulses3,    timRxSetGetAmcPulses3Func);
     timRxHwFunc.emplace(P_TimRxAmcEvt3,    timRxSetGetAmcEvt3Func);
     timRxHwFunc.emplace(P_TimRxAmcDly3,    timRxSetGetAmcDly3Func);
@@ -768,6 +796,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     timRxHwFunc.emplace(P_TimRxAmcLog4,    timRxSetGetAmcLog4Func);
     timRxHwFunc.emplace(P_TimRxAmcItl4,    timRxSetGetAmcItl4Func);
     timRxHwFunc.emplace(P_TimRxAmcSrc4,    timRxSetGetAmcSrc4Func);
+    timRxHwFunc.emplace(P_TimRxAmcDir4,    timRxSetGetAmcDir4Func);
     timRxHwFunc.emplace(P_TimRxAmcPulses4,    timRxSetGetAmcPulses4Func);
     timRxHwFunc.emplace(P_TimRxAmcEvt4,    timRxSetGetAmcEvt4Func);
     timRxHwFunc.emplace(P_TimRxAmcDly4,    timRxSetGetAmcDly4Func);
@@ -777,6 +806,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     timRxHwFunc.emplace(P_TimRxAmcLog5,    timRxSetGetAmcLog5Func);
     timRxHwFunc.emplace(P_TimRxAmcItl5,    timRxSetGetAmcItl5Func);
     timRxHwFunc.emplace(P_TimRxAmcSrc5,    timRxSetGetAmcSrc5Func);
+    timRxHwFunc.emplace(P_TimRxAmcDir5,    timRxSetGetAmcDir5Func);
     timRxHwFunc.emplace(P_TimRxAmcPulses5,    timRxSetGetAmcPulses5Func);
     timRxHwFunc.emplace(P_TimRxAmcEvt5,    timRxSetGetAmcEvt5Func);
     timRxHwFunc.emplace(P_TimRxAmcDly5,    timRxSetGetAmcDly5Func);
@@ -786,6 +816,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     timRxHwFunc.emplace(P_TimRxAmcLog6,    timRxSetGetAmcLog6Func);
     timRxHwFunc.emplace(P_TimRxAmcItl6,    timRxSetGetAmcItl6Func);
     timRxHwFunc.emplace(P_TimRxAmcSrc6,    timRxSetGetAmcSrc6Func);
+    timRxHwFunc.emplace(P_TimRxAmcDir6,    timRxSetGetAmcDir6Func);
     timRxHwFunc.emplace(P_TimRxAmcPulses6,    timRxSetGetAmcPulses6Func);
     timRxHwFunc.emplace(P_TimRxAmcEvt6,    timRxSetGetAmcEvt6Func);
     timRxHwFunc.emplace(P_TimRxAmcDly6,    timRxSetGetAmcDly6Func);
@@ -795,6 +826,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     timRxHwFunc.emplace(P_TimRxAmcLog7,    timRxSetGetAmcLog7Func);
     timRxHwFunc.emplace(P_TimRxAmcItl7,    timRxSetGetAmcItl7Func);
     timRxHwFunc.emplace(P_TimRxAmcSrc7,    timRxSetGetAmcSrc7Func);
+    timRxHwFunc.emplace(P_TimRxAmcDir7,    timRxSetGetAmcDir7Func);
     timRxHwFunc.emplace(P_TimRxAmcPulses7,    timRxSetGetAmcPulses7Func);
     timRxHwFunc.emplace(P_TimRxAmcEvt7,    timRxSetGetAmcEvt7Func);
     timRxHwFunc.emplace(P_TimRxAmcDly7,    timRxSetGetAmcDly7Func);
