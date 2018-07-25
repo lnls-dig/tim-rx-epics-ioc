@@ -145,6 +145,8 @@ private:
 #define P_TimRxLinkStatusString             "TIM_RX_LINK_STATUS"      /* asynUInt32Digital,  r/w */
 #define P_TimRxRxenStatusString             "TIM_RX_RXEN_STATUS"      /* asynUInt32Digital,  r/w */
 #define P_TimRxRefClkLockedString             "TIM_RX_REF_CLK_LOCKED"      /* asynUInt32Digital,  r/w */
+#define P_TimRxEvrenString             "TIM_RX_EVREN"      /* asynUInt32Digital,  r/w */
+#define P_TimRxAliveString             "TIM_RX_ALIVE"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcEn0String             "TIM_RX_AMC_EN0"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcPol0String             "TIM_RX_AMC_POL0"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcLog0String             "TIM_RX_AMC_LOG0"      /* asynUInt32Digital,  r/w */
@@ -394,6 +396,8 @@ class drvTimRx : public asynPortDriver {
 #define FIRST_COMMAND P_TimRxLinkStatus
         int P_TimRxRxenStatus;
         int P_TimRxRefClkLocked;
+        int P_TimRxEvren;
+        int P_TimRxAlive;
         int P_TimRxAmcEn0;
         int P_TimRxAmcPol0;
         int P_TimRxAmcLog0;

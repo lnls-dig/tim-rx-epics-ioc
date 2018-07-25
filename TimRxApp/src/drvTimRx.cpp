@@ -59,6 +59,8 @@ static const boardMap_t boardMap[MAX_TIM_RXS+1] = {
 static const functionsAny_t timRxSetGetLinkStatusFunc = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_link_status, afc_timing_get_link_status}};
 static const functionsAny_t timRxSetGetRxenStatusFunc = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rxen_status, afc_timing_get_rxen_status}};
 static const functionsAny_t timRxSetGetRefClkLockedFunc = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_ref_clk_locked, afc_timing_get_ref_clk_locked}};
+static const functionsAny_t timRxSetGetEvrenFunc = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_evren, afc_timing_get_evren}};
+static const functionsAny_t timRxSetGetAliveFunc = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_alive, afc_timing_get_alive}};
 static const functionsAny_t timRxSetGetAmcEn0Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_en0, afc_timing_get_amc_en0}};
 static const functionsAny_t timRxSetGetAmcPol0Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_pol0, afc_timing_get_amc_pol0}};
 static const functionsAny_t timRxSetGetAmcLog0Func = {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_amc_log0, afc_timing_get_amc_log0}};
@@ -351,6 +353,8 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     createParam(P_TimRxLinkStatusString,   asynParamUInt32Digital,         &P_TimRxLinkStatus);
     createParam(P_TimRxRxenStatusString,   asynParamUInt32Digital,         &P_TimRxRxenStatus);
     createParam(P_TimRxRefClkLockedString,   asynParamUInt32Digital,         &P_TimRxRefClkLocked);
+    createParam(P_TimRxEvrenString,   asynParamUInt32Digital,         &P_TimRxEvren);
+    createParam(P_TimRxAliveString,   asynParamUInt32Digital,         &P_TimRxAlive);
     createParam(P_TimRxAmcEn0String,   asynParamUInt32Digital,         &P_TimRxAmcEn0);
     createParam(P_TimRxAmcPol0String,   asynParamUInt32Digital,         &P_TimRxAmcPol0);
     createParam(P_TimRxAmcLog0String,   asynParamUInt32Digital,         &P_TimRxAmcLog0);
@@ -548,6 +552,8 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     setUIntDigitalParam(P_TimRxLinkStatus,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxRxenStatus,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxRefClkLocked,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxEvren,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAlive,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcEn0,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcPol0,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAmcLog0,   0, 0xFFFFFFFF);
@@ -751,6 +757,8 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     timRxHwFunc.emplace(P_TimRxLinkStatus,    timRxSetGetLinkStatusFunc);
     timRxHwFunc.emplace(P_TimRxRxenStatus,    timRxSetGetRxenStatusFunc);
     timRxHwFunc.emplace(P_TimRxRefClkLocked,    timRxSetGetRefClkLockedFunc);
+    timRxHwFunc.emplace(P_TimRxEvren,    timRxSetGetEvrenFunc);
+    timRxHwFunc.emplace(P_TimRxAlive,    timRxSetGetAliveFunc);
     timRxHwFunc.emplace(P_TimRxAmcEn0,    timRxSetGetAmcEn0Func);
     timRxHwFunc.emplace(P_TimRxAmcPol0,    timRxSetGetAmcPol0Func);
     timRxHwFunc.emplace(P_TimRxAmcLog0,    timRxSetGetAmcLog0Func);

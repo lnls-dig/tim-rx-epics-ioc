@@ -2,7 +2,7 @@
 # Timing Configuration Parameters
 #########################
 
-record(mbbi, "$(P)$(R)LinkStatus-Sts"){
+record(mbbi, "$(P)$(R)LinkStatus-Mon"){
     field(DTYP, "asynUInt32Digital")
     field(DESC, "Get Link Status")
     field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_LINK_STATUS")
@@ -14,7 +14,7 @@ record(mbbi, "$(P)$(R)LinkStatus-Sts"){
     field(ONST,"on")
 }
 
-record(mbbi, "$(P)$(R)RxEnStatus-Sts"){
+record(mbbi, "$(P)$(R)RxEnStatus-Mon"){
     field(DTYP, "asynUInt32Digital")
     field(DESC, "Get RX Enable Status")
     field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RXEN_STATUS")
@@ -26,7 +26,7 @@ record(mbbi, "$(P)$(R)RxEnStatus-Sts"){
     field(ONST,"on")
 }
 
-record(mbbi, "$(P)$(R)RefClkLocked-Sts"){
+record(mbbi, "$(P)$(R)RefClkLocked-Mon"){
     field(DTYP, "asynUInt32Digital")
     field(DESC, "Get Ref. Clock Locked Status")
     field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_REF_CLK_LOCKED")
@@ -36,6 +36,32 @@ record(mbbi, "$(P)$(R)RefClkLocked-Sts"){
     field(ONVL,"1")
     field(ZRST,"off")
     field(ONST,"on")
+}
+
+record(bo, "$(P)$(R)DevEnbl-Sel"){
+  field(DTYP, "asynUInt32Digital")
+  field(MASK, "1")
+  field(ZNAM, "Dsbl")
+  field(ONAM, "Enbl")
+  field(DESC, "Event Receiver state control")
+  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_EVREN")
+}
+
+record(bi, "$(P)$(R)DevEnbl-Sts"){
+  field(DTYP, "asynUInt32Digital")
+  field(PINI, "1")
+  field(ZNAM, "Dsbl")
+  field(ONAM, "Enbl")
+  field(DESC, "Event Receiver state status")
+  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_EVREN")
+  field(SCAN,"I/O Intr")
+}
+
+record(longin, "$(P)$(R)Alive-Mon"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Alive free running counter")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_ALIVE")
+    field(SCAN,"1 second")
 }
 
 record(longout, "$(P)$(R)RTMFreqPropGain-SP"){
