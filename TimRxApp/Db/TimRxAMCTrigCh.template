@@ -8,7 +8,7 @@ record(bo, "$(P)$(R)$(S)$(C)State-Sel"){
   field(ZNAM, "Dsbl")
   field(ONAM, "Enbl")
   field(DESC, "$(S) trigger channel $(C) state")
-  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_EN$(C)")
+  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_EN")
 }
 
 record(bi, "$(P)$(R)$(S)$(C)State-Sts"){
@@ -17,7 +17,7 @@ record(bi, "$(P)$(R)$(S)$(C)State-Sts"){
   field(ZNAM, "Dsbl")
   field(ONAM, "Enbl")
   field(DESC, "$(S) trigger channel $(C) state")
-  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_EN$(C)")
+  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_EN")
   field(SCAN,"I/O Intr")
 }
 
@@ -27,7 +27,7 @@ record(bo, "$(P)$(R)$(S)$(C)Polarity-Sel"){
   field(ZNAM, "Normal")
   field(ONAM, "Inverse")
   field(DESC, "$(S) trigger channel $(C) Polarity")
-  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_POL$(C)")
+  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_POL")
 }
 
 record(bi, "$(P)$(R)$(S)$(C)Polarity-Sts"){
@@ -36,7 +36,7 @@ record(bi, "$(P)$(R)$(S)$(C)Polarity-Sts"){
   field(ZNAM, "Normal")
   field(ONAM, "Inverse")
   field(DESC, "$(S) trigger channel $(C) Polarity")
-  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_POL$(C)")
+  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_POL")
   field(SCAN,"I/O Intr")
 }
 
@@ -46,7 +46,7 @@ record(bo, "$(P)$(R)$(S)$(C)Log-Sel"){
   field(ZNAM, "Dsbl")
   field(ONAM, "Enbl")
   field(DESC, "$(S) trigger channel $(C) Time Log")
-  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_LOG$(C)")
+  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_LOG")
 }
 
 record(bi, "$(P)$(R)$(S)$(C)Log-Sts"){
@@ -55,7 +55,7 @@ record(bi, "$(P)$(R)$(S)$(C)Log-Sts"){
   field(ZNAM, "Dsbl")
   field(ONAM, "Enbl")
   field(DESC, "$(S) trigger channel $(C) Time Log")
-  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_LOG$(C)")
+  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_LOG")
   field(SCAN,"I/O Intr")
 }
 
@@ -80,7 +80,7 @@ record(mbbo, "$(P)$(R)$(S)$(C)Src-Sel"){
   field(EIST, "Clock7")
   field(EIVL, "0x8")
   field(DESC, "Set $(S) channel $(C) source")
-  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_SRC$(C)")
+  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_SRC")
 }
 
 record(mbbi, "$(P)$(R)$(S)$(C)Src-Sts"){
@@ -105,7 +105,7 @@ record(mbbi, "$(P)$(R)$(S)$(C)Src-Sts"){
   field(EIST, "Clock7")
   field(EIVL, "0x8")
   field(DESC, "Set $(S) channel $(C) source")
-  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_SRC$(C)")
+  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_SRC")
   field(SCAN,"I/O Intr")
 }
 
@@ -115,7 +115,7 @@ record(bo, "$(P)$(R)$(S)$(C)Dir-Sel"){
   field(ZNAM, "Out")
   field(ONAM, "In")
   field(DESC, "$(S) trigger channel $(C) direction")
-  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_DIR$(C)")
+  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_DIR")
 }
 
 record(bi, "$(P)$(R)$(S)$(C)Dir-Sts"){
@@ -124,63 +124,63 @@ record(bi, "$(P)$(R)$(S)$(C)Dir-Sts"){
   field(ZNAM, "Out")
   field(ONAM, "In")
   field(DESC, "$(S) trigger channel $(C) direction")
-  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_DIR$(C)")
+  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_DIR")
   field(SCAN,"I/O Intr")
 }
 
 record(longout, "$(P)$(R)$(S)$(C)Evt-SP"){
   field(DTYP, "asynUInt32Digital")
   field(DESC, "Set $(S) trigger channel $(C) event code")
-  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_EVT$(C)")
+  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_EVT")
 }
 
 record(longin, "$(P)$(R)$(S)$(C)Evt-RB"){
   field(DTYP, "asynUInt32Digital")
   field(PINI, "1")
   field(DESC, "Set $(S) trigger channel $(C) event code")
-  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_EVT$(C)")
+  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_EVT")
   field(SCAN,"I/O Intr")
 }
 
 record(longout, "$(P)$(R)$(S)$(C)Width-SP"){
   field(DTYP, "asynUInt32Digital")
   field(DESC, "Set $(S) trigger channel $(C) width")
-  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_WDT$(C)")
+  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_WDT")
 }
 
 record(longin, "$(P)$(R)$(S)$(C)Width-RB"){
   field(DTYP, "asynUInt32Digital")
   field(PINI, "1")
   field(DESC, "Set $(S) trigger channel $(C) width")
-  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_WDT$(C)")
+  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_WDT")
   field(SCAN,"I/O Intr")
 }
 
 record(longout, "$(P)$(R)$(S)$(C)Delay-SP"){
   field(DTYP, "asynUInt32Digital")
   field(DESC, "Set $(S) trigger channel $(C) delay")
-  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_DLY$(C)")
+  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_DLY")
 }
 
 record(longin, "$(P)$(R)$(S)$(C)Delay-RB"){
   field(DTYP, "asynUInt32Digital")
   field(PINI, "1")
   field(DESC, "Set $(S) trigger channel $(C) delay")
-  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_DLY$(C)")
+  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_DLY")
   field(SCAN,"I/O Intr")
 }
 
 record(longout, "$(P)$(R)$(S)$(C)NrPulses-SP"){
   field(DTYP, "asynUInt32Digital")
   field(DESC, "Set $(S) trigger channel $(C) pulses")
-  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_PULSES$(C)")
+  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_PULSES")
 }
 
 record(longin, "$(P)$(R)$(S)$(C)NrPulses-RB"){
   field(DTYP, "asynUInt32Digital")
   field(PINI, "1")
   field(DESC, "Set $(S) trigger channel $(C) pulses")
-  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_PULSES$(C)")
+  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_PULSES")
   field(SCAN,"I/O Intr")
 }
 
