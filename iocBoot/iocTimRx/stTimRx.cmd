@@ -49,5 +49,6 @@ iocInit()
 < initTimRxCommands
 
 # save things every thirty seconds
-create_monitor_set("auto_settings.req", 30,"P=${P}, R=${R}")
+create_monitor_set("auto_settings.req", 60,"P=${P}, R=${R}")
+create_triggered_set("auto_settings.req", "${P}${R}Save-Cmd", "P=${P}, R=${R}")
 set_savefile_name("auto_settings.req", "auto_settings_${P}${R}.sav")

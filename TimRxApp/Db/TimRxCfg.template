@@ -2,6 +2,14 @@
 # Timing Configuration Parameters
 #########################
 
+record(bo, "$(P)$(R)Save-Cmd"){
+  field(DESC, "Manual Save settings command")
+  field(MASK, "1")
+  field(ZNAM, "Dsbl")
+  field(ONAM, "Enbl")
+  field(HIGH, "1")
+}
+
 record(mbbi, "$(P)$(R)LinkStatus-Mon"){
     field(DTYP, "asynUInt32Digital")
     field(DESC, "Get Link Status")
