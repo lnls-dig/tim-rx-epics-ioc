@@ -236,6 +236,22 @@ record(mbbi, "$(P)$(R)RTMhs_div-RB"){
     field(SCAN,"I/O Intr")
 }
 
+record(longout, "$(P)$(R)RTMFreq-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set rtm Si57x Freq")
+    field(EGU, "Hz")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_SI57XFREQ")
+}
+
+record(longin, "$(P)$(R)RTMFreq-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get rtm Si57x Freq")
+    field(EGU, "Hz")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_SI57XFREQ")
+    field(SCAN,"I/O Intr")
+}
+
 record(longout, "$(P)$(R)AFCFreqPropGain-SP"){
     field(DTYP, "asynUInt32Digital")
     field(DESC, "Set proportional gain of afc freq loop")
@@ -247,7 +263,7 @@ record(longin, "$(P)$(R)AFCFreqPropGain-RB"){
     field(PINI, "1")
     field(DESC, "Get proportional gain of afc freq loop")
     field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_FREQ_KP")
-    field(SCAN,".1 second")
+    field(SCAN,"I/O Intr")
 }
 
 record(longout, "$(P)$(R)AFCFreqIntgGain-SP"){
@@ -261,7 +277,7 @@ record(longin, "$(P)$(R)AFCFreqIntgGain-RB"){
     field(PINI, "1")
     field(DESC, "Get integral gain of afc freq loop")
     field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_FREQ_KI")
-    field(SCAN,".1 second")
+    field(SCAN,"I/O Intr")
 }
 
 record(longout, "$(P)$(R)AFCPhasePropGain-SP"){
@@ -275,7 +291,7 @@ record(longin, "$(P)$(R)AFCPhasePropGain-RB"){
     field(PINI, "1")
     field(DESC, "Get proportional gain of afc freq loop")
     field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_PHASE_KP")
-    field(SCAN,".1 second")
+    field(SCAN,"I/O Intr")
 }
 
 record(longout, "$(P)$(R)AFCPhaseIntgGain-SP"){
@@ -289,7 +305,7 @@ record(longin, "$(P)$(R)AFCPhaseIntgGain-RB"){
     field(PINI, "1")
     field(DESC, "Get integral gain of afc phase loop")
     field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_PHASE_KI")
-    field(SCAN,".1 second")
+    field(SCAN,"I/O Intr")
 }
 
 record(longout, "$(P)$(R)AFCPhaseNavg-SP"){
@@ -397,6 +413,22 @@ record(mbbi, "$(P)$(R)AFChs_div-RB"){
     field(FVST, "11")
     field(FVVL, "0x7")
     field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_HS_DIV")
+    field(SCAN,"I/O Intr")
+}
+
+record(longout, "$(P)$(R)AFCFreq-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Set afc Si57x Freq")
+    field(EGU, "Hz")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_SI57XFREQ")
+}
+
+record(longin, "$(P)$(R)AFCFreq-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Get afc Si57x Freq")
+    field(EGU, "Hz")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_SI57XFREQ")
     field(SCAN,"I/O Intr")
 }
 

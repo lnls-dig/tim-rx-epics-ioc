@@ -210,6 +210,8 @@ private:
 #define P_TimRxRtmRfreqLoString         "TIM_RX_RTM_RFREQ_LO"      /* asynUInt32Digital,  r/w */
 #define P_TimRxRtmN1String              "TIM_RX_RTM_N1"      /* asynUInt32Digital,  r/w */
 #define P_TimRxRtmHsDivString           "TIM_RX_RTM_HS_DIV"      /* asynUInt32Digital,  r/w */
+#define P_TimRxRtmSi57xFreqString       "TIM_RX_RTM_SI57XFREQ"      /* asynUInt32Digital,  r/w */
+
 #define P_TimRxAfcFreqKpString          "TIM_RX_AFC_FREQ_KP"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAfcFreqKiString          "TIM_RX_AFC_FREQ_KI"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAfcPhaseKpString         "TIM_RX_AFC_PHASE_KP"      /* asynUInt32Digital,  r/w */
@@ -221,6 +223,7 @@ private:
 #define P_TimRxAfcRfreqLoString         "TIM_RX_AFC_RFREQ_LO"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAfcN1String              "TIM_RX_AFC_N1"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAfcHsDivString           "TIM_RX_AFC_HS_DIV"      /* asynUInt32Digital,  r/w */
+#define P_TimRxAfcSi57xFreqString       "TIM_RX_AFC_SI57XFREQ"      /* asynUInt32Digital,  r/w */
 
 class drvTimRx : public asynPortDriver {
     public:
@@ -332,6 +335,7 @@ class drvTimRx : public asynPortDriver {
         int P_TimRxRtmRfreqLo;
         int P_TimRxRtmN1;
         int P_TimRxRtmHsDiv;
+        int P_TimRxRtmSi57xFreq;
         int P_TimRxAfcFreqKp;
         int P_TimRxAfcFreqKi;
         int P_TimRxAfcPhaseKp;
@@ -343,7 +347,8 @@ class drvTimRx : public asynPortDriver {
         int P_TimRxAfcRfreqLo;
         int P_TimRxAfcN1;
         int P_TimRxAfcHsDiv;
-#define LAST_COMMAND P_TimRxAfcHsDiv
+        int P_TimRxAfcSi57xFreq;
+#define LAST_COMMAND P_TimRxAfcSi57xFreq
 
     private:
         /* Our data */
@@ -367,6 +372,18 @@ class drvTimRx : public asynPortDriver {
                 epicsUInt32 mask, int addr);
         asynStatus setParamDouble(int functionId, int addr);
         asynStatus getParamDouble(int functionId, epicsFloat64 *param, int addr);
+
+        /* Specific hardware functions that need extra processing and don't
+         * fit into the general set/get template */
+        asynStatus setRtmSi57xFreq(epicsUInt32 value, int addr);
+        asynStatus setAfcSi57xFreq(epicsUInt32 value, int addr);
+        asynStatus setSi57xFreq(epicsUInt32 value, uint32_t *n1, uint32_t *hs_div,
+                uint32_t *ReqLo, uint32_t *ReqHi);
+        asynStatus getRtmSi57xFreq(epicsUInt32 *value, int addr);
+        asynStatus getAfcSi57xFreq(epicsUInt32 *value, int addr);
+        asynStatus getSi57xFreq(epicsUInt32 *value, uint32_t n1, uint32_t hs_div,
+                uint32_t ReqLo, uint32_t ReqHi);
+        
 };
 
 #define NUM_PARAMS (&LAST_COMMAND - &FIRST_COMMAND + 1)
