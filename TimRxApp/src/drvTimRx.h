@@ -165,6 +165,7 @@ private:
 #define P_TimRxRefClkLockedString       "TIM_RX_REF_CLK_LOCKED"      /* asynUInt32Digital,  r/w */
 #define P_TimRxEvrenString              "TIM_RX_EVREN"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAliveString              "TIM_RX_ALIVE"      /* asynUInt32Digital,  r/w */
+#define P_TimRxFreqSampPresString       "TIM_RX_FREQ_SAMP_PRES"      /* asynUInt32Digital,  r/w */
 
 #define P_TimRxAmcEnString              "TIM_RX_AMC_EN"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcPolString             "TIM_RX_AMC_POL"      /* asynUInt32Digital,  r/w */
@@ -294,6 +295,7 @@ class drvTimRx : public asynPortDriver {
         int P_TimRxRefClkLocked;
         int P_TimRxEvren;
         int P_TimRxAlive;
+        int P_TimRxFreqSampPres;
         int P_TimRxAmcEn;
         int P_TimRxAmcPol;
         int P_TimRxAmcLog;

@@ -72,6 +72,20 @@ record(longin, "$(P)$(R)Alive-Mon"){
     field(SCAN,"1 second")
 }
 
+record(longout, "$(P)$(R)FreqSplRatePrescale-SP"){
+    field(DTYP, "asynUInt32Digital")
+    field(DESC, "Sample rate prescaler of the freq loop")
+    field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_FREQ_SAMP_PRES")
+}
+
+record(longin, "$(P)$(R)FreqSplRatePrescale-RB"){
+    field(DTYP, "asynUInt32Digital")
+    field(PINI, "1")
+    field(DESC, "Sample rate prescaler of the freq loop")
+    field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_FREQ_SAMP_PRES")
+    field(SCAN,"I/O Intr")
+}
+
 record(longout, "$(P)$(R)RTMFreqPropGain-SP"){
     field(DTYP, "asynUInt32Digital")
     field(DESC, "Set proportional gain of rtm freq loop")
