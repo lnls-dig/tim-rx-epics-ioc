@@ -100,7 +100,6 @@ static const functionsAny_t timRxSetGetRtmFreqKpFunc =                {functions
 static const functionsAny_t timRxSetGetRtmFreqKiFunc =                {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_freq_ki, afc_timing_get_rtm_freq_ki}};
 static const functionsAny_t timRxSetGetRtmPhaseKpFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_phase_kp, afc_timing_get_rtm_phase_kp}};
 static const functionsAny_t timRxSetGetRtmPhaseKiFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_phase_ki, afc_timing_get_rtm_phase_ki}};
-static const functionsAny_t timRxSetGetRtmPhaseSetFunc =              {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_phase_set, afc_timing_get_rtm_phase_set}};
 static const functionsAny_t timRxSetGetRtmPhaseNavgFunc =             {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_phase_navg, afc_timing_get_rtm_phase_navg}};
 static const functionsAny_t timRxSetGetRtmPhaseDivExpFunc =           {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_phase_div_exp, afc_timing_get_rtm_phase_div_exp}};
 static const functionsAny_t timRxSetGetRtmRfreqHiFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_rfreq_hi, afc_timing_get_rtm_rfreq_hi}};
@@ -112,7 +111,6 @@ static const functionsAny_t timRxSetGetAfcFreqKpFunc =                {functions
 static const functionsAny_t timRxSetGetAfcFreqKiFunc =                {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_freq_ki, afc_timing_get_afc_freq_ki}};
 static const functionsAny_t timRxSetGetAfcPhaseKpFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_phase_kp, afc_timing_get_afc_phase_kp}};
 static const functionsAny_t timRxSetGetAfcPhaseKiFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_phase_ki, afc_timing_get_afc_phase_ki}};
-static const functionsAny_t timRxSetGetAfcPhaseSetFunc =              {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_phase_set, afc_timing_get_afc_phase_set}};
 static const functionsAny_t timRxSetGetAfcPhaseNavgFunc =             {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_phase_navg, afc_timing_get_afc_phase_navg}};
 static const functionsAny_t timRxSetGetAfcPhaseDivExpFunc =           {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_phase_div_exp, afc_timing_get_afc_phase_div_exp}};
 static const functionsAny_t timRxSetGetAfcRfreqHiFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_rfreq_hi, afc_timing_get_afc_rfreq_hi}};
@@ -273,7 +271,6 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     createParam(P_TimRxRtmFreqKiString,   asynParamUInt32Digital,         &P_TimRxRtmFreqKi);
     createParam(P_TimRxRtmPhaseKpString,   asynParamUInt32Digital,         &P_TimRxRtmPhaseKp);
     createParam(P_TimRxRtmPhaseKiString,   asynParamUInt32Digital,         &P_TimRxRtmPhaseKi);
-    createParam(P_TimRxRtmPhaseSetString,   asynParamUInt32Digital,         &P_TimRxRtmPhaseSet);
     createParam(P_TimRxRtmPhaseNavgString,   asynParamUInt32Digital,         &P_TimRxRtmPhaseNavg);
     createParam(P_TimRxRtmPhaseDivExpString,   asynParamUInt32Digital,         &P_TimRxRtmPhaseDivExp);
     createParam(P_TimRxRtmRfreqHiString,   asynParamUInt32Digital,         &P_TimRxRtmRfreqHi);
@@ -286,7 +283,6 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     createParam(P_TimRxAfcFreqKiString,   asynParamUInt32Digital,         &P_TimRxAfcFreqKi);
     createParam(P_TimRxAfcPhaseKpString,   asynParamUInt32Digital,         &P_TimRxAfcPhaseKp);
     createParam(P_TimRxAfcPhaseKiString,   asynParamUInt32Digital,         &P_TimRxAfcPhaseKi);
-    createParam(P_TimRxAfcPhaseSetString,   asynParamUInt32Digital,         &P_TimRxAfcPhaseSet);
     createParam(P_TimRxAfcPhaseNavgString,   asynParamUInt32Digital,         &P_TimRxAfcPhaseNavg);
     createParam(P_TimRxAfcPhaseDivExpString,   asynParamUInt32Digital,         &P_TimRxAfcPhaseDivExp);
     createParam(P_TimRxAfcRfreqHiString,   asynParamUInt32Digital,         &P_TimRxAfcRfreqHi);
@@ -341,7 +337,6 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     timRxHwFunc.emplace(P_TimRxRtmFreqKi,    timRxSetGetRtmFreqKiFunc);
     timRxHwFunc.emplace(P_TimRxRtmPhaseKp,    timRxSetGetRtmPhaseKpFunc);
     timRxHwFunc.emplace(P_TimRxRtmPhaseKi,    timRxSetGetRtmPhaseKiFunc);
-    timRxHwFunc.emplace(P_TimRxRtmPhaseSet,    timRxSetGetRtmPhaseSetFunc);
     timRxHwFunc.emplace(P_TimRxRtmPhaseNavg,    timRxSetGetRtmPhaseNavgFunc);
     timRxHwFunc.emplace(P_TimRxRtmPhaseDivExp,    timRxSetGetRtmPhaseDivExpFunc);
     timRxHwFunc.emplace(P_TimRxRtmRfreqHi,    timRxSetGetRtmRfreqHiFunc);
@@ -352,7 +347,6 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     timRxHwFunc.emplace(P_TimRxAfcFreqKi,    timRxSetGetAfcFreqKiFunc);
     timRxHwFunc.emplace(P_TimRxAfcPhaseKp,    timRxSetGetAfcPhaseKpFunc);
     timRxHwFunc.emplace(P_TimRxAfcPhaseKi,    timRxSetGetAfcPhaseKiFunc);
-    timRxHwFunc.emplace(P_TimRxAfcPhaseSet,    timRxSetGetAfcPhaseSetFunc);
     timRxHwFunc.emplace(P_TimRxAfcPhaseNavg,    timRxSetGetAfcPhaseNavgFunc);
     timRxHwFunc.emplace(P_TimRxAfcPhaseDivExp,    timRxSetGetAfcPhaseDivExpFunc);
     timRxHwFunc.emplace(P_TimRxAfcRfreqHi,    timRxSetGetAfcRfreqHiFunc);
@@ -426,7 +420,6 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     setUIntDigitalParam(P_TimRxRtmFreqKi,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxRtmPhaseKp,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxRtmPhaseKi,   0, 0xFFFFFFFF);
-    setUIntDigitalParam(P_TimRxRtmPhaseSet,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxRtmPhaseNavg,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxRtmPhaseDivExp,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxRtmRfreqHi,   0, 0xFFFFFFFF);
@@ -439,7 +432,6 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     setUIntDigitalParam(P_TimRxAfcFreqKi,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAfcPhaseKp,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAfcPhaseKi,   0, 0xFFFFFFFF);
-    setUIntDigitalParam(P_TimRxAfcPhaseSet,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAfcPhaseNavg,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAfcPhaseDivExp,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAfcRfreqHi,   0, 0xFFFFFFFF);

@@ -204,7 +204,6 @@ private:
 #define P_TimRxRtmFreqKiString          "TIM_RX_RTM_FREQ_KI"      /* asynUInt32Digital,  r/w */
 #define P_TimRxRtmPhaseKpString         "TIM_RX_RTM_PHASE_KP"      /* asynUInt32Digital,  r/w */
 #define P_TimRxRtmPhaseKiString         "TIM_RX_RTM_PHASE_KI"      /* asynUInt32Digital,  r/w */
-#define P_TimRxRtmPhaseSetString        "TIM_RX_RTM_PHASE_SET"      /* asynUInt32Digital,  r/w */
 #define P_TimRxRtmPhaseNavgString       "TIM_RX_RTM_PHASE_NAVG"      /* asynUInt32Digital,  r/w */
 #define P_TimRxRtmPhaseDivExpString     "TIM_RX_RTM_PHASE_DIV_EXP"      /* asynUInt32Digital,  r/w */
 #define P_TimRxRtmRfreqHiString         "TIM_RX_RTM_RFREQ_HI"      /* asynUInt32Digital,  r/w */
@@ -217,7 +216,6 @@ private:
 #define P_TimRxAfcFreqKiString          "TIM_RX_AFC_FREQ_KI"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAfcPhaseKpString         "TIM_RX_AFC_PHASE_KP"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAfcPhaseKiString         "TIM_RX_AFC_PHASE_KI"      /* asynUInt32Digital,  r/w */
-#define P_TimRxAfcPhaseSetString        "TIM_RX_AFC_PHASE_SET"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAfcPhaseNavgString       "TIM_RX_AFC_PHASE_NAVG"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAfcPhaseDivExpString     "TIM_RX_AFC_PHASE_DIV_EXP"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAfcRfreqHiString         "TIM_RX_AFC_RFREQ_HI"      /* asynUInt32Digital,  r/w */
