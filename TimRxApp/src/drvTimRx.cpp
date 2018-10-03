@@ -55,10 +55,69 @@ static const boardMap_t boardMap[MAX_TIM_RXS+1] = {
     /* 24           */ {12,  1}
 };
 
-/* Double functions mapping */
-static const functionsAny_t timRxSetGetLinkStatusFunc = {functionsInt32_t{"LNLS_AFC_TIMING", NULL, afc_timing_get_link_status}};
-static const functionsAny_t timRxRxEnStatusFunc =       {functionsInt32_t{"LNLS_AFC_TIMING", NULL, afc_timing_get_rxen_status}};
-static const functionsAny_t timRxRefClkLockedFunc =     {functionsInt32_t{"LNLS_AFC_TIMING", NULL, afc_timing_get_ref_clk_locked}};
+/* Int32 functions mapping */
+static const functionsAny_t timRxSetGetLinkStatusFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_link_status, afc_timing_get_link_status}};
+static const functionsAny_t timRxSetGetRxenStatusFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rxen_status, afc_timing_get_rxen_status}};
+static const functionsAny_t timRxSetGetRefClkLockedFunc =             {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_ref_clk_locked, afc_timing_get_ref_clk_locked}};
+static const functionsAny_t timRxSetGetEvrenFunc =                    {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_evren, afc_timing_get_evren}};
+static const functionsAny_t timRxSetGetAliveFunc =                    {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_alive, afc_timing_get_alive}};
+
+static const functionsAny_t timRxSetGetAmcEnFunc =                    {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_en, halcs_get_afc_timing_amc_en}};
+static const functionsAny_t timRxSetGetAmcPolFunc =                   {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_pol, halcs_get_afc_timing_amc_pol}};
+static const functionsAny_t timRxSetGetAmcLogFunc =                   {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_log, halcs_get_afc_timing_amc_log}};
+static const functionsAny_t timRxSetGetAmcItlFunc =                   {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_itl, halcs_get_afc_timing_amc_itl}};
+static const functionsAny_t timRxSetGetAmcSrcFunc =                   {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_src, halcs_get_afc_timing_amc_src}};
+static const functionsAny_t timRxSetGetAmcDirFunc =                   {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_dir, halcs_get_afc_timing_amc_dir}};
+static const functionsAny_t timRxSetGetAmcPulsesFunc =                {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_pulses, halcs_get_afc_timing_amc_pulses}};
+static const functionsAny_t timRxSetGetAmcEvtFunc =                   {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_evt, halcs_get_afc_timing_amc_evt}};
+static const functionsAny_t timRxSetGetAmcDlyFunc =                   {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_dly, halcs_get_afc_timing_amc_dly}};
+static const functionsAny_t timRxSetGetAmcWdtFunc =                   {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_wdt, halcs_get_afc_timing_amc_wdt}};
+
+static const functionsAny_t timRxSetGetFmc1EnFunc =                   {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_en, halcs_get_afc_timing_fmc1_en}};
+static const functionsAny_t timRxSetGetFmc1PolFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_pol, halcs_get_afc_timing_fmc1_pol}};
+static const functionsAny_t timRxSetGetFmc1LogFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_log, halcs_get_afc_timing_fmc1_log}};
+static const functionsAny_t timRxSetGetFmc1ItlFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_itl, halcs_get_afc_timing_fmc1_itl}};
+static const functionsAny_t timRxSetGetFmc1SrcFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_src, halcs_get_afc_timing_fmc1_src}};
+static const functionsAny_t timRxSetGetFmc1DirFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_dir, halcs_get_afc_timing_fmc1_dir}};
+static const functionsAny_t timRxSetGetFmc1PulsesFunc =               {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_pulses, halcs_get_afc_timing_fmc1_pulses}};
+static const functionsAny_t timRxSetGetFmc1EvtFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_evt, halcs_get_afc_timing_fmc1_evt}};
+static const functionsAny_t timRxSetGetFmc1DlyFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_dly, halcs_get_afc_timing_fmc1_dly}};
+static const functionsAny_t timRxSetGetFmc1WdtFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_wdt, halcs_get_afc_timing_fmc1_wdt}};
+
+static const functionsAny_t timRxSetGetFmc2EnFunc =                   {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_en, halcs_get_afc_timing_fmc2_en}};
+static const functionsAny_t timRxSetGetFmc2PolFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_pol, halcs_get_afc_timing_fmc2_pol}};
+static const functionsAny_t timRxSetGetFmc2LogFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_log, halcs_get_afc_timing_fmc2_log}};
+static const functionsAny_t timRxSetGetFmc2ItlFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_itl, halcs_get_afc_timing_fmc2_itl}};
+static const functionsAny_t timRxSetGetFmc2SrcFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_src, halcs_get_afc_timing_fmc2_src}};
+static const functionsAny_t timRxSetGetFmc2DirFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_dir, halcs_get_afc_timing_fmc2_dir}};
+static const functionsAny_t timRxSetGetFmc2PulsesFunc =               {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_pulses, halcs_get_afc_timing_fmc2_pulses}};
+static const functionsAny_t timRxSetGetFmc2EvtFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_evt, halcs_get_afc_timing_fmc2_evt}};
+static const functionsAny_t timRxSetGetFmc2DlyFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_dly, halcs_get_afc_timing_fmc2_dly}};
+static const functionsAny_t timRxSetGetFmc2WdtFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_wdt, halcs_get_afc_timing_fmc2_wdt}};
+
+static const functionsAny_t timRxSetGetRtmFreqKpFunc =                {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_freq_kp, afc_timing_get_rtm_freq_kp}};
+static const functionsAny_t timRxSetGetRtmFreqKiFunc =                {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_freq_ki, afc_timing_get_rtm_freq_ki}};
+static const functionsAny_t timRxSetGetRtmPhaseKpFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_phase_kp, afc_timing_get_rtm_phase_kp}};
+static const functionsAny_t timRxSetGetRtmPhaseKiFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_phase_ki, afc_timing_get_rtm_phase_ki}};
+static const functionsAny_t timRxSetGetRtmPhaseSetFunc =              {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_phase_set, afc_timing_get_rtm_phase_set}};
+static const functionsAny_t timRxSetGetRtmPhaseNavgFunc =             {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_phase_navg, afc_timing_get_rtm_phase_navg}};
+static const functionsAny_t timRxSetGetRtmPhaseDivExpFunc =           {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_phase_div_exp, afc_timing_get_rtm_phase_div_exp}};
+static const functionsAny_t timRxSetGetRtmRfreqHiFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_rfreq_hi, afc_timing_get_rtm_rfreq_hi}};
+static const functionsAny_t timRxSetGetRtmRfreqLoFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_rfreq_lo, afc_timing_get_rtm_rfreq_lo}};
+static const functionsAny_t timRxSetGetRtmN1Func =                    {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_n1, afc_timing_get_rtm_n1}};
+static const functionsAny_t timRxSetGetRtmHsDivFunc =                 {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_hs_div, afc_timing_get_rtm_hs_div}};
+
+static const functionsAny_t timRxSetGetAfcFreqKpFunc =                {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_freq_kp, afc_timing_get_afc_freq_kp}};
+static const functionsAny_t timRxSetGetAfcFreqKiFunc =                {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_freq_ki, afc_timing_get_afc_freq_ki}};
+static const functionsAny_t timRxSetGetAfcPhaseKpFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_phase_kp, afc_timing_get_afc_phase_kp}};
+static const functionsAny_t timRxSetGetAfcPhaseKiFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_phase_ki, afc_timing_get_afc_phase_ki}};
+static const functionsAny_t timRxSetGetAfcPhaseSetFunc =              {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_phase_set, afc_timing_get_afc_phase_set}};
+static const functionsAny_t timRxSetGetAfcPhaseNavgFunc =             {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_phase_navg, afc_timing_get_afc_phase_navg}};
+static const functionsAny_t timRxSetGetAfcPhaseDivExpFunc =           {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_phase_div_exp, afc_timing_get_afc_phase_div_exp}};
+static const functionsAny_t timRxSetGetAfcRfreqHiFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_rfreq_hi, afc_timing_get_afc_rfreq_hi}};
+static const functionsAny_t timRxSetGetAfcRfreqLoFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_rfreq_lo, afc_timing_get_afc_rfreq_lo}};
+static const functionsAny_t timRxSetGetAfcN1Func =                    {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_n1, afc_timing_get_afc_n1}};
+static const functionsAny_t timRxSetGetAfcHsDivFunc =                 {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_hs_div, afc_timing_get_afc_hs_div}};
 
 static const char *driverName="drvTimRx";
 void acqTask(void *drvPvt);
@@ -67,6 +126,19 @@ static void exitHandlerC(void *pPvt)
 {
     drvTimRx *pdrvTimRx = (drvTimRx *)pPvt;
     pdrvTimRx->~drvTimRx();
+}
+
+asynStatus drvTimRx::getServiceChan (int timRxNumber, int addr, const char *serviceName,
+        epicsUInt32 *chanArg) const
+{
+    static const char *functionName = "getServiceChan";
+    asynStatus status = asynSuccess;
+    epicsUInt32 chan = 0;
+
+    chan = addr;
+
+    *chanArg = chan;
+    return status;
 }
 
 asynStatus drvTimRx::getServiceID (int timRxNumber, int addr, const char *serviceName,
@@ -156,26 +228,135 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     this->timeout = timeout;
 
     /* Create parameters */
-    createParam(P_TimRxLinkStatusString, asynParamUInt32Digital,         &P_TimRxLinkStatus);
-    createParam(P_TimRxRxEnStatusString, asynParamUInt32Digital,         &P_TimRxRxEnStatus);
-    createParam(P_TimRxRefClkLockedString,
-                                         asynParamUInt32Digital,         &P_TimRxRefClkLocked);
+    createParam(P_TimRxLinkStatusString,   asynParamUInt32Digital,         &P_TimRxLinkStatus);
+    createParam(P_TimRxRxenStatusString,   asynParamUInt32Digital,         &P_TimRxRxenStatus);
+    createParam(P_TimRxRefClkLockedString,   asynParamUInt32Digital,         &P_TimRxRefClkLocked);
+    createParam(P_TimRxEvrenString,   asynParamUInt32Digital,         &P_TimRxEvren);
+    createParam(P_TimRxAliveString,   asynParamUInt32Digital,         &P_TimRxAlive);
 
-    /* Set the initial values of some parameters */
-    setUIntDigitalParam(P_TimRxLinkStatus,   0, 0xFFFFFFFF);
-    setUIntDigitalParam(P_TimRxRxEnStatus,   0, 0xFFFFFFFF);
-    setUIntDigitalParam(P_TimRxRefClkLocked, 0, 0xFFFFFFFF);
+    createParam(P_TimRxAmcEnString,   asynParamUInt32Digital,         &P_TimRxAmcEn);
+    createParam(P_TimRxAmcPolString,   asynParamUInt32Digital,         &P_TimRxAmcPol);
+    createParam(P_TimRxAmcLogString,   asynParamUInt32Digital,         &P_TimRxAmcLog);
+    createParam(P_TimRxAmcItlString,   asynParamUInt32Digital,         &P_TimRxAmcItl);
+    createParam(P_TimRxAmcSrcString,   asynParamUInt32Digital,         &P_TimRxAmcSrc);
+    createParam(P_TimRxAmcDirString,   asynParamUInt32Digital,         &P_TimRxAmcDir);
+    createParam(P_TimRxAmcPulsesString,   asynParamUInt32Digital,         &P_TimRxAmcPulses);
+    createParam(P_TimRxAmcEvtString,   asynParamUInt32Digital,         &P_TimRxAmcEvt);
+    createParam(P_TimRxAmcDlyString,   asynParamUInt32Digital,         &P_TimRxAmcDly);
+    createParam(P_TimRxAmcWdtString,   asynParamUInt32Digital,         &P_TimRxAmcWdt);
 
-    /* Do callbacks so higher layers see any changes. Call callbacks for every addr */
-    for (int i = 0; i < MAX_ADDR; ++i) {
-        callParamCallbacks(i);
-    }
+    createParam(P_TimRxFmc1EnString,   asynParamUInt32Digital,         &P_TimRxFmc1En);
+    createParam(P_TimRxFmc1PolString,   asynParamUInt32Digital,         &P_TimRxFmc1Pol);
+    createParam(P_TimRxFmc1LogString,   asynParamUInt32Digital,         &P_TimRxFmc1Log);
+    createParam(P_TimRxFmc1ItlString,   asynParamUInt32Digital,         &P_TimRxFmc1Itl);
+    createParam(P_TimRxFmc1SrcString,   asynParamUInt32Digital,         &P_TimRxFmc1Src);
+    createParam(P_TimRxFmc1DirString,   asynParamUInt32Digital,         &P_TimRxFmc1Dir);
+    createParam(P_TimRxFmc1PulsesString,   asynParamUInt32Digital,         &P_TimRxFmc1Pulses);
+    createParam(P_TimRxFmc1EvtString,   asynParamUInt32Digital,         &P_TimRxFmc1Evt);
+    createParam(P_TimRxFmc1DlyString,   asynParamUInt32Digital,         &P_TimRxFmc1Dly);
+    createParam(P_TimRxFmc1WdtString,   asynParamUInt32Digital,         &P_TimRxFmc1Wdt);
+
+    createParam(P_TimRxFmc2EnString,   asynParamUInt32Digital,         &P_TimRxFmc2En);
+    createParam(P_TimRxFmc2PolString,   asynParamUInt32Digital,         &P_TimRxFmc2Pol);
+    createParam(P_TimRxFmc2LogString,   asynParamUInt32Digital,         &P_TimRxFmc2Log);
+    createParam(P_TimRxFmc2ItlString,   asynParamUInt32Digital,         &P_TimRxFmc2Itl);
+    createParam(P_TimRxFmc2SrcString,   asynParamUInt32Digital,         &P_TimRxFmc2Src);
+    createParam(P_TimRxFmc2DirString,   asynParamUInt32Digital,         &P_TimRxFmc2Dir);
+    createParam(P_TimRxFmc2PulsesString,   asynParamUInt32Digital,         &P_TimRxFmc2Pulses);
+    createParam(P_TimRxFmc2EvtString,   asynParamUInt32Digital,         &P_TimRxFmc2Evt);
+    createParam(P_TimRxFmc2DlyString,   asynParamUInt32Digital,         &P_TimRxFmc2Dly);
+    createParam(P_TimRxFmc2WdtString,   asynParamUInt32Digital,         &P_TimRxFmc2Wdt);
+
+    createParam(P_TimRxRtmFreqKpString,   asynParamUInt32Digital,         &P_TimRxRtmFreqKp);
+    createParam(P_TimRxRtmFreqKiString,   asynParamUInt32Digital,         &P_TimRxRtmFreqKi);
+    createParam(P_TimRxRtmPhaseKpString,   asynParamUInt32Digital,         &P_TimRxRtmPhaseKp);
+    createParam(P_TimRxRtmPhaseKiString,   asynParamUInt32Digital,         &P_TimRxRtmPhaseKi);
+    createParam(P_TimRxRtmPhaseSetString,   asynParamUInt32Digital,         &P_TimRxRtmPhaseSet);
+    createParam(P_TimRxRtmPhaseNavgString,   asynParamUInt32Digital,         &P_TimRxRtmPhaseNavg);
+    createParam(P_TimRxRtmPhaseDivExpString,   asynParamUInt32Digital,         &P_TimRxRtmPhaseDivExp);
+    createParam(P_TimRxRtmRfreqHiString,   asynParamUInt32Digital,         &P_TimRxRtmRfreqHi);
+    createParam(P_TimRxRtmRfreqLoString,   asynParamUInt32Digital,         &P_TimRxRtmRfreqLo);
+    createParam(P_TimRxRtmN1String,   asynParamUInt32Digital,         &P_TimRxRtmN1);
+    createParam(P_TimRxRtmHsDivString,   asynParamUInt32Digital,         &P_TimRxRtmHsDiv);
+    createParam(P_TimRxRtmSi57xFreqString,   asynParamUInt32Digital,         &P_TimRxRtmSi57xFreq);
+
+    createParam(P_TimRxAfcFreqKpString,   asynParamUInt32Digital,         &P_TimRxAfcFreqKp);
+    createParam(P_TimRxAfcFreqKiString,   asynParamUInt32Digital,         &P_TimRxAfcFreqKi);
+    createParam(P_TimRxAfcPhaseKpString,   asynParamUInt32Digital,         &P_TimRxAfcPhaseKp);
+    createParam(P_TimRxAfcPhaseKiString,   asynParamUInt32Digital,         &P_TimRxAfcPhaseKi);
+    createParam(P_TimRxAfcPhaseSetString,   asynParamUInt32Digital,         &P_TimRxAfcPhaseSet);
+    createParam(P_TimRxAfcPhaseNavgString,   asynParamUInt32Digital,         &P_TimRxAfcPhaseNavg);
+    createParam(P_TimRxAfcPhaseDivExpString,   asynParamUInt32Digital,         &P_TimRxAfcPhaseDivExp);
+    createParam(P_TimRxAfcRfreqHiString,   asynParamUInt32Digital,         &P_TimRxAfcRfreqHi);
+    createParam(P_TimRxAfcRfreqLoString,   asynParamUInt32Digital,         &P_TimRxAfcRfreqLo);
+    createParam(P_TimRxAfcN1String,   asynParamUInt32Digital,         &P_TimRxAfcN1);
+    createParam(P_TimRxAfcHsDivString,   asynParamUInt32Digital,         &P_TimRxAfcHsDiv);
+    createParam(P_TimRxAfcSi57xFreqString,   asynParamUInt32Digital,         &P_TimRxAfcSi57xFreq);
 
     /* TimRx Int32 Functions mapping. Functions not mapped here are just written
      * to the parameter library */
-    timRxHwFunc.emplace(P_TimRxLinkStatus,   timRxSetGetLinkStatusFunc);
-    timRxHwFunc.emplace(P_TimRxRxEnStatus,   timRxRxEnStatusFunc);
-    timRxHwFunc.emplace(P_TimRxRefClkLocked, timRxRefClkLockedFunc);
+    timRxHwFunc.emplace(P_TimRxLinkStatus,    timRxSetGetLinkStatusFunc);
+    timRxHwFunc.emplace(P_TimRxRxenStatus,    timRxSetGetRxenStatusFunc);
+    timRxHwFunc.emplace(P_TimRxRefClkLocked,    timRxSetGetRefClkLockedFunc);
+    timRxHwFunc.emplace(P_TimRxEvren,    timRxSetGetEvrenFunc);
+    timRxHwFunc.emplace(P_TimRxAlive,    timRxSetGetAliveFunc);
+
+    timRxHwFunc.emplace(P_TimRxAmcEn,    timRxSetGetAmcEnFunc);
+    timRxHwFunc.emplace(P_TimRxAmcPol,    timRxSetGetAmcPolFunc);
+    timRxHwFunc.emplace(P_TimRxAmcLog,    timRxSetGetAmcLogFunc);
+    timRxHwFunc.emplace(P_TimRxAmcItl,    timRxSetGetAmcItlFunc);
+    timRxHwFunc.emplace(P_TimRxAmcSrc,    timRxSetGetAmcSrcFunc);
+    timRxHwFunc.emplace(P_TimRxAmcDir,    timRxSetGetAmcDirFunc);
+    timRxHwFunc.emplace(P_TimRxAmcPulses,    timRxSetGetAmcPulsesFunc);
+    timRxHwFunc.emplace(P_TimRxAmcEvt,    timRxSetGetAmcEvtFunc);
+    timRxHwFunc.emplace(P_TimRxAmcDly,    timRxSetGetAmcDlyFunc);
+    timRxHwFunc.emplace(P_TimRxAmcWdt,    timRxSetGetAmcWdtFunc);
+
+    timRxHwFunc.emplace(P_TimRxFmc1En,    timRxSetGetFmc1EnFunc);
+    timRxHwFunc.emplace(P_TimRxFmc1Pol,    timRxSetGetFmc1PolFunc);
+    timRxHwFunc.emplace(P_TimRxFmc1Log,    timRxSetGetFmc1LogFunc);
+    timRxHwFunc.emplace(P_TimRxFmc1Itl,    timRxSetGetFmc1ItlFunc);
+    timRxHwFunc.emplace(P_TimRxFmc1Src,    timRxSetGetFmc1SrcFunc);
+    timRxHwFunc.emplace(P_TimRxFmc1Dir,    timRxSetGetFmc1DirFunc);
+    timRxHwFunc.emplace(P_TimRxFmc1Pulses,    timRxSetGetFmc1PulsesFunc);
+    timRxHwFunc.emplace(P_TimRxFmc1Evt,    timRxSetGetFmc1EvtFunc);
+    timRxHwFunc.emplace(P_TimRxFmc1Dly,    timRxSetGetFmc1DlyFunc);
+    timRxHwFunc.emplace(P_TimRxFmc1Wdt,    timRxSetGetFmc1WdtFunc);
+
+    timRxHwFunc.emplace(P_TimRxFmc2En,    timRxSetGetFmc2EnFunc);
+    timRxHwFunc.emplace(P_TimRxFmc2Pol,    timRxSetGetFmc2PolFunc);
+    timRxHwFunc.emplace(P_TimRxFmc2Log,    timRxSetGetFmc2LogFunc);
+    timRxHwFunc.emplace(P_TimRxFmc2Itl,    timRxSetGetFmc2ItlFunc);
+    timRxHwFunc.emplace(P_TimRxFmc2Src,    timRxSetGetFmc2SrcFunc);
+    timRxHwFunc.emplace(P_TimRxFmc2Dir,    timRxSetGetFmc2DirFunc);
+    timRxHwFunc.emplace(P_TimRxFmc2Pulses,    timRxSetGetFmc2PulsesFunc);
+    timRxHwFunc.emplace(P_TimRxFmc2Evt,    timRxSetGetFmc2EvtFunc);
+    timRxHwFunc.emplace(P_TimRxFmc2Dly,    timRxSetGetFmc2DlyFunc);
+    timRxHwFunc.emplace(P_TimRxFmc2Wdt,    timRxSetGetFmc2WdtFunc);
+
+    timRxHwFunc.emplace(P_TimRxRtmFreqKp,    timRxSetGetRtmFreqKpFunc);
+    timRxHwFunc.emplace(P_TimRxRtmFreqKi,    timRxSetGetRtmFreqKiFunc);
+    timRxHwFunc.emplace(P_TimRxRtmPhaseKp,    timRxSetGetRtmPhaseKpFunc);
+    timRxHwFunc.emplace(P_TimRxRtmPhaseKi,    timRxSetGetRtmPhaseKiFunc);
+    timRxHwFunc.emplace(P_TimRxRtmPhaseSet,    timRxSetGetRtmPhaseSetFunc);
+    timRxHwFunc.emplace(P_TimRxRtmPhaseNavg,    timRxSetGetRtmPhaseNavgFunc);
+    timRxHwFunc.emplace(P_TimRxRtmPhaseDivExp,    timRxSetGetRtmPhaseDivExpFunc);
+    timRxHwFunc.emplace(P_TimRxRtmRfreqHi,    timRxSetGetRtmRfreqHiFunc);
+    timRxHwFunc.emplace(P_TimRxRtmRfreqLo,    timRxSetGetRtmRfreqLoFunc);
+    timRxHwFunc.emplace(P_TimRxRtmN1,    timRxSetGetRtmN1Func);
+    timRxHwFunc.emplace(P_TimRxRtmHsDiv,    timRxSetGetRtmHsDivFunc);
+    timRxHwFunc.emplace(P_TimRxAfcFreqKp,    timRxSetGetAfcFreqKpFunc);
+    timRxHwFunc.emplace(P_TimRxAfcFreqKi,    timRxSetGetAfcFreqKiFunc);
+    timRxHwFunc.emplace(P_TimRxAfcPhaseKp,    timRxSetGetAfcPhaseKpFunc);
+    timRxHwFunc.emplace(P_TimRxAfcPhaseKi,    timRxSetGetAfcPhaseKiFunc);
+    timRxHwFunc.emplace(P_TimRxAfcPhaseSet,    timRxSetGetAfcPhaseSetFunc);
+    timRxHwFunc.emplace(P_TimRxAfcPhaseNavg,    timRxSetGetAfcPhaseNavgFunc);
+    timRxHwFunc.emplace(P_TimRxAfcPhaseDivExp,    timRxSetGetAfcPhaseDivExpFunc);
+    timRxHwFunc.emplace(P_TimRxAfcRfreqHi,    timRxSetGetAfcRfreqHiFunc);
+    timRxHwFunc.emplace(P_TimRxAfcRfreqLo,    timRxSetGetAfcRfreqLoFunc);
+    timRxHwFunc.emplace(P_TimRxAfcN1,    timRxSetGetAfcN1Func);
+    timRxHwFunc.emplace(P_TimRxAfcHsDiv,    timRxSetGetAfcHsDivFunc);
+
 
     lock();
     status = timRxClientConnect();
@@ -189,6 +370,83 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
             "%s:%s: error calling timRxClientConnect, status=%d\n",
             driverName, functionName, status);
         exit(1);
+    }
+
+    /* Set the initial values of some parameters */
+    setUIntDigitalParam(P_TimRxLinkStatus,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxRxenStatus,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxRefClkLocked,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxEvren,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAlive,   0, 0xFFFFFFFF);
+
+    for (int addr = 0; addr < MAX_AMC_TRIGGER_CH; ++addr) {
+      setUIntDigitalParam(addr, P_TimRxAmcEn,       0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxAmcPol,      0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxAmcLog,      0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxAmcItl,      0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxAmcSrc,      0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxAmcDir,      0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxAmcPulses,   0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxAmcEvt,      0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxAmcDly,      0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxAmcWdt,      0, 0xFFFFFFFF);
+    }
+
+    for (int addr = 0; addr < MAX_FMC1_TRIGGER_CH; ++addr) {
+      setUIntDigitalParam(addr, P_TimRxFmc1En,      0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc1Pol,     0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc1Log,     0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc1Itl,     0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc1Src,     0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc1Dir,     0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc1Pulses,  0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc1Evt,     0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc1Dly,     0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc1Wdt,     0, 0xFFFFFFFF);
+    }
+
+    for (int addr = 0; addr < MAX_FMC2_TRIGGER_CH; ++addr) {
+      setUIntDigitalParam(addr, P_TimRxFmc2En,      0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc2Pol,     0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc2Log,     0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc2Itl,     0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc2Src,     0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc2Dir,     0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc2Pulses,  0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc2Evt,     0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc2Dly,     0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc2Wdt,     0, 0xFFFFFFFF);
+    }
+
+    setUIntDigitalParam(P_TimRxRtmFreqKp,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxRtmFreqKi,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxRtmPhaseKp,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxRtmPhaseKi,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxRtmPhaseSet,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxRtmPhaseNavg,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxRtmPhaseDivExp,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxRtmRfreqHi,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxRtmRfreqLo,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxRtmN1,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxRtmHsDiv,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxRtmSi57xFreq,   0, 0xFFFFFFFF);
+
+    setUIntDigitalParam(P_TimRxAfcFreqKp,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAfcFreqKi,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAfcPhaseKp,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAfcPhaseKi,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAfcPhaseSet,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAfcPhaseNavg,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAfcPhaseDivExp,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAfcRfreqHi,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAfcRfreqLo,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAfcN1,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAfcHsDiv,   0, 0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAfcSi57xFreq,   0, 0xFFFFFFFF);
+
+    /* Do callbacks so higher layers see any changes. Call callbacks for every addr */
+    for (int i = 0; i < MAX_ADDR; ++i) {
+        callParamCallbacks(i);
     }
 
     epicsAtExit(exitHandlerC, this);
@@ -305,13 +563,28 @@ asynStatus drvTimRx::writeUInt32Digital(asynUser *pasynUser, epicsUInt32 value,
                 driverName, functionName, status, function, paramName, value);
         return status;
     }
-    /* Set the parameter in the parameter library. */
-    setUIntDigitalParam(function, value, mask);
-    /* Fetch the parameter string name for possible use in debugging */
-    getParamName(function, &paramName);
 
-    /* Do operation on HW. Some functions do not set anything on hardware */
-    status = setParam32(function, mask, addr);
+    if (function >= FIRST_COMMAND) {
+        /* Set the parameter in the parameter library. */
+        setUIntDigitalParam(addr, function, value, mask);
+        /* Fetch the parameter string name for possible use in debugging */
+        getParamName(function, &paramName);
+    
+        if (function == P_TimRxRtmSi57xFreq) {
+            status = setRtmSi57xFreq(value, addr);
+        }
+        else if (function == P_TimRxAfcSi57xFreq) {
+            status = setAfcSi57xFreq(value, addr);
+        }
+        else {
+            /* Do operation on HW. Some functions do not set anything on hardware */
+            status = setParam32(function, mask, addr);
+        }
+    }
+    else {
+        /* Call base class */
+        status = asynPortDriver::writeUInt32Digital(pasynUser, value, mask);
+    }
 
     /* Do callbacks so higher layers see any changes */
     callParamCallbacks(addr);
@@ -351,8 +624,22 @@ asynStatus drvTimRx::readUInt32Digital(asynUser *pasynUser, epicsUInt32 *value,
     /* Fetch the parameter string name for possible use in debugging */
     getParamName(function, &paramName);
 
-    /* Get parameter, possibly from HW */
-    status = getParam32(function, value, mask, addr);
+    if (function >= FIRST_COMMAND) {
+        if (function == P_TimRxRtmSi57xFreq) {
+            status = getRtmSi57xFreq(value, addr);
+        }
+        else if (function == P_TimRxAfcSi57xFreq) {
+            status = getAfcSi57xFreq(value, addr);
+        }
+        else {
+            /* Get parameter, possibly from HW */
+            status = getParam32(function, value, mask, addr);
+        }
+    }
+    else {
+        /* Call base class */
+        status = asynPortDriver::readUInt32Digital(pasynUser, value, mask);
+    }
 
     if (status)
         epicsSnprintf(pasynUser->errorMessage, pasynUser->errorMessageSize,
@@ -385,13 +672,20 @@ asynStatus drvTimRx::writeFloat64(asynUser *pasynUser, epicsFloat64 value)
                 driverName, functionName, status, function, paramName, value);
         return status;
     }
-    /* Set the parameter in the parameter library. */
-    setDoubleParam(addr, function, value);
-    /* Fetch the parameter string name for possible use in debugging */
-    getParamName(function, &paramName);
 
-    /* Do operation on HW. Some functions do not set anything on hardware */
-    status = setParamDouble(function, addr);
+    if (function >= FIRST_COMMAND) {
+        /* Set the parameter in the parameter library. */
+        setDoubleParam(addr, function, value);
+        /* Fetch the parameter string name for possible use in debugging */
+        getParamName(function, &paramName);
+
+        /* Do operation on HW. Some functions do not set anything on hardware */
+        status = setParamDouble(function, addr);
+    }
+    else {
+        /* Call base class */
+        status = asynPortDriver::writeFloat64(pasynUser, value);
+    }
 
     /* Do callbacks so higher layers see any changes */
     callParamCallbacks(addr);
@@ -430,7 +724,13 @@ asynStatus drvTimRx::readFloat64(asynUser *pasynUser, epicsFloat64 *value)
     getParamName(function, &paramName);
 
     /* Get double param, possibly from HW */
-    status = getParamDouble(function, value, addr);
+    if (function >= FIRST_COMMAND) {
+        status = getParamDouble(function, value, addr);
+    }
+    else {
+        /* Call base class */
+        status = asynPortDriver::readFloat64(pasynUser, value);
+    }
 
     if (status)
         epicsSnprintf(pasynUser->errorMessage, pasynUser->errorMessageSize,
@@ -466,6 +766,33 @@ asynStatus drvTimRx::doExecuteHwWriteFunction(functionsFloat64_t &func, char *se
     }
 
 halcs_set_func_param_err:
+    return (asynStatus) status;
+}
+
+asynStatus drvTimRx::doExecuteHwWriteFunction(functionsInt32Chan_t &func, char *service,
+        int addr, functionsArgs_t &functionParam) const
+{
+    const char *functionName = "doExecuteHwWriteFunction<functionsInt32Chan_t>";
+    halcs_client_err_e err = HALCS_CLIENT_SUCCESS;
+    int status = asynSuccess;
+    char serviceChanStr[SERVICE_NAME_SIZE];
+    int serviceID = 0;
+    epicsUInt32 serviceChan = addr;
+
+    /* Execute registered function */
+    err = func.write(timRxClient, service, serviceChan, functionParam.argUInt32);
+    if (err != HALCS_CLIENT_SUCCESS) {
+        asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
+                "%s:%s: failure executing write function for service %s,"
+                "param = %u\n",
+                driverName, functionName, serviceChan,
+                functionParam.argUInt32);
+        status = asynError;
+        goto halcs_set_func_param_err;
+    }
+
+halcs_set_func_param_err:
+get_service_id_err:
     return (asynStatus) status;
 }
 
@@ -553,6 +880,29 @@ asynStatus drvTimRx::doExecuteHwReadFunction(functionsFloat64_t &func, char *ser
     }
 
 halcs_get_func_param_err:
+    return (asynStatus) status;
+}
+
+asynStatus drvTimRx::doExecuteHwReadFunction(functionsInt32Chan_t &func, char *service,
+        int addr, functionsArgs_t &functionParam) const
+{
+    const char *functionName = "doExecuteHwReadFunction<functionsInt32Chan_t>";
+    halcs_client_err_e err = HALCS_CLIENT_SUCCESS;
+    int status = asynSuccess;
+    epicsUInt32 serviceChan = addr;
+
+    /* Execute registered function */
+    err = func.read(timRxClient, service, serviceChan, &functionParam.argUInt32);
+    if (err != HALCS_CLIENT_SUCCESS) {
+        asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
+                "%s:%s: failure executing read function for service %u\n",
+                driverName, functionName, serviceChan);
+        status = asynError;
+        goto halcs_get_func_param_err;
+    }
+
+halcs_get_func_param_err:
+get_service_id_err:
     return (asynStatus) status;
 }
 
@@ -726,6 +1076,223 @@ asynStatus drvTimRx::getParamDouble(int functionId, epicsFloat64 *param, int add
 
 get_param_err:
     return status;
+}
+
+/********************************************************************/
+/*********************** Misc BPM Operations ************************/
+/********************************************************************/
+
+/*
+ * Miscellaneous functions that don't map easily
+ * to our generic handlers get/setParam[32/Double]
+ */
+
+asynStatus drvTimRx::setSi57xFreq(epicsUInt32 value, uint32_t *n1, uint32_t *hs_div, uint32_t *ReqLo, uint32_t *ReqHi)
+{
+    int status = asynSuccess;
+    const char* functionName = "setSi57xFreq";
+    uint64_t fxtal = 114285000; // from Si57x datasheet
+    uint64_t fdco_min = 4850000000; // from Si57x datasheet
+    uint64_t fdco_max = 5670000000; // from Si57x datasheet
+    uint64_t fdco = 0;
+    uint64_t RFReq = 0;
+    uint32_t n1_max_val = 128;
+    uint32_t n1_min_val = 2;
+    uint32_t n1_step = 2;
+    const uint32_t hs_div_opt_size = 6;
+    uint32_t hs_div_val[hs_div_opt_size] = {7, 5, 3, 2, 1, 0};
+    uint32_t hs_div_opt[hs_div_opt_size] = {11, 9, 7, 6, 5, 4};
+    
+    for (uint32_t i = 0; i < hs_div_opt_size; ++i) {
+        *hs_div = hs_div_val[i];
+        for (*n1 = n1_min_val; *n1 <= n1_max_val; *n1=*n1+n1_step) {
+            fdco = uint64_t(value)*uint64_t(hs_div_opt[i])*uint64_t(*n1);
+            if ((fdco >= fdco_min) && (fdco <= fdco_max)) {
+                break;
+            }
+        }
+        if ((fdco >= fdco_min) && (fdco <= fdco_max))
+            break;
+    }
+    
+    *n1 = *n1 - 1;
+    RFReq = uint64_t((double(fdco)/double(fxtal))*(1 << 28));
+    *ReqHi = uint32_t(RFReq >> 20);
+    *ReqLo = uint32_t(RFReq & 0xfffff);
+    
+    return (asynStatus)status;
+}
+
+asynStatus drvTimRx::setRtmSi57xFreq(epicsUInt32 value, int addr)
+{
+    int err = HALCS_CLIENT_SUCCESS;
+    char service[SERVICE_NAME_SIZE];
+    int status = asynSuccess;
+    const char* functionName = "setRtmSi57xFreq";
+    epicsUInt32 RtmSi57xFreq = 0;
+    
+    uint32_t n1, hs_div, ReqLo, ReqHi;
+    
+    setSi57xFreq(value, &n1, &hs_div, &ReqLo, &ReqHi);
+    
+    /* Get correct service name*/
+    status = getFullServiceName (this->timRxNumber, addr, "LNLS_AFC_TIMING",
+            service, sizeof(service));
+    if (status) {
+        asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+                "%s:%s: error calling getFullServiceName, status=%d\n",
+                driverName, functionName, status);
+        goto get_service_err;
+    }
+
+    err = afc_timing_set_rtm_n1        (timRxClient, service, n1);
+    err |= afc_timing_set_rtm_hs_div   (timRxClient, service, hs_div);
+    err |= afc_timing_set_rtm_rfreq_lo (timRxClient, service, ReqLo);
+    err |= afc_timing_set_rtm_rfreq_hi (timRxClient, service, ReqHi);
+    if (err != HALCS_CLIENT_SUCCESS) {
+        status = asynError;
+        goto set_AfcSi57xFreq_err;
+    }
+
+    afc_timing_get_rtm_n1       (timRxClient, service, &n1);
+    afc_timing_get_rtm_hs_div   (timRxClient, service, &hs_div);
+    afc_timing_get_rtm_rfreq_lo (timRxClient, service, &ReqLo);
+    afc_timing_get_rtm_rfreq_hi (timRxClient, service, &ReqHi);
+
+    setUIntDigitalParam(P_TimRxRtmRfreqHi,  ReqHi,  0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxRtmRfreqLo,  ReqLo,  0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxRtmN1,       n1,     0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxRtmHsDiv,    hs_div, 0xFFFFFFFF);
+
+set_AfcSi57xFreq_err:
+get_service_err:
+get_param_err:
+    return (asynStatus)status;
+}
+
+asynStatus drvTimRx::setAfcSi57xFreq(epicsUInt32 value, int addr)
+{
+    int err = HALCS_CLIENT_SUCCESS;
+    char service[SERVICE_NAME_SIZE];
+    int status = asynSuccess;
+    const char* functionName = "setAfcSi57xFreq";
+    
+    uint32_t n1, hs_div, ReqLo, ReqHi;
+    
+    setSi57xFreq(value, &n1, &hs_div, &ReqLo, &ReqHi);
+    
+    /* Get correct service name*/
+    status = getFullServiceName (this->timRxNumber, addr, "LNLS_AFC_TIMING",
+            service, sizeof(service));
+    if (status) {
+        asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+                "%s:%s: error calling getFullServiceName, status=%d\n",
+                driverName, functionName, status);
+        goto get_service_err;
+    }
+
+    err = afc_timing_set_afc_n1        (timRxClient, service, n1);
+    err |= afc_timing_set_afc_hs_div   (timRxClient, service, hs_div);
+    err |= afc_timing_set_afc_rfreq_lo (timRxClient, service, ReqLo);
+    err |= afc_timing_set_afc_rfreq_hi (timRxClient, service, ReqHi);
+    if (err != HALCS_CLIENT_SUCCESS) {
+        status = asynError;
+        goto set_AfcSi57xFreq_err;
+    }
+
+    afc_timing_get_afc_n1       (timRxClient, service, &n1);
+    afc_timing_get_afc_hs_div   (timRxClient, service, &hs_div);
+    afc_timing_get_afc_rfreq_lo (timRxClient, service, &ReqLo);
+    afc_timing_get_afc_rfreq_hi (timRxClient, service, &ReqHi);
+
+    setUIntDigitalParam(P_TimRxAfcRfreqHi,  ReqHi,  0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAfcRfreqLo,  ReqLo,  0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAfcN1,       n1,     0xFFFFFFFF);
+    setUIntDigitalParam(P_TimRxAfcHsDiv,    hs_div, 0xFFFFFFFF);
+
+set_AfcSi57xFreq_err:
+get_service_err:
+    return (asynStatus)status;
+}
+
+asynStatus drvTimRx::getSi57xFreq(epicsUInt32 *value, uint32_t n1, uint32_t hs_div, uint32_t ReqLo, uint32_t ReqHi)
+{
+    int status = asynSuccess;
+    const char* functionName = "getSi57xFreq";
+    double fxtal = 114285000; // from Si57x datasheet
+    double RFReq = double((uint64_t(ReqHi)<< 20) + uint64_t(ReqLo))/double(1 << 28);
+    double fdco = RFReq * fxtal;
+    const uint32_t hs_div_opt_size = 6;
+    uint32_t hs_div_val[hs_div_opt_size] = {7, 5, 3, 2, 1, 0};
+    uint32_t hs_div_opt[hs_div_opt_size] = {11, 9, 7, 6, 5, 4};
+    for (uint32_t i = 0; i < hs_div_opt_size; ++i) {
+        if (hs_div == hs_div_val[i]) {
+            *value = uint32_t(fdco/double((n1+1)*hs_div_opt[i])); 
+            break;
+        }
+    }
+    
+    return (asynStatus)status;
+}
+
+asynStatus drvTimRx::getRtmSi57xFreq(epicsUInt32 *value, int addr)
+{
+    int err = HALCS_CLIENT_SUCCESS;
+    char service[SERVICE_NAME_SIZE];
+    int status = asynSuccess;
+    const char* functionName = "getRtmSi57xFreq";
+    
+    uint32_t n1, hs_div, ReqLo, ReqHi;
+    
+    /* Get correct service name*/
+    status = getFullServiceName (this->timRxNumber, addr, "LNLS_AFC_TIMING",
+            service, sizeof(service));
+    if (status) {
+        asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+                "%s:%s: error calling getFullServiceName, status=%d\n",
+                driverName, functionName, status);
+        goto get_service_err;
+    }
+
+    afc_timing_get_rtm_n1       (timRxClient, service, &n1);
+    afc_timing_get_rtm_hs_div   (timRxClient, service, &hs_div);
+    afc_timing_get_rtm_rfreq_lo (timRxClient, service, &ReqLo);
+    afc_timing_get_rtm_rfreq_hi (timRxClient, service, &ReqHi);
+
+    getSi57xFreq(value, n1, hs_div, ReqLo, ReqHi);
+
+get_service_err:
+    return (asynStatus)status;
+}
+
+asynStatus drvTimRx::getAfcSi57xFreq(epicsUInt32 *value, int addr)
+{
+    int err = HALCS_CLIENT_SUCCESS;
+    char service[SERVICE_NAME_SIZE];
+    int status = asynSuccess;
+    const char* functionName = "getAfcSi57xFreq";
+    
+    uint32_t n1, hs_div, ReqLo, ReqHi;
+    
+    /* Get correct service name*/
+    status = getFullServiceName (this->timRxNumber, addr, "LNLS_AFC_TIMING",
+            service, sizeof(service));
+    if (status) {
+        asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+                "%s:%s: error calling getFullServiceName, status=%d\n",
+                driverName, functionName, status);
+        goto get_service_err;
+    }
+
+    afc_timing_get_afc_n1       (timRxClient, service, &n1);
+    afc_timing_get_afc_hs_div   (timRxClient, service, &hs_div);
+    afc_timing_get_afc_rfreq_lo (timRxClient, service, &ReqLo);
+    afc_timing_get_afc_rfreq_hi (timRxClient, service, &ReqHi);
+
+    getSi57xFreq(value, n1, hs_div, ReqLo, ReqHi);
+
+get_service_err:
+    return (asynStatus)status;
 }
 
 /* Configuration routine.  Called directly, or from the iocsh function below */
