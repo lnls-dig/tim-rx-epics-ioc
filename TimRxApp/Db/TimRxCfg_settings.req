@@ -1,1 +1,15 @@
 $(P)$(R)DevEnbl-Sel
+$(P)$(R)AFCFreq-SP
+$(P)$(R)AFCFreqIntgGain-SP
+$(P)$(R)AFCFreqPropGain-SP
+$(P)$(R)AFCPhaseDiv-SP
+$(P)$(R)AFCPhaseIntgGain-SP
+$(P)$(R)AFCPhaseNavg-SP
+$(P)$(R)AFCPhasePropGain-SP
+$(P)$(R)RTMFreq-SP
+$(P)$(R)RTMFreqIntgGain-SP
+$(P)$(R)RTMFreqPropGain-SP
+$(P)$(R)RTMPhaseDiv-SP
+$(P)$(R)RTMPhaseIntgGain-SP
+$(P)$(R)RTMPhaseNavg-SP
+$(P)$(R)RTMPhasePropGain-SP
