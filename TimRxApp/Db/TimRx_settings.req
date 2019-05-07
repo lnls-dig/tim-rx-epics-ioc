@@ -1,1 +1,3 @@
 file "TimRxCfg_settings.req",         P=$(P), R=$(R)
+file "TimRxAMCTrigCh_settings.req",   P=$(P), R=$(R)
+file "TimRxFMCTrigCh_settings.req",   P=$(P), R=$(R)
