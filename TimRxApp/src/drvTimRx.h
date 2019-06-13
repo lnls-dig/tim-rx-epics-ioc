@@ -363,8 +363,8 @@ class drvTimRx : public asynPortDriver {
         /* Our private methods */
 
         /* Client connection management */
-        asynStatus timRxClientConnect(void);
-        asynStatus timRxClientDisconnect(void);
+        asynStatus timRxClientConnect(asynUser* pasynUser);
+        asynStatus timRxClientDisconnect(asynUser* pasynUser);
 
         /* General set/get hardware functions */
         asynStatus setParam32(int functionId, epicsUInt32 mask, int addr);

@@ -358,7 +358,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
 
 
     lock();
-    status = timRxClientConnect();
+    status = timRxClientConnect(this->pasynUserSelf);
     unlock();
 
     /* If we correct connect for this first time, liclient
@@ -464,7 +464,7 @@ drvTimRx::~drvTimRx()
     const char *functionName = "~drvTimRx";
 
     lock();
-    status = timRxClientDisconnect();
+    status = timRxClientDisconnect(this->pasynUserSelf);
     unlock();
     if (status != asynSuccess) {
         asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
@@ -480,10 +480,10 @@ drvTimRx::~drvTimRx()
 
 asynStatus drvTimRx::connect(asynUser* pasynUser)
 {
-    return timRxClientConnect();
+    return timRxClientConnect(pasynUser);
 }
 
-asynStatus drvTimRx::timRxClientConnect(void)
+asynStatus drvTimRx::timRxClientConnect(asynUser* pasynUser)
 {
     asynStatus status = asynSuccess;
     const char *timRxLogFile = "stdout";
@@ -505,7 +505,7 @@ asynStatus drvTimRx::timRxClientConnect(void)
         "%s:%s: Tim Rx client connected\n",
         driverName, functionName);
 
-    pasynManager->exceptionConnect(this->pasynUserSelf);
+    pasynManager->exceptionConnect(pasynUser);
 
     return status;
 
@@ -515,10 +515,10 @@ create_halcs_client_err:
 
 asynStatus drvTimRx::disconnect(asynUser* pasynUser)
 {
-    return timRxClientDisconnect();
+    return timRxClientDisconnect(pasynUser);
 }
 
-asynStatus drvTimRx::timRxClientDisconnect(void)
+asynStatus drvTimRx::timRxClientDisconnect(asynUser* pasynUser)
 {
     asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
             "%s: calling timRxClientDisconnect\n",
@@ -529,7 +529,7 @@ asynStatus drvTimRx::timRxClientDisconnect(void)
         halcs_client_destroy (&timRxClient);
     }
 
-    pasynManager->exceptionDisconnect(this->pasynUserSelf);
+    pasynManager->exceptionDisconnect(pasynUser);
     return status;
 }
 
