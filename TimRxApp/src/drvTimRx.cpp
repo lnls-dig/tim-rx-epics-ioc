@@ -192,7 +192,6 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
         int verbose, int timeout)
    : asynPortDriver(portName,
                     MAX_ADDR, /* maxAddr */
-                    (int)NUM_PARAMS,
                     asynUInt32DigitalMask | asynFloat64Mask  | asynDrvUserMask,    /* Interface mask     */
                     asynUInt32DigitalMask | asynFloat64Mask ,                      /* Interrupt mask     */
                     ASYN_CANBLOCK | ASYN_MULTIDEVICE, /* asynFlags.  This driver blocks it is multi-device */
@@ -359,7 +358,7 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
 
 
     lock();
-    status = timRxClientConnect();
+    status = timRxClientConnect(this->pasynUserSelf);
     unlock();
 
     /* If we correct connect for this first time, liclient
@@ -465,7 +464,7 @@ drvTimRx::~drvTimRx()
     const char *functionName = "~drvTimRx";
 
     lock();
-    status = timRxClientDisconnect();
+    status = timRxClientDisconnect(this->pasynUserSelf);
     unlock();
     if (status != asynSuccess) {
         asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
@@ -481,10 +480,10 @@ drvTimRx::~drvTimRx()
 
 asynStatus drvTimRx::connect(asynUser* pasynUser)
 {
-    return timRxClientConnect();
+    return timRxClientConnect(pasynUser);
 }
 
-asynStatus drvTimRx::timRxClientConnect(void)
+asynStatus drvTimRx::timRxClientConnect(asynUser* pasynUser)
 {
     asynStatus status = asynSuccess;
     const char *timRxLogFile = "stdout";
@@ -506,7 +505,7 @@ asynStatus drvTimRx::timRxClientConnect(void)
         "%s:%s: Tim Rx client connected\n",
         driverName, functionName);
 
-    pasynManager->exceptionConnect(this->pasynUserSelf);
+    pasynManager->exceptionConnect(pasynUser);
 
     return status;
 
@@ -516,10 +515,10 @@ create_halcs_client_err:
 
 asynStatus drvTimRx::disconnect(asynUser* pasynUser)
 {
-    return timRxClientDisconnect();
+    return timRxClientDisconnect(pasynUser);
 }
 
-asynStatus drvTimRx::timRxClientDisconnect(void)
+asynStatus drvTimRx::timRxClientDisconnect(asynUser* pasynUser)
 {
     asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
             "%s: calling timRxClientDisconnect\n",
@@ -530,7 +529,7 @@ asynStatus drvTimRx::timRxClientDisconnect(void)
         halcs_client_destroy (&timRxClient);
     }
 
-    pasynManager->exceptionDisconnect(this->pasynUserSelf);
+    pasynManager->exceptionDisconnect(pasynUser);
     return status;
 }
 
@@ -1003,13 +1002,15 @@ asynStatus drvTimRx::getParam32(int functionId, epicsUInt32 *param,
     int status = asynSuccess;
     functionsArgs_t functionArgs = {0};
     const char *functionName = "getParam32";
+    const char *paramName = NULL;
 
     /* Get parameter in library, as some parameters are not written in HW */
     status = getUIntDigitalParam(addr, functionId, param, mask);
     if (status != asynSuccess) {
+        getParamName(functionId, &paramName);
         asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
-                "%s:%s: getUIntDigitalParam failure for retrieving parameter\n",
-                driverName, functionName);
+                "%s:%s: getUIntDigitalParam failure for retrieving parameter %s\n",
+                driverName, functionName, paramName);
         goto get_param_err;
     }
 
@@ -1054,13 +1055,14 @@ asynStatus drvTimRx::getParamDouble(int functionId, epicsFloat64 *param, int add
     asynStatus status = asynSuccess;
     functionsArgs_t functionArgs = {0};
     const char *functionName = "getParamDouble";
+    const char *paramName = NULL;
 
     /* Get parameter in library, as some parameters are not written in HW */
     status = getDoubleParam(addr, functionId, param);
     if (status != asynSuccess) {
         asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
-                "%s:%s: getParamDouble failure for retrieving parameter\n",
-                driverName, functionName);
+                "%s:%s: getParamDouble failure for retrieving parameter %s\n",
+                driverName, functionName, paramName);
         goto get_param_err;
     }
 
