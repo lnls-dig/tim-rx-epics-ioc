@@ -37,20 +37,30 @@ TEMPLATE_TOP=${EPICS_BASE}/templates/makeBaseApp/top
 #AUTOSAVE=$(SUPPORT)/autosave-5-1
 #BUSY=$(SUPPORT)/busy-1-6
 
-###################### Paths for synApps_5_8 ##################################
+####################### Paths for synApps_5_8 ##################################
+##
+## EPICS_BASE usually appears last so other apps can override stuff:
+#SUPPORT=/opt/epics/base/../synApps_5_8/support
+##SUPPORT=/usr/local/epics/synApps_5_8/support
+#
+#EPICS_BASE=/opt/epics/base
+#
+## Paths must be below $(SUPPORT)/configure/RELEASE so we can override
+## them
+#ASYN=$(SUPPORT)/asyn-4-26
+#AUTOSAVE=$(SUPPORT)/autosave-5-6-1
+#
+## Set RULES here if you want to take build rules from somewhere
+##EPICS_BASE=/usr/local/epics/base
+## other than EPICS_BASE:
+##RULES=/path/to/epics/support/module/rules/x-y
+
+##################### Paths for synApps-lnls-R1-2-1 ##################################
 #
 # EPICS_BASE usually appears last so other apps can override stuff:
-SUPPORT=/opt/epics/base/../synApps_5_8/support
-#SUPPORT=/usr/local/epics/synApps_5_8/support
+SUPPORT=/opt/epics/synApps-lnls-R1-2-1/support
 
 EPICS_BASE=/opt/epics/base
 
-# Paths must be below $(SUPPORT)/configure/RELEASE so we can override
-# them
-ASYN=$(SUPPORT)/asyn-4-26
-AUTOSAVE=$(SUPPORT)/autosave-5-6-1
-
-# Set RULES here if you want to take build rules from somewhere
-#EPICS_BASE=/usr/local/epics/base
-# other than EPICS_BASE:
-#RULES=/path/to/epics/support/module/rules/x-y
+ASYN=$(SUPPORT)/asyn-R4-35
+AUTOSAVE=$(SUPPORT)/autosave-R5-9
