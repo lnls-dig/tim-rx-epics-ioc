@@ -1062,10 +1062,12 @@ asynStatus drvTimRx::getParam32(int functionId, epicsUInt32 *param,
     /* Get parameter in library, as some parameters are not written in HW */
     status = getUIntDigitalParam(addr, functionId, param, mask);
     if (status != asynSuccess) {
-        getParamName(functionId, &paramName);
-        asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
-                "%s:%s: getUIntDigitalParam failure for retrieving parameter %s\n",
-                driverName, functionName, paramName);
+        if (status != asynParamUndefined) {
+            getParamName(functionId, &paramName);
+            asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
+                    "%s:%s: getUIntDigitalParam failure for retrieving parameter %s, status = %d\n",
+                    driverName, functionName, paramName, status);
+        }
         goto get_param_err;
     }
 
@@ -1094,9 +1096,12 @@ asynStatus drvTimRx::setParamDouble(int functionId, int addr)
 
     status = getDoubleParam(addr, functionId, &functionArgs.argFloat64);
     if (status != asynSuccess) {
-        asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
-                "%s:%s: setParamDouble failure for retrieving parameter %s\n",
-                driverName, functionName, paramName);
+        if (status != asynParamUndefined) {
+            getParamName(functionId, &paramName);
+            asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
+                    "%s:%s: getDoubleParam failure for retrieving parameter %s\n",
+                    driverName, functionName, paramName);
+        }
         goto get_param_err;
     }
 
