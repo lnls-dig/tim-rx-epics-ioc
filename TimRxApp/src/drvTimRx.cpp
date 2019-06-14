@@ -568,7 +568,7 @@ asynStatus drvTimRx::writeUInt32Digital(asynUser *pasynUser, epicsUInt32 value,
         setUIntDigitalParam(addr, function, value, mask);
         /* Fetch the parameter string name for possible use in debugging */
         getParamName(function, &paramName);
-    
+
         if (function == P_TimRxRtmSi57xFreq) {
             status = setRtmSi57xFreq(value, addr);
         }
@@ -824,16 +824,18 @@ asynStatus drvTimRx::executeHwWriteFunction(int functionId, int addr,
     const char *functionName = "executeHwWriteFunction";
     const char *funcService = NULL;
     char service[SERVICE_NAME_SIZE];
+    const char *paramName = NULL;
     std::unordered_map<int,functionsAny_t>::iterator func;
 
     /* Lookup function on map */
     func = timRxHwFunc.find (functionId);
     if (func == timRxHwFunc.end()) {
+        getParamName(functionId, &paramName);
         /* This is not an error. Exit silently */
         status = asynSuccess;
         asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
-                "%s:%s: no registered function for functionID = %d\n",
-                driverName, functionName, functionId);
+                "%s:%s: no registered function for functionID = %d, name %s\n",
+                driverName, functionName, functionId, paramName);
         goto get_reg_func_err;
     }
 
@@ -933,16 +935,18 @@ asynStatus drvTimRx::executeHwReadFunction(int functionId, int addr,
     const char *functionName = "executeHwReadFunction";
     const char *funcService = NULL;
     char service[SERVICE_NAME_SIZE];
+    const char *paramName = NULL;
     std::unordered_map<int,functionsAny_t>::iterator func;
 
     /* Lookup function on map */
     func = timRxHwFunc.find (functionId);
     if (func == timRxHwFunc.end()) {
+        getParamName(functionId, &paramName);
         /* We use disabled to indicate the function was not found on Hw mapping */
         status = asynDisabled;
         asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
-                "%s:%s: no registered function for functionID = %d\n",
-                driverName, functionName, functionId);
+                "%s:%s: no registered function for functionID = %d, name %s\n",
+                driverName, functionName, functionId, paramName);
         goto get_reg_func_err;
     }
 
@@ -976,17 +980,68 @@ get_service_err:
 * and functionsFloat64_t
 */
 
+asynStatus drvTimRx::setParamGeneric(int functionId, int addr)
+{
+    int status = asynSuccess;
+    const char *functionName = "setParamGeneric";
+    const char *paramName = NULL;
+    asynParamType asynType = asynParamNotDefined;
+
+    getParamName(functionId, &paramName);
+    status = getParamType(addr, functionId, &asynType);
+    if (status != asynSuccess) {
+        asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
+                "%s:%s: getParamType failure retrieving asynParamType, "
+                "functionId = %d, paramName = %s\n",
+                driverName, functionName, functionId, paramName);
+        goto get_type_err;
+    }
+
+    switch (asynType) {
+        case asynParamUInt32Digital:
+            status = setParam32(functionId, 0xFFFFFFFF, addr);
+        break;
+
+        case asynParamFloat64:
+            status = setParamDouble(functionId, addr);
+        break;
+
+        default:
+            asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
+                    "%s:%s: unsupported type for asynParamType: %d, "
+                    "functionId = %d, paramName = %s\n",
+                    driverName, functionName, asynType,
+                    functionId, paramName);
+            goto unsup_asyn_type;
+    }
+
+    if (status != asynSuccess) {
+        asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
+                "%s:%s: setParam32/setParamDouble failure setting value %d, "
+                "for functionId = %d, paramName = %s\n",
+                driverName, functionName, status, functionId, paramName);
+        goto set_type_err;
+    }
+
+set_type_err:
+unsup_asyn_type:
+get_type_err:
+    return (asynStatus)status;
+}
+
+
 asynStatus drvTimRx::setParam32(int functionId, epicsUInt32 mask, int addr)
 {
     int status = asynSuccess;
     functionsArgs_t functionArgs = {0};
     const char *functionName = "setParam32";
+    const char *paramName = NULL;
 
     status = getUIntDigitalParam(addr, functionId, &functionArgs.argUInt32, mask);
     if (status != asynSuccess) {
         asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
-                "%s:%s: getUIntDigitalParam failure for retrieving Parameter\n",
-                driverName, functionName);
+                "%s:%s: getUIntDigitalParam failure for retrieving parameter %s\n",
+                driverName, functionName, paramName);
         goto get_param_err;
     }
 
@@ -1007,10 +1062,12 @@ asynStatus drvTimRx::getParam32(int functionId, epicsUInt32 *param,
     /* Get parameter in library, as some parameters are not written in HW */
     status = getUIntDigitalParam(addr, functionId, param, mask);
     if (status != asynSuccess) {
-        getParamName(functionId, &paramName);
-        asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
-                "%s:%s: getUIntDigitalParam failure for retrieving parameter %s\n",
-                driverName, functionName, paramName);
+        if (status != asynParamUndefined) {
+            getParamName(functionId, &paramName);
+            asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
+                    "%s:%s: getUIntDigitalParam failure for retrieving parameter %s, status = %d\n",
+                    driverName, functionName, paramName, status);
+        }
         goto get_param_err;
     }
 
@@ -1035,12 +1092,16 @@ asynStatus drvTimRx::setParamDouble(int functionId, int addr)
     asynStatus status = asynSuccess;
     functionsArgs_t functionArgs = {0};
     const char *functionName = "setParamDouble";
+    const char *paramName = NULL;
 
     status = getDoubleParam(addr, functionId, &functionArgs.argFloat64);
     if (status != asynSuccess) {
-        asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
-                "%s:%s: setParamDouble failure for retrieving Parameter\n",
-                driverName, functionName);
+        if (status != asynParamUndefined) {
+            getParamName(functionId, &paramName);
+            asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
+                    "%s:%s: getDoubleParam failure for retrieving parameter %s\n",
+                    driverName, functionName, paramName);
+        }
         goto get_param_err;
     }
 
@@ -1104,7 +1165,7 @@ asynStatus drvTimRx::setSi57xFreq(epicsUInt32 value, uint32_t *n1, uint32_t *hs_
     const uint32_t hs_div_opt_size = 6;
     uint32_t hs_div_val[hs_div_opt_size] = {7, 5, 3, 2, 1, 0};
     uint32_t hs_div_opt[hs_div_opt_size] = {11, 9, 7, 6, 5, 4};
-    
+
     for (uint32_t i = 0; i < hs_div_opt_size; ++i) {
         *hs_div = hs_div_val[i];
         for (*n1 = n1_min_val; *n1 <= n1_max_val; *n1=*n1+n1_step) {
@@ -1116,12 +1177,12 @@ asynStatus drvTimRx::setSi57xFreq(epicsUInt32 value, uint32_t *n1, uint32_t *hs_
         if ((fdco >= fdco_min) && (fdco <= fdco_max))
             break;
     }
-    
+
     *n1 = *n1 - 1;
     RFReq = uint64_t((double(fdco)/double(fxtal))*(1 << 28));
     *ReqHi = uint32_t(RFReq >> 20);
     *ReqLo = uint32_t(RFReq & 0xfffff);
-    
+
     return (asynStatus)status;
 }
 
@@ -1132,11 +1193,11 @@ asynStatus drvTimRx::setRtmSi57xFreq(epicsUInt32 value, int addr)
     int status = asynSuccess;
     const char* functionName = "setRtmSi57xFreq";
     epicsUInt32 RtmSi57xFreq = 0;
-    
+
     uint32_t n1, hs_div, ReqLo, ReqHi;
-    
+
     setSi57xFreq(value, &n1, &hs_div, &ReqLo, &ReqHi);
-    
+
     /* Get correct service name*/
     status = getFullServiceName (this->timRxNumber, addr, "LNLS_AFC_TIMING",
             service, sizeof(service));
@@ -1178,11 +1239,11 @@ asynStatus drvTimRx::setAfcSi57xFreq(epicsUInt32 value, int addr)
     char service[SERVICE_NAME_SIZE];
     int status = asynSuccess;
     const char* functionName = "setAfcSi57xFreq";
-    
+
     uint32_t n1, hs_div, ReqLo, ReqHi;
-    
+
     setSi57xFreq(value, &n1, &hs_div, &ReqLo, &ReqHi);
-    
+
     /* Get correct service name*/
     status = getFullServiceName (this->timRxNumber, addr, "LNLS_AFC_TIMING",
             service, sizeof(service));
@@ -1229,11 +1290,11 @@ asynStatus drvTimRx::getSi57xFreq(epicsUInt32 *value, uint32_t n1, uint32_t hs_d
     uint32_t hs_div_opt[hs_div_opt_size] = {11, 9, 7, 6, 5, 4};
     for (uint32_t i = 0; i < hs_div_opt_size; ++i) {
         if (hs_div == hs_div_val[i]) {
-            *value = uint32_t(fdco/double((n1+1)*hs_div_opt[i])); 
+            *value = uint32_t(fdco/double((n1+1)*hs_div_opt[i]));
             break;
         }
     }
-    
+
     return (asynStatus)status;
 }
 
@@ -1243,9 +1304,9 @@ asynStatus drvTimRx::getRtmSi57xFreq(epicsUInt32 *value, int addr)
     char service[SERVICE_NAME_SIZE];
     int status = asynSuccess;
     const char* functionName = "getRtmSi57xFreq";
-    
+
     uint32_t n1, hs_div, ReqLo, ReqHi;
-    
+
     /* Get correct service name*/
     status = getFullServiceName (this->timRxNumber, addr, "LNLS_AFC_TIMING",
             service, sizeof(service));
@@ -1273,9 +1334,9 @@ asynStatus drvTimRx::getAfcSi57xFreq(epicsUInt32 *value, int addr)
     char service[SERVICE_NAME_SIZE];
     int status = asynSuccess;
     const char* functionName = "getAfcSi57xFreq";
-    
+
     uint32_t n1, hs_div, ReqLo, ReqHi;
-    
+
     /* Get correct service name*/
     status = getFullServiceName (this->timRxNumber, addr, "LNLS_AFC_TIMING",
             service, sizeof(service));

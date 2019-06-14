@@ -367,6 +367,7 @@ class drvTimRx : public asynPortDriver {
         asynStatus timRxClientDisconnect(asynUser* pasynUser);
 
         /* General set/get hardware functions */
+        asynStatus setParamGeneric(int funcionId, int addr);
         asynStatus setParam32(int functionId, epicsUInt32 mask, int addr);
         asynStatus getParam32(int functionId, epicsUInt32 *param,
                 epicsUInt32 mask, int addr);
@@ -383,7 +384,7 @@ class drvTimRx : public asynPortDriver {
         asynStatus getAfcSi57xFreq(epicsUInt32 *value, int addr);
         asynStatus getSi57xFreq(epicsUInt32 *value, uint32_t n1, uint32_t hs_div,
                 uint32_t ReqLo, uint32_t ReqHi);
-        
+
 };
 
 #define NUM_PARAMS (&LAST_COMMAND - &FIRST_COMMAND + 1)
