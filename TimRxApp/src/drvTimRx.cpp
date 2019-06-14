@@ -1026,12 +1026,13 @@ asynStatus drvTimRx::setParam32(int functionId, epicsUInt32 mask, int addr)
     int status = asynSuccess;
     functionsArgs_t functionArgs = {0};
     const char *functionName = "setParam32";
+    const char *paramName = NULL;
 
     status = getUIntDigitalParam(addr, functionId, &functionArgs.argUInt32, mask);
     if (status != asynSuccess) {
         asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
-                "%s:%s: getUIntDigitalParam failure for retrieving Parameter\n",
-                driverName, functionName);
+                "%s:%s: getUIntDigitalParam failure for retrieving parameter %s\n",
+                driverName, functionName, paramName);
         goto get_param_err;
     }
 
@@ -1080,12 +1081,13 @@ asynStatus drvTimRx::setParamDouble(int functionId, int addr)
     asynStatus status = asynSuccess;
     functionsArgs_t functionArgs = {0};
     const char *functionName = "setParamDouble";
+    const char *paramName = NULL;
 
     status = getDoubleParam(addr, functionId, &functionArgs.argFloat64);
     if (status != asynSuccess) {
         asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
-                "%s:%s: setParamDouble failure for retrieving Parameter\n",
-                driverName, functionName);
+                "%s:%s: setParamDouble failure for retrieving parameter %s\n",
+                driverName, functionName, paramName);
         goto get_param_err;
     }
 
