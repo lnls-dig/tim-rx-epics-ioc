@@ -568,7 +568,7 @@ asynStatus drvTimRx::writeUInt32Digital(asynUser *pasynUser, epicsUInt32 value,
         setUIntDigitalParam(addr, function, value, mask);
         /* Fetch the parameter string name for possible use in debugging */
         getParamName(function, &paramName);
-    
+
         if (function == P_TimRxRtmSi57xFreq) {
             status = setRtmSi57xFreq(value, addr);
         }
@@ -1149,7 +1149,7 @@ asynStatus drvTimRx::setSi57xFreq(epicsUInt32 value, uint32_t *n1, uint32_t *hs_
     const uint32_t hs_div_opt_size = 6;
     uint32_t hs_div_val[hs_div_opt_size] = {7, 5, 3, 2, 1, 0};
     uint32_t hs_div_opt[hs_div_opt_size] = {11, 9, 7, 6, 5, 4};
-    
+
     for (uint32_t i = 0; i < hs_div_opt_size; ++i) {
         *hs_div = hs_div_val[i];
         for (*n1 = n1_min_val; *n1 <= n1_max_val; *n1=*n1+n1_step) {
@@ -1161,12 +1161,12 @@ asynStatus drvTimRx::setSi57xFreq(epicsUInt32 value, uint32_t *n1, uint32_t *hs_
         if ((fdco >= fdco_min) && (fdco <= fdco_max))
             break;
     }
-    
+
     *n1 = *n1 - 1;
     RFReq = uint64_t((double(fdco)/double(fxtal))*(1 << 28));
     *ReqHi = uint32_t(RFReq >> 20);
     *ReqLo = uint32_t(RFReq & 0xfffff);
-    
+
     return (asynStatus)status;
 }
 
@@ -1177,11 +1177,11 @@ asynStatus drvTimRx::setRtmSi57xFreq(epicsUInt32 value, int addr)
     int status = asynSuccess;
     const char* functionName = "setRtmSi57xFreq";
     epicsUInt32 RtmSi57xFreq = 0;
-    
+
     uint32_t n1, hs_div, ReqLo, ReqHi;
-    
+
     setSi57xFreq(value, &n1, &hs_div, &ReqLo, &ReqHi);
-    
+
     /* Get correct service name*/
     status = getFullServiceName (this->timRxNumber, addr, "LNLS_AFC_TIMING",
             service, sizeof(service));
@@ -1223,11 +1223,11 @@ asynStatus drvTimRx::setAfcSi57xFreq(epicsUInt32 value, int addr)
     char service[SERVICE_NAME_SIZE];
     int status = asynSuccess;
     const char* functionName = "setAfcSi57xFreq";
-    
+
     uint32_t n1, hs_div, ReqLo, ReqHi;
-    
+
     setSi57xFreq(value, &n1, &hs_div, &ReqLo, &ReqHi);
-    
+
     /* Get correct service name*/
     status = getFullServiceName (this->timRxNumber, addr, "LNLS_AFC_TIMING",
             service, sizeof(service));
@@ -1274,11 +1274,11 @@ asynStatus drvTimRx::getSi57xFreq(epicsUInt32 *value, uint32_t n1, uint32_t hs_d
     uint32_t hs_div_opt[hs_div_opt_size] = {11, 9, 7, 6, 5, 4};
     for (uint32_t i = 0; i < hs_div_opt_size; ++i) {
         if (hs_div == hs_div_val[i]) {
-            *value = uint32_t(fdco/double((n1+1)*hs_div_opt[i])); 
+            *value = uint32_t(fdco/double((n1+1)*hs_div_opt[i]));
             break;
         }
     }
-    
+
     return (asynStatus)status;
 }
 
@@ -1288,9 +1288,9 @@ asynStatus drvTimRx::getRtmSi57xFreq(epicsUInt32 *value, int addr)
     char service[SERVICE_NAME_SIZE];
     int status = asynSuccess;
     const char* functionName = "getRtmSi57xFreq";
-    
+
     uint32_t n1, hs_div, ReqLo, ReqHi;
-    
+
     /* Get correct service name*/
     status = getFullServiceName (this->timRxNumber, addr, "LNLS_AFC_TIMING",
             service, sizeof(service));
@@ -1318,9 +1318,9 @@ asynStatus drvTimRx::getAfcSi57xFreq(epicsUInt32 *value, int addr)
     char service[SERVICE_NAME_SIZE];
     int status = asynSuccess;
     const char* functionName = "getAfcSi57xFreq";
-    
+
     uint32_t n1, hs_div, ReqLo, ReqHi;
-    
+
     /* Get correct service name*/
     status = getFullServiceName (this->timRxNumber, addr, "LNLS_AFC_TIMING",
             service, sizeof(service));
