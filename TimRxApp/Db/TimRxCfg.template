@@ -2,6 +2,15 @@
 # Timing Configuration Parameters
 #########################
 
+record(ai, "$(P)$(R)FPGAClk-Cte") {
+  field(DESC, "FPGA Clock from EVG")
+  field(SCAN, "1 second")
+  field(PINI, "1")
+  field(VAL, "124914500")
+  field(EGU, "Hz")
+  field(INP, "RA-RaMO:TI-EVG:FPGAClk-Cte CPP")
+}
+
 record(bo, "$(P)$(R)Save-Cmd"){
   field(DESC, "Manual Save settings command")
   field(MASK, "1")
