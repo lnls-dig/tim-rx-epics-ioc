@@ -104,7 +104,7 @@ record(mbbi, "$(P)$(R)$(S)Ch$(C)Src-Sts"){
   field(SVVL, "0x7")
   field(EIST, "Clock7")
   field(EIVL, "0x8")
-  field(DESC, "Set $(S) channel $(C) source")
+  field(DESC, "Get $(S) channel $(C) source")
   field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_SRC")
   field(SCAN,"I/O Intr")
 }
@@ -137,37 +137,91 @@ record(longout, "$(P)$(R)$(S)Ch$(C)Evt-SP"){
 
 record(longin, "$(P)$(R)$(S)Ch$(C)Evt-RB"){
   field(DTYP, "asynUInt32Digital")
-  field(DESC, "Set $(S) trigger channel $(C) event code")
+  field(DESC, "Get $(S) trigger channel $(C) event code")
   field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_EVT")
   field(SCAN,"I/O Intr")
 }
 
-record(longout, "$(P)$(R)$(S)Ch$(C)Width-SP"){
-  field(DTYP, "asynUInt32Digital")
+record(ao, "$(P)$(R)$(S)Ch$(C)Width-SP") {
+  field(DESC, "Set $(S) trigger channel $(C) width")
   field(PINI, "1")
+  field(VAL, "0.008")
+  field(DRVH, "17000000")
+  field(DRVL, "0.008")
+  field(EGU, "us")
+  field(FLNK, "$(P)$(R)$(S)Ch$(C)WidthCalc")
+}
+
+record(calcout, "$(P)$(R)$(S)Ch$(C)WidthCalc") {
+  field(DESC, "Trigger channel $(C) width calc")
+  field(INPA, "$(P)$(R)$(S)Ch$(C)Width-SP")
+  field(INPB, "$(P)$(R)FPGAClk-Cte CPP")
+  field(CALC, "NINT(A*(B/1000000))")
+  field(OUT, "$(P)$(R)$(S)Ch$(C)WidthRaw-SP PP")
+}
+
+record(longout, "$(P)$(R)$(S)Ch$(C)WidthRaw-SP"){
+  field(DTYP, "asynUInt32Digital")
   field(DESC, "Set $(S) trigger channel $(C) width")
   field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_WDT")
 }
 
-record(longin, "$(P)$(R)$(S)Ch$(C)Width-RB"){
+record(longin, "$(P)$(R)$(S)Ch$(C)WidthRaw-RB"){
   field(DTYP, "asynUInt32Digital")
-  field(DESC, "Set $(S) trigger channel $(C) width")
+  field(DESC, "Get $(S) trigger channel $(C) width")
   field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_WDT")
   field(SCAN,"I/O Intr")
+  field(FLNK, "$(P)$(R)$(S)Ch$(C)Width-RB")
 }
 
-record(longout, "$(P)$(R)$(S)Ch$(C)Delay-SP"){
-  field(DTYP, "asynUInt32Digital")
+record(calc, "$(P)$(R)$(S)Ch$(C)Width-RB") {
+  field(INPA, "$(P)$(R)$(S)Ch$(C)WidthRaw-RB")
+  field(INPB, "$(P)$(R)FPGAClk-Cte CPP")
+  field(PREC, "3")
+  field(DESC, "Get $(S) trigger channel $(C) width")
+  field(EGU, "us")
+  field(CALC, "A/B*1000000")
+}
+
+record(ao, "$(P)$(R)$(S)Ch$(C)Delay-SP") {
+  field(DESC, "Set $(S) trigger channel $(C) delay")
   field(PINI, "1")
+  field(VAL, "0.000")
+  field(DRVH, "17000000")
+  field(DRVL, "0.000")
+  field(EGU, "us")
+  field(FLNK, "$(P)$(R)$(S)Ch$(C)DelayCalc")
+}
+
+record(calcout, "$(P)$(R)$(S)Ch$(C)DelayCalc") {
+  field(DESC, "Trigger channel $(C) delay calc")
+  field(INPA, "$(P)$(R)$(S)Ch$(C)Delay-SP")
+  field(INPB, "$(P)$(R)FPGAClk-Cte CPP")
+  field(CALC, "NINT(A*(B/1000000))")
+  field(OUT, "$(P)$(R)$(S)Ch$(C)DelayRaw-SP PP")
+}
+
+record(longout, "$(P)$(R)$(S)Ch$(C)DelayRaw-SP"){
+  field(DTYP, "asynUInt32Digital")
   field(DESC, "Set $(S) trigger channel $(C) delay")
   field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_DLY")
 }
 
-record(longin, "$(P)$(R)$(S)Ch$(C)Delay-RB"){
+record(longin, "$(P)$(R)$(S)Ch$(C)DelayRaw-RB"){
   field(DTYP, "asynUInt32Digital")
-  field(DESC, "Set $(S) trigger channel $(C) delay")
+  field(DESC, "Get $(S) trigger channel $(C) delay")
   field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_DLY")
   field(SCAN,"I/O Intr")
+  field(FLNK, "$(P)$(R)$(S)Ch$(C)Delay-RB")
+}
+
+record(calc, "$(P)$(R)$(S)Ch$(C)Delay-RB") {
+  field(INPA, "$(P)$(R)$(S)Ch$(C)DelayRaw-RB")
+  field(INPB, "$(P)$(R)FPGAClk-Cte CPP")
+  field(PREC, "3")
+  field(DESC, "Get $(S) trigger channel $(C) delay")
+  field(EGU, "us")
+  field(CALC, "A/B*1000000")
 }
 
 record(longout, "$(P)$(R)$(S)Ch$(C)NrPulses-SP"){
@@ -179,7 +233,7 @@ record(longout, "$(P)$(R)$(S)Ch$(C)NrPulses-SP"){
 
 record(longin, "$(P)$(R)$(S)Ch$(C)NrPulses-RB"){
   field(DTYP, "asynUInt32Digital")
-  field(DESC, "Set $(S) trigger channel $(C) pulses")
+  field(DESC, "Get $(S) trigger channel $(C) pulses")
   field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_PULSES")
   field(SCAN,"I/O Intr")
 }
