@@ -155,7 +155,7 @@ record(ao, "$(P)$(R)$(S)Ch$(C)Width-SP") {
 record(calcout, "$(P)$(R)$(S)Ch$(C)WidthCalc") {
   field(DESC, "Trigger channel $(C) width calc")
   field(INPA, "$(P)$(R)$(S)Ch$(C)Width-SP")
-  field(INPB, "$(P)$(R)FPGAClk-Cte CPP")
+  field(INPB, "$(P)$(R)FPGAClk-Cte PP")
   field(CALC, "NINT(A*(B/1000000))")
   field(OUT, "$(P)$(R)$(S)Ch$(C)WidthRaw-SP PP")
 }
@@ -196,7 +196,7 @@ record(ao, "$(P)$(R)$(S)Ch$(C)Delay-SP") {
 record(calcout, "$(P)$(R)$(S)Ch$(C)DelayCalc") {
   field(DESC, "Trigger channel $(C) delay calc")
   field(INPA, "$(P)$(R)$(S)Ch$(C)Delay-SP")
-  field(INPB, "$(P)$(R)FPGAClk-Cte CPP")
+  field(INPB, "$(P)$(R)FPGAClk-Cte PP")
   field(CALC, "NINT(A*(B/1000000))")
   field(OUT, "$(P)$(R)$(S)Ch$(C)DelayRaw-SP PP")
 }
@@ -217,7 +217,7 @@ record(longin, "$(P)$(R)$(S)Ch$(C)DelayRaw-RB"){
 
 record(calc, "$(P)$(R)$(S)Ch$(C)Delay-RB") {
   field(INPA, "$(P)$(R)$(S)Ch$(C)DelayRaw-RB")
-  field(INPB, "$(P)$(R)FPGAClk-Cte CPP")
+  field(INPB, "$(P)$(R)FPGAClk-Cte PP")
   field(PREC, "3")
   field(DESC, "Get $(S) trigger channel $(C) delay")
   field(EGU, "us")
