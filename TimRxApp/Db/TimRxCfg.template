@@ -245,9 +245,30 @@ record(mbbi, "$(P)$(R)RTMhs_div-RB"){
   field(SCAN,"I/O Intr")
 }
 
+record(longout, "$(P)$(R)RTMFreqMult-Cte"){
+  field(DESC, "Rtm Si57x Freq Multiplier")
+  field(VAL, "1")
+  field(FLNK, "$(P)$(R)RTMFreqCalc")
+}
+
+record(longout, "$(P)$(R)RTMFreqDiv-Cte"){
+  field(DESC, "Rtm Si57x Freq Divider")
+  field(VAL, "1")
+  field(FLNK, "$(P)$(R)RTMFreqCalc")
+}
+
+record(calcout, "$(P)$(R)RTMFreqCalc"){
+  field(DESC, "Set rtm Si57x Freq from FPGA clock")
+  field(INPA, "$(P)$(R)FPGAClk-Cte CPP")
+  field(INPB, "$(P)$(R)RTMFreqMult-Cte")
+  field(INPC, "$(P)$(R)RTMFreqDiv-Cte")
+  field(CALC, "A*B/C")
+  field(EGU, "Hz")
+  field(OUT,"$(P)$(R)RTMFreq-SP CPP")
+}
+
 record(longout, "$(P)$(R)RTMFreq-SP"){
   field(DTYP, "asynUInt32Digital")
-  field(PINI, "1")
   field(DESC, "Set rtm Si57x Freq")
   field(EGU, "Hz")
   field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_RTM_SI57XFREQ")
@@ -425,9 +446,30 @@ record(mbbi, "$(P)$(R)AFChs_div-RB"){
   field(SCAN,"I/O Intr")
 }
 
+record(longout, "$(P)$(R)AFCFreqMult-Cte"){
+  field(DESC, "Afc Si57x Freq Multiplier")
+  field(VAL, "5")
+  field(FLNK, "$(P)$(R)AFCFreqCalc")
+}
+
+record(longout, "$(P)$(R)AFCFreqDiv-Cte"){
+  field(DESC, "Afc Si57x Freq Divider")
+  field(VAL, "9")
+  field(FLNK, "$(P)$(R)AFCFreqCalc")
+}
+
+record(calcout, "$(P)$(R)AFCFreqCalc"){
+  field(DESC, "Set afc Si57x Freq from FPGA clock")
+  field(INPA, "$(P)$(R)FPGAClk-Cte CPP")
+  field(INPB, "$(P)$(R)AFCFreqMult-Cte")
+  field(INPC, "$(P)$(R)AFCFreqDiv-Cte")
+  field(CALC, "A*B/C")
+  field(EGU, "Hz")
+  field(OUT,"$(P)$(R)AFCFreq-SP CPP")
+}
+
 record(longout, "$(P)$(R)AFCFreq-SP"){
   field(DTYP, "asynUInt32Digital")
-  field(PINI, "1")
   field(DESC, "Set afc Si57x Freq")
   field(EGU, "Hz")
   field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_AFC_SI57XFREQ")
