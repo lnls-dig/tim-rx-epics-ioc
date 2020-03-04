@@ -1,4 +1,5 @@
 $(P)$(R)FPGAClk-Cte
+$(P)$(R)FPGAClk-Cte.INP
 $(P)$(R)DevEnbl-Sel
 $(P)$(R)AFCFreqMult-Cte
 $(P)$(R)AFCFreqDiv-Cte
