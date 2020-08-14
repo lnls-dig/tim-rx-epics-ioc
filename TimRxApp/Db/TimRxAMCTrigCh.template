@@ -128,6 +128,17 @@ record(bi, "$(P)$(R)$(S)$(C)Dir-Sts"){
   field(SCAN,"I/O Intr")
 }
 
+record(bo, "$(P)$(R)$(S)$(C)EvtCntRst-Cmd"){
+  field(DTYP, "asynUInt32Digital")
+  field(PINI, "1")
+  field(MASK, "1")
+  field(HIGH, "1")
+  field(ZNAM, "Dsbl")
+  field(ONAM, "Enbl")
+  field(DESC, "$(S) trigger channel $(C) event counter reset")
+  field(OUT,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_CNT_RST")
+}
+
 record(longout, "$(P)$(R)$(S)$(C)Evt-SP"){
   field(DTYP, "asynUInt32Digital")
   field(PINI, "1")
@@ -255,4 +266,12 @@ record(longin, "$(P)$(R)$(S)$(C)NrPulses-RB"){
   field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_PULSES")
   field(SCAN,"I/O Intr")
 }
+
+record(longin, "$(P)$(R)$(S)$(C)EvtCnt-Mon"){
+  field(DTYP, "asynUInt32Digital")
+  field(DESC, "Get $(S) trigger channel $(C) event counter monitor")
+  field(INP,"@asynMask($(PORT),$(ADDR),0xFFFFFFFF,$(TIMEOUT))TIM_RX_$(S)_CNT")
+  field(SCAN,".5 second")
+}
+
 
