@@ -68,7 +68,9 @@ static const functionsAny_t timRxSetGetAmcLogFunc =                   {functions
 static const functionsAny_t timRxSetGetAmcItlFunc =                   {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_itl, halcs_get_afc_timing_amc_itl}};
 static const functionsAny_t timRxSetGetAmcSrcFunc =                   {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_src, halcs_get_afc_timing_amc_src}};
 static const functionsAny_t timRxSetGetAmcDirFunc =                   {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_dir, halcs_get_afc_timing_amc_dir}};
+static const functionsAny_t timRxSetGetAmcCntRstFunc =                {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_count_rst, halcs_get_afc_timing_amc_count_rst}};
 static const functionsAny_t timRxSetGetAmcPulsesFunc =                {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_pulses, halcs_get_afc_timing_amc_pulses}};
+static const functionsAny_t timRxSetGetAmcCntFunc =                   {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_count, halcs_get_afc_timing_amc_count}};
 static const functionsAny_t timRxSetGetAmcEvtFunc =                   {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_evt, halcs_get_afc_timing_amc_evt}};
 static const functionsAny_t timRxSetGetAmcDlyFunc =                   {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_dly, halcs_get_afc_timing_amc_dly}};
 static const functionsAny_t timRxSetGetAmcWdtFunc =                   {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_amc_wdt, halcs_get_afc_timing_amc_wdt}};
@@ -79,7 +81,9 @@ static const functionsAny_t timRxSetGetFmc1LogFunc =                  {functions
 static const functionsAny_t timRxSetGetFmc1ItlFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_itl, halcs_get_afc_timing_fmc1_itl}};
 static const functionsAny_t timRxSetGetFmc1SrcFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_src, halcs_get_afc_timing_fmc1_src}};
 static const functionsAny_t timRxSetGetFmc1DirFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_dir, halcs_get_afc_timing_fmc1_dir}};
+static const functionsAny_t timRxSetGetFmc1CntRstFunc =               {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_count_rst, halcs_get_afc_timing_fmc1_count_rst}};
 static const functionsAny_t timRxSetGetFmc1PulsesFunc =               {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_pulses, halcs_get_afc_timing_fmc1_pulses}};
+static const functionsAny_t timRxSetGetFmc1CntFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_count, halcs_get_afc_timing_fmc1_count}};
 static const functionsAny_t timRxSetGetFmc1EvtFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_evt, halcs_get_afc_timing_fmc1_evt}};
 static const functionsAny_t timRxSetGetFmc1DlyFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_dly, halcs_get_afc_timing_fmc1_dly}};
 static const functionsAny_t timRxSetGetFmc1WdtFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc1_wdt, halcs_get_afc_timing_fmc1_wdt}};
@@ -90,7 +94,9 @@ static const functionsAny_t timRxSetGetFmc2LogFunc =                  {functions
 static const functionsAny_t timRxSetGetFmc2ItlFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_itl, halcs_get_afc_timing_fmc2_itl}};
 static const functionsAny_t timRxSetGetFmc2SrcFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_src, halcs_get_afc_timing_fmc2_src}};
 static const functionsAny_t timRxSetGetFmc2DirFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_dir, halcs_get_afc_timing_fmc2_dir}};
+static const functionsAny_t timRxSetGetFmc2CntRstFunc =               {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_count_rst, halcs_get_afc_timing_fmc2_count_rst}};
 static const functionsAny_t timRxSetGetFmc2PulsesFunc =               {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_pulses, halcs_get_afc_timing_fmc2_pulses}};
+static const functionsAny_t timRxSetGetFmc2CntFunc =               {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_count, halcs_get_afc_timing_fmc2_count}};
 static const functionsAny_t timRxSetGetFmc2EvtFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_evt, halcs_get_afc_timing_fmc2_evt}};
 static const functionsAny_t timRxSetGetFmc2DlyFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_dly, halcs_get_afc_timing_fmc2_dly}};
 static const functionsAny_t timRxSetGetFmc2WdtFunc =                  {functionsInt32Chan_t{"LNLS_AFC_TIMING", halcs_set_afc_timing_fmc2_wdt, halcs_get_afc_timing_fmc2_wdt}};
@@ -99,7 +105,6 @@ static const functionsAny_t timRxSetGetRtmFreqKpFunc =                {functions
 static const functionsAny_t timRxSetGetRtmFreqKiFunc =                {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_freq_ki, afc_timing_get_rtm_freq_ki}};
 static const functionsAny_t timRxSetGetRtmPhaseKpFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_phase_kp, afc_timing_get_rtm_phase_kp}};
 static const functionsAny_t timRxSetGetRtmPhaseKiFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_phase_ki, afc_timing_get_rtm_phase_ki}};
-static const functionsAny_t timRxSetGetRtmPhaseSetFunc =              {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_phase_set, afc_timing_get_rtm_phase_set}};
 static const functionsAny_t timRxSetGetRtmPhaseNavgFunc =             {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_phase_navg, afc_timing_get_rtm_phase_navg}};
 static const functionsAny_t timRxSetGetRtmPhaseDivExpFunc =           {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_phase_div_exp, afc_timing_get_rtm_phase_div_exp}};
 static const functionsAny_t timRxSetGetRtmRfreqHiFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_rtm_rfreq_hi, afc_timing_get_rtm_rfreq_hi}};
@@ -111,7 +116,6 @@ static const functionsAny_t timRxSetGetAfcFreqKpFunc =                {functions
 static const functionsAny_t timRxSetGetAfcFreqKiFunc =                {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_freq_ki, afc_timing_get_afc_freq_ki}};
 static const functionsAny_t timRxSetGetAfcPhaseKpFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_phase_kp, afc_timing_get_afc_phase_kp}};
 static const functionsAny_t timRxSetGetAfcPhaseKiFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_phase_ki, afc_timing_get_afc_phase_ki}};
-static const functionsAny_t timRxSetGetAfcPhaseSetFunc =              {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_phase_set, afc_timing_get_afc_phase_set}};
 static const functionsAny_t timRxSetGetAfcPhaseNavgFunc =             {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_phase_navg, afc_timing_get_afc_phase_navg}};
 static const functionsAny_t timRxSetGetAfcPhaseDivExpFunc =           {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_phase_div_exp, afc_timing_get_afc_phase_div_exp}};
 static const functionsAny_t timRxSetGetAfcRfreqHiFunc =               {functionsInt32_t{"LNLS_AFC_TIMING", afc_timing_set_afc_rfreq_hi, afc_timing_get_afc_rfreq_hi}};
@@ -239,7 +243,9 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     createParam(P_TimRxAmcItlString,   asynParamUInt32Digital,         &P_TimRxAmcItl);
     createParam(P_TimRxAmcSrcString,   asynParamUInt32Digital,         &P_TimRxAmcSrc);
     createParam(P_TimRxAmcDirString,   asynParamUInt32Digital,         &P_TimRxAmcDir);
+    createParam(P_TimRxAmcCntRstString,   asynParamUInt32Digital,         &P_TimRxAmcCntRst);
     createParam(P_TimRxAmcPulsesString,   asynParamUInt32Digital,         &P_TimRxAmcPulses);
+    createParam(P_TimRxAmcCntString,   asynParamUInt32Digital,         &P_TimRxAmcCnt);
     createParam(P_TimRxAmcEvtString,   asynParamUInt32Digital,         &P_TimRxAmcEvt);
     createParam(P_TimRxAmcDlyString,   asynParamUInt32Digital,         &P_TimRxAmcDly);
     createParam(P_TimRxAmcWdtString,   asynParamUInt32Digital,         &P_TimRxAmcWdt);
@@ -250,7 +256,9 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     createParam(P_TimRxFmc1ItlString,   asynParamUInt32Digital,         &P_TimRxFmc1Itl);
     createParam(P_TimRxFmc1SrcString,   asynParamUInt32Digital,         &P_TimRxFmc1Src);
     createParam(P_TimRxFmc1DirString,   asynParamUInt32Digital,         &P_TimRxFmc1Dir);
+    createParam(P_TimRxFmc1CntRstString,   asynParamUInt32Digital,         &P_TimRxFmc1CntRst);
     createParam(P_TimRxFmc1PulsesString,   asynParamUInt32Digital,         &P_TimRxFmc1Pulses);
+    createParam(P_TimRxFmc1CntString,   asynParamUInt32Digital,         &P_TimRxFmc1Cnt);
     createParam(P_TimRxFmc1EvtString,   asynParamUInt32Digital,         &P_TimRxFmc1Evt);
     createParam(P_TimRxFmc1DlyString,   asynParamUInt32Digital,         &P_TimRxFmc1Dly);
     createParam(P_TimRxFmc1WdtString,   asynParamUInt32Digital,         &P_TimRxFmc1Wdt);
@@ -261,7 +269,9 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     createParam(P_TimRxFmc2ItlString,   asynParamUInt32Digital,         &P_TimRxFmc2Itl);
     createParam(P_TimRxFmc2SrcString,   asynParamUInt32Digital,         &P_TimRxFmc2Src);
     createParam(P_TimRxFmc2DirString,   asynParamUInt32Digital,         &P_TimRxFmc2Dir);
+    createParam(P_TimRxFmc2CntRstString,   asynParamUInt32Digital,         &P_TimRxFmc2CntRst);
     createParam(P_TimRxFmc2PulsesString,   asynParamUInt32Digital,         &P_TimRxFmc2Pulses);
+    createParam(P_TimRxFmc2CntString,   asynParamUInt32Digital,         &P_TimRxFmc2Cnt);
     createParam(P_TimRxFmc2EvtString,   asynParamUInt32Digital,         &P_TimRxFmc2Evt);
     createParam(P_TimRxFmc2DlyString,   asynParamUInt32Digital,         &P_TimRxFmc2Dly);
     createParam(P_TimRxFmc2WdtString,   asynParamUInt32Digital,         &P_TimRxFmc2Wdt);
@@ -270,7 +280,6 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     createParam(P_TimRxRtmFreqKiString,   asynParamUInt32Digital,         &P_TimRxRtmFreqKi);
     createParam(P_TimRxRtmPhaseKpString,   asynParamUInt32Digital,         &P_TimRxRtmPhaseKp);
     createParam(P_TimRxRtmPhaseKiString,   asynParamUInt32Digital,         &P_TimRxRtmPhaseKi);
-    createParam(P_TimRxRtmPhaseSetString,   asynParamUInt32Digital,         &P_TimRxRtmPhaseSet);
     createParam(P_TimRxRtmPhaseNavgString,   asynParamUInt32Digital,         &P_TimRxRtmPhaseNavg);
     createParam(P_TimRxRtmPhaseDivExpString,   asynParamUInt32Digital,         &P_TimRxRtmPhaseDivExp);
     createParam(P_TimRxRtmRfreqHiString,   asynParamUInt32Digital,         &P_TimRxRtmRfreqHi);
@@ -283,7 +292,6 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     createParam(P_TimRxAfcFreqKiString,   asynParamUInt32Digital,         &P_TimRxAfcFreqKi);
     createParam(P_TimRxAfcPhaseKpString,   asynParamUInt32Digital,         &P_TimRxAfcPhaseKp);
     createParam(P_TimRxAfcPhaseKiString,   asynParamUInt32Digital,         &P_TimRxAfcPhaseKi);
-    createParam(P_TimRxAfcPhaseSetString,   asynParamUInt32Digital,         &P_TimRxAfcPhaseSet);
     createParam(P_TimRxAfcPhaseNavgString,   asynParamUInt32Digital,         &P_TimRxAfcPhaseNavg);
     createParam(P_TimRxAfcPhaseDivExpString,   asynParamUInt32Digital,         &P_TimRxAfcPhaseDivExp);
     createParam(P_TimRxAfcRfreqHiString,   asynParamUInt32Digital,         &P_TimRxAfcRfreqHi);
@@ -306,7 +314,9 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     timRxHwFunc.emplace(P_TimRxAmcItl,    timRxSetGetAmcItlFunc);
     timRxHwFunc.emplace(P_TimRxAmcSrc,    timRxSetGetAmcSrcFunc);
     timRxHwFunc.emplace(P_TimRxAmcDir,    timRxSetGetAmcDirFunc);
+    timRxHwFunc.emplace(P_TimRxAmcCntRst,    timRxSetGetAmcCntRstFunc);
     timRxHwFunc.emplace(P_TimRxAmcPulses,    timRxSetGetAmcPulsesFunc);
+    timRxHwFunc.emplace(P_TimRxAmcCnt,    timRxSetGetAmcCntFunc);
     timRxHwFunc.emplace(P_TimRxAmcEvt,    timRxSetGetAmcEvtFunc);
     timRxHwFunc.emplace(P_TimRxAmcDly,    timRxSetGetAmcDlyFunc);
     timRxHwFunc.emplace(P_TimRxAmcWdt,    timRxSetGetAmcWdtFunc);
@@ -317,7 +327,9 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     timRxHwFunc.emplace(P_TimRxFmc1Itl,    timRxSetGetFmc1ItlFunc);
     timRxHwFunc.emplace(P_TimRxFmc1Src,    timRxSetGetFmc1SrcFunc);
     timRxHwFunc.emplace(P_TimRxFmc1Dir,    timRxSetGetFmc1DirFunc);
+    timRxHwFunc.emplace(P_TimRxFmc1CntRst,    timRxSetGetFmc1CntRstFunc);
     timRxHwFunc.emplace(P_TimRxFmc1Pulses,    timRxSetGetFmc1PulsesFunc);
+    timRxHwFunc.emplace(P_TimRxFmc1Cnt,    timRxSetGetFmc1CntFunc);
     timRxHwFunc.emplace(P_TimRxFmc1Evt,    timRxSetGetFmc1EvtFunc);
     timRxHwFunc.emplace(P_TimRxFmc1Dly,    timRxSetGetFmc1DlyFunc);
     timRxHwFunc.emplace(P_TimRxFmc1Wdt,    timRxSetGetFmc1WdtFunc);
@@ -328,7 +340,9 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     timRxHwFunc.emplace(P_TimRxFmc2Itl,    timRxSetGetFmc2ItlFunc);
     timRxHwFunc.emplace(P_TimRxFmc2Src,    timRxSetGetFmc2SrcFunc);
     timRxHwFunc.emplace(P_TimRxFmc2Dir,    timRxSetGetFmc2DirFunc);
+    timRxHwFunc.emplace(P_TimRxFmc2CntRst,    timRxSetGetFmc2CntRstFunc);
     timRxHwFunc.emplace(P_TimRxFmc2Pulses,    timRxSetGetFmc2PulsesFunc);
+    timRxHwFunc.emplace(P_TimRxFmc2Cnt,    timRxSetGetFmc2CntFunc);
     timRxHwFunc.emplace(P_TimRxFmc2Evt,    timRxSetGetFmc2EvtFunc);
     timRxHwFunc.emplace(P_TimRxFmc2Dly,    timRxSetGetFmc2DlyFunc);
     timRxHwFunc.emplace(P_TimRxFmc2Wdt,    timRxSetGetFmc2WdtFunc);
@@ -337,7 +351,6 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     timRxHwFunc.emplace(P_TimRxRtmFreqKi,    timRxSetGetRtmFreqKiFunc);
     timRxHwFunc.emplace(P_TimRxRtmPhaseKp,    timRxSetGetRtmPhaseKpFunc);
     timRxHwFunc.emplace(P_TimRxRtmPhaseKi,    timRxSetGetRtmPhaseKiFunc);
-    timRxHwFunc.emplace(P_TimRxRtmPhaseSet,    timRxSetGetRtmPhaseSetFunc);
     timRxHwFunc.emplace(P_TimRxRtmPhaseNavg,    timRxSetGetRtmPhaseNavgFunc);
     timRxHwFunc.emplace(P_TimRxRtmPhaseDivExp,    timRxSetGetRtmPhaseDivExpFunc);
     timRxHwFunc.emplace(P_TimRxRtmRfreqHi,    timRxSetGetRtmRfreqHiFunc);
@@ -348,7 +361,6 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     timRxHwFunc.emplace(P_TimRxAfcFreqKi,    timRxSetGetAfcFreqKiFunc);
     timRxHwFunc.emplace(P_TimRxAfcPhaseKp,    timRxSetGetAfcPhaseKpFunc);
     timRxHwFunc.emplace(P_TimRxAfcPhaseKi,    timRxSetGetAfcPhaseKiFunc);
-    timRxHwFunc.emplace(P_TimRxAfcPhaseSet,    timRxSetGetAfcPhaseSetFunc);
     timRxHwFunc.emplace(P_TimRxAfcPhaseNavg,    timRxSetGetAfcPhaseNavgFunc);
     timRxHwFunc.emplace(P_TimRxAfcPhaseDivExp,    timRxSetGetAfcPhaseDivExpFunc);
     timRxHwFunc.emplace(P_TimRxAfcRfreqHi,    timRxSetGetAfcRfreqHiFunc);
@@ -385,7 +397,9 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
       setUIntDigitalParam(addr, P_TimRxAmcItl,      0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxAmcSrc,      0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxAmcDir,      0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxAmcCntRst,   0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxAmcPulses,   0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxAmcCnt,      0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxAmcEvt,      0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxAmcDly,      0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxAmcWdt,      0, 0xFFFFFFFF);
@@ -398,7 +412,9 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
       setUIntDigitalParam(addr, P_TimRxFmc1Itl,     0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxFmc1Src,     0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxFmc1Dir,     0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc1CntRst,  0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxFmc1Pulses,  0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc1Cnt,     0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxFmc1Evt,     0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxFmc1Dly,     0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxFmc1Wdt,     0, 0xFFFFFFFF);
@@ -411,7 +427,9 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
       setUIntDigitalParam(addr, P_TimRxFmc2Itl,     0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxFmc2Src,     0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxFmc2Dir,     0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc2CntRst,  0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxFmc2Pulses,  0, 0xFFFFFFFF);
+      setUIntDigitalParam(addr, P_TimRxFmc2Cnt,     0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxFmc2Evt,     0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxFmc2Dly,     0, 0xFFFFFFFF);
       setUIntDigitalParam(addr, P_TimRxFmc2Wdt,     0, 0xFFFFFFFF);
@@ -421,7 +439,6 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     setUIntDigitalParam(P_TimRxRtmFreqKi,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxRtmPhaseKp,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxRtmPhaseKi,   0, 0xFFFFFFFF);
-    setUIntDigitalParam(P_TimRxRtmPhaseSet,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxRtmPhaseNavg,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxRtmPhaseDivExp,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxRtmRfreqHi,   0, 0xFFFFFFFF);
@@ -434,7 +451,6 @@ drvTimRx::drvTimRx(const char *portName, const char *endpoint, int timRxNumber,
     setUIntDigitalParam(P_TimRxAfcFreqKi,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAfcPhaseKp,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAfcPhaseKi,   0, 0xFFFFFFFF);
-    setUIntDigitalParam(P_TimRxAfcPhaseSet,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAfcPhaseNavg,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAfcPhaseDivExp,   0, 0xFFFFFFFF);
     setUIntDigitalParam(P_TimRxAfcRfreqHi,   0, 0xFFFFFFFF);

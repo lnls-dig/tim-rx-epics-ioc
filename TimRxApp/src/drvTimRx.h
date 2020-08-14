@@ -172,7 +172,9 @@ private:
 #define P_TimRxAmcItlString             "TIM_RX_AMC_ITL"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcSrcString             "TIM_RX_AMC_SRC"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcDirString             "TIM_RX_AMC_DIR"      /* asynUInt32Digital,  r/w */
+#define P_TimRxAmcCntRstString          "TIM_RX_AMC_CNT_RST"  /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcPulsesString          "TIM_RX_AMC_PULSES"      /* asynUInt32Digital,  r/w */
+#define P_TimRxAmcCntString             "TIM_RX_AMC_CNT"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcEvtString             "TIM_RX_AMC_EVT"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcDlyString             "TIM_RX_AMC_DLY"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAmcWdtString             "TIM_RX_AMC_WDT"      /* asynUInt32Digital,  r/w */
@@ -183,7 +185,9 @@ private:
 #define P_TimRxFmc1ItlString            "TIM_RX_FMC1_ITL"      /* asynUInt32Digital,  r/w */
 #define P_TimRxFmc1SrcString            "TIM_RX_FMC1_SRC"      /* asynUInt32Digital,  r/w */
 #define P_TimRxFmc1DirString            "TIM_RX_FMC1_DIR"      /* asynUInt32Digital,  r/w */
+#define P_TimRxFmc1CntRstString         "TIM_RX_FMC1_CNT_RST"      /* asynUInt32Digital,  r/w */
 #define P_TimRxFmc1PulsesString         "TIM_RX_FMC1_PULSES"      /* asynUInt32Digital,  r/w */
+#define P_TimRxFmc1CntString            "TIM_RX_FMC1_CNT"      /* asynUInt32Digital,  r/w */
 #define P_TimRxFmc1EvtString            "TIM_RX_FMC1_EVT"      /* asynUInt32Digital,  r/w */
 #define P_TimRxFmc1DlyString            "TIM_RX_FMC1_DLY"      /* asynUInt32Digital,  r/w */
 #define P_TimRxFmc1WdtString            "TIM_RX_FMC1_WDT"      /* asynUInt32Digital,  r/w */
@@ -194,7 +198,9 @@ private:
 #define P_TimRxFmc2ItlString            "TIM_RX_FMC2_ITL"      /* asynUInt32Digital,  r/w */
 #define P_TimRxFmc2SrcString            "TIM_RX_FMC2_SRC"      /* asynUInt32Digital,  r/w */
 #define P_TimRxFmc2DirString            "TIM_RX_FMC2_DIR"      /* asynUInt32Digital,  r/w */
+#define P_TimRxFmc2CntRstString         "TIM_RX_FMC2_CNT_RST"      /* asynUInt32Digital,  r/w */
 #define P_TimRxFmc2PulsesString         "TIM_RX_FMC2_PULSES"      /* asynUInt32Digital,  r/w */
+#define P_TimRxFmc2CntString            "TIM_RX_FMC2_CNT"      /* asynUInt32Digital,  r/w */
 #define P_TimRxFmc2EvtString            "TIM_RX_FMC2_EVT"      /* asynUInt32Digital,  r/w */
 #define P_TimRxFmc2DlyString            "TIM_RX_FMC2_DLY"      /* asynUInt32Digital,  r/w */
 #define P_TimRxFmc2WdtString            "TIM_RX_FMC2_WDT"      /* asynUInt32Digital,  r/w */
@@ -203,7 +209,6 @@ private:
 #define P_TimRxRtmFreqKiString          "TIM_RX_RTM_FREQ_KI"      /* asynUInt32Digital,  r/w */
 #define P_TimRxRtmPhaseKpString         "TIM_RX_RTM_PHASE_KP"      /* asynUInt32Digital,  r/w */
 #define P_TimRxRtmPhaseKiString         "TIM_RX_RTM_PHASE_KI"      /* asynUInt32Digital,  r/w */
-#define P_TimRxRtmPhaseSetString        "TIM_RX_RTM_PHASE_SET"      /* asynUInt32Digital,  r/w */
 #define P_TimRxRtmPhaseNavgString       "TIM_RX_RTM_PHASE_NAVG"      /* asynUInt32Digital,  r/w */
 #define P_TimRxRtmPhaseDivExpString     "TIM_RX_RTM_PHASE_DIV_EXP"      /* asynUInt32Digital,  r/w */
 #define P_TimRxRtmRfreqHiString         "TIM_RX_RTM_RFREQ_HI"      /* asynUInt32Digital,  r/w */
@@ -216,7 +221,6 @@ private:
 #define P_TimRxAfcFreqKiString          "TIM_RX_AFC_FREQ_KI"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAfcPhaseKpString         "TIM_RX_AFC_PHASE_KP"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAfcPhaseKiString         "TIM_RX_AFC_PHASE_KI"      /* asynUInt32Digital,  r/w */
-#define P_TimRxAfcPhaseSetString        "TIM_RX_AFC_PHASE_SET"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAfcPhaseNavgString       "TIM_RX_AFC_PHASE_NAVG"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAfcPhaseDivExpString     "TIM_RX_AFC_PHASE_DIV_EXP"      /* asynUInt32Digital,  r/w */
 #define P_TimRxAfcRfreqHiString         "TIM_RX_AFC_RFREQ_HI"      /* asynUInt32Digital,  r/w */
@@ -300,7 +304,9 @@ class drvTimRx : public asynPortDriver {
         int P_TimRxAmcItl;
         int P_TimRxAmcSrc;
         int P_TimRxAmcDir;
+        int P_TimRxAmcCntRst;
         int P_TimRxAmcPulses;
+        int P_TimRxAmcCnt;
         int P_TimRxAmcEvt;
         int P_TimRxAmcDly;
         int P_TimRxAmcWdt;
@@ -310,7 +316,9 @@ class drvTimRx : public asynPortDriver {
         int P_TimRxFmc1Itl;
         int P_TimRxFmc1Src;
         int P_TimRxFmc1Dir;
+        int P_TimRxFmc1CntRst;
         int P_TimRxFmc1Pulses;
+        int P_TimRxFmc1Cnt;
         int P_TimRxFmc1Evt;
         int P_TimRxFmc1Dly;
         int P_TimRxFmc1Wdt;
@@ -320,7 +328,9 @@ class drvTimRx : public asynPortDriver {
         int P_TimRxFmc2Itl;
         int P_TimRxFmc2Src;
         int P_TimRxFmc2Dir;
+        int P_TimRxFmc2CntRst;
         int P_TimRxFmc2Pulses;
+        int P_TimRxFmc2Cnt;
         int P_TimRxFmc2Evt;
         int P_TimRxFmc2Dly;
         int P_TimRxFmc2Wdt;
@@ -328,7 +338,6 @@ class drvTimRx : public asynPortDriver {
         int P_TimRxRtmFreqKi;
         int P_TimRxRtmPhaseKp;
         int P_TimRxRtmPhaseKi;
-        int P_TimRxRtmPhaseSet;
         int P_TimRxRtmPhaseNavg;
         int P_TimRxRtmPhaseDivExp;
         int P_TimRxRtmRfreqHi;
@@ -340,7 +349,6 @@ class drvTimRx : public asynPortDriver {
         int P_TimRxAfcFreqKi;
         int P_TimRxAfcPhaseKp;
         int P_TimRxAfcPhaseKi;
-        int P_TimRxAfcPhaseSet;
         int P_TimRxAfcPhaseNavg;
         int P_TimRxAfcPhaseDivExp;
         int P_TimRxAfcRfreqHi;
